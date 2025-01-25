@@ -1,0 +1,8 @@
+name: vader_framework
+publish_to: none
+environment:
+  sdk: ^3.6.0
+workspace:
+  - core/vader_common
+  - core/vader_state_manager
+  #- core/vader_view
