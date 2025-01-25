@@ -1,5 +1,5 @@
 name: vader
-description: Project contain common project tools
+description: Framework for simplify development of Flutter apps
 version: 0.1.0
 
 environment:

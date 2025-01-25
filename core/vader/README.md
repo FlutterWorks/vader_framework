@@ -1,28 +1,35 @@
-# vader_common
+# vader
 
-This package is responsible for define structure of application data, parsers or transformers.
+Framework for simplify development of Flutter apps.
 
-## Install
+## Installation
 
-1) Run command: `dart compile exe lib/main.dart -o bin/vader_data`
-2) Move `bin/vader_data` into your `bin` path of your system.
+Add the following dependency to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  vader: ^0.1.0
+```
+
+Then run:
+
+```sh
+flutter pub get
+```
 
 ## Usage:
 
 ```
--n, --name (mandatory)           Setup name.
--d, --description (mandatory)    Setup description.
--t, --tags                       Setup tags.
--h, --help                       Print this usage information.
--V, --verbose                    Show additional command output.
--v, --version                    Print the tool version.
+import 'package:vader/framework.dart';
 ```
 
+/*
 ## Example
 
 ```
 dart lib/main.dart -V --name Martin -t dart,python,java -d 'This is my description'
 ```
+*/
 
 ## Author
 
@@ -32,3 +39,19 @@ dart lib/main.dart -V --name Martin -t dart,python,java -d 'This is my descripti
 * Github: [@mjablecnik](https://github.com/mjablecnik)
 * Blog: [dev.to/mjablecnik](https://dev.to/mjablecnik)
 
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+<a href="https://www.patreon.com/mjablecnik">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+
+
+/*
+## 📝 License
+
+Copyright © 2024 [Martin Jablečník](https://github.com/mjablecnik).<br />
+This project is licensed under [MIT License](https://github.com/mjablecnik/vader_popup/blob/master/LICENSE).
+*/

@@ -1,5 +1,5 @@
 name: vader_app_info
-description: Project contain info about package and device
+description: Give you info about package and device
 version: 0.1.0
 
 environment:
