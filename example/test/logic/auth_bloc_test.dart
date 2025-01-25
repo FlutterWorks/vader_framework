@@ -1,9 +1,9 @@
+import 'package:example/global.dart';
 import 'package:example/logic/bloc/auth_bloc.dart';
 import 'package:example/logic/events/auth_events.dart';
 import 'package:example/logic/states/auth_state.dart';
 import 'package:example/repositories/auth_repository.dart';
-import 'package:example/repositories/user_repository.dart';
-import 'package:vader_framework/vader_framework.dart';
+import 'package:vader/framework.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:test/test.dart';
 
@@ -13,10 +13,7 @@ import 'mock_entities_data.dart';
 
 fakeData() {
   final httpClient = HttpClientMock();
-  setupInjector(httpClient: httpClient)
-    ..add(AuthRepository.new)
-    ..add(UserRepository.new)
-    ..commit();
+  setupInjector(httpClient: httpClient);
 
   when(() => httpClient.setHeader('authorization', any())).thenReturn(true);
 

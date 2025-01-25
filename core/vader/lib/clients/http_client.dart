@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:vader_framework/exceptions.dart';
-import 'package:vader_framework/logger.dart';
+import 'package:vader/exceptions.dart';
+import 'package:vader/logger.dart';
 
 class HttpClientMock extends Mock implements HttpClient {}
 

@@ -1,7 +1,7 @@
 import 'package:auto_injector/auto_injector.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:vader_framework/clients/http_client.dart';
-import 'package:vader_framework/clients/secure_storage.dart';
+import 'package:vader/clients/http_client.dart';
+import 'package:vader/clients/secure_storage.dart';
 
 class MockInjector extends Mock implements AutoInjector {}
 

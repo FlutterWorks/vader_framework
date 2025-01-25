@@ -1,6 +1,6 @@
 import 'package:example/entities/product.dart';
 import 'package:example/repositories/product_repository.dart';
-import 'package:vader_framework/vader_framework.dart';
+import 'package:vader/framework.dart';
 
 class ProductListCubit extends Cubit<List<Product>?> {
   ProductListCubit({required ProductRepository restApiService}) : super(null) {

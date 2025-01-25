@@ -2,7 +2,7 @@ library vader_data;
 
 export 'base_entity.dart';
 export 'exceptions.dart';
-export 'global.dart';
+export 'global.dart' hide setupInjector;
 export 'logger.dart';
 export 'repository.dart';
 

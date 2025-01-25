@@ -1,4 +1,4 @@
-import 'package:vader_framework/vader_framework.dart';
+import 'package:vader/framework.dart';
 
 part 'product.freezed.dart';
 

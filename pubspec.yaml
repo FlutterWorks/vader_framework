@@ -1,6 +1,6 @@
-name: vader_project
+name: vader_framework
 publish_to: none
 environment:
   sdk: ^3.6.0
 workspace:
-  - core/vader_framework
+  #- core/vader
