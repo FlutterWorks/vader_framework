@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  vader_common:
-    path: ../core/vader_common
+  vader_framework:
+    path: ../core/vader_framework
 
   cupertino_icons: ^1.0.8
 

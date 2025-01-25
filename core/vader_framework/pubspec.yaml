@@ -1,6 +1,5 @@
-name: vader_common
+name: vader_framework
 description: Project contain common project tools
-resolution: workspace
 version: 0.1.0
 
 environment:

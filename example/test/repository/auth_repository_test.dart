@@ -1,7 +1,7 @@
 import 'package:example/entities/user.dart';
 import 'package:example/global.dart';
 import 'package:example/repositories/auth_repository.dart';
-import 'package:vader_common/vader_common.dart' hide setupInjector;
+import 'package:vader_framework/vader_framework.dart' hide setupInjector;
 import 'package:test/test.dart';
 
 import '../setup.dart';

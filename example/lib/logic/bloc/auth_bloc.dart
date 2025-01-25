@@ -1,4 +1,4 @@
-import 'package:vader_common/vader_common.dart';
+import 'package:vader_framework/vader_framework.dart';
 import 'package:example/logic/events/auth_events.dart';
 import 'package:example/logic/states/auth_state.dart';
 import 'package:example/repositories/auth_repository.dart';

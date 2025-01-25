@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:example/entities/user.dart';
 import 'package:example/repositories/user_repository.dart';
-import 'package:vader_common/vader_common.dart';
+import 'package:vader_framework/vader_framework.dart';
 
 enum LoginType { basic, token }
 

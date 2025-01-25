@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:vader_common/clients/http_client.dart';
+import 'package:vader_framework/clients/http_client.dart';
 
 final exampleResponse = HttpResponse(jsonDecode('''{
 }'''));

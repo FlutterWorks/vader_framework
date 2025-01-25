@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:test/test.dart';
 import 'package:flutter/widgets.dart';
-import 'package:vader_common/vader_common.dart';
+import 'package:vader_framework/vader_framework.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
