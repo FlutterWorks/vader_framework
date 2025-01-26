@@ -1,3 +1,4 @@
+import 'package:example_design/design_package_example.dart';
 import 'package:example_design/theme/dark_mode.dart';
 import 'package:example_design/theme/light_mode.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +24,8 @@ Storybook storybook([List<Story>? stories]) {
     wrapperBuilder: (context, child) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: lightTheme,
-        darkTheme: darkTheme,
+        theme: ExampleDesignTheme.light,
+        darkTheme: ExampleDesignTheme.dark,
         builder: defaultMediaQueryBuilder,
         home: Scaffold(
           body: Center(

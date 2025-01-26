@@ -5,17 +5,15 @@ import 'package:example_design/theme/dark_mode.dart';
 import 'package:example_design/theme/light_mode.dart';
 import 'package:flutter/material.dart';
 
-import 'core/text_styles.dart';
-
 export 'core/colors.dart';
 export 'core/text_styles.dart';
 
-class DesignPackageTheme {
-  static final ThemeData light = lightTheme;
-  static final ThemeData dark = darkTheme;
+class ExampleDesignTheme {
+  static ThemeData get light => lightTheme;
+  static ThemeData get dark => darkTheme;
 }
 
-class DesignPackageThemeExtension {
-  static final DesignTheme light = lightDesignThemeExtension;
-  static final DesignTheme dark = darkDesignThemeExtension;
+class ExampleDesignThemeExtension {
+  static DesignTheme get light => lightDesignThemeExtension;
+  static DesignTheme get dark => darkDesignThemeExtension;
 }
