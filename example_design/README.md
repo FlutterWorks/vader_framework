@@ -2,7 +2,7 @@
 Design package for example project.
 
 ## Develop and test with Flutter version
-3.27.1
+3.27.2
 
 ## Usage
 1) Add example_design into your project dependencies:
