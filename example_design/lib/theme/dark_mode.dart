@@ -15,11 +15,11 @@ get darkTheme {
 final darkDesignThemeExtension = DesignTheme(
   buttonsStyle: ButtonsStyle(
     simpleButtonStyle: SimpleButtonStyle(
-      defaultColor: DesignColors.purple,
+      defaultColor: DesignColors.purple.shade500,
       textStyle: TextStyles.mediumNormalText.copyWith(
         fontSize: 18,
         fontWeight: FontWeight.w600,
-        color: DesignColors.whiteish,
+        color: DesignColors.white,
       ),
     ),
   ),

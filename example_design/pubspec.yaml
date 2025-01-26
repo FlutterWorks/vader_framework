@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  color_palette_plus: 1.0.0
   theme_tailor_annotation: 3.0.1
 
 dev_dependencies:

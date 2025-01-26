@@ -7,15 +7,15 @@ import 'package:example_design/design/design.dart';
 ThemeData get lightTheme {
   return mt.ThemeData(
     brightness: Brightness.light,
-    colorSchemeSeed: DesignColors.green,
-    inputDecorationTheme: const mt.InputDecorationTheme(
-      labelStyle: TextStyle(color: DesignColors.green),
-      focusColor: DesignColors.greenLight,
-      focusedBorder: mt.UnderlineInputBorder(
-        borderSide: mt.BorderSide(color: DesignColors.greenLight),
+    colorSchemeSeed: DesignColors.green400,
+    inputDecorationTheme: mt.InputDecorationTheme(
+      labelStyle: const TextStyle(color: DesignColors.green400),
+      focusColor: DesignColors.green200,
+      focusedBorder: const mt.UnderlineInputBorder(
+        borderSide: mt.BorderSide(color: DesignColors.green200),
       ),
-      activeIndicatorBorder: mt.BorderSide(color: DesignColors.red),
-      fillColor: DesignColors.red,
+      activeIndicatorBorder: const mt.BorderSide(color: DesignColors.red500),
+      fillColor: DesignColors.red.shade600,
     ),
     extensions: [lightDesignThemeExtension],
   );
@@ -24,7 +24,7 @@ ThemeData get lightTheme {
 final lightDesignThemeExtension = DesignTheme(
   buttonsStyle: ButtonsStyle(
     simpleButtonStyle: SimpleButtonStyle(
-      defaultColor: DesignColors.purpleLight,
+      defaultColor: DesignColors.purple.shade200,
       textStyle: TextStyles.mediumNormalText.copyWith(
         fontSize: 18,
         fontWeight: FontWeight.w600,

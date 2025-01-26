@@ -1,3 +1,4 @@
+import 'package:example_design/core/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:example_design/design/design.dart';
 import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
@@ -28,7 +29,7 @@ class SimpleButton extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: currentStyle.defaultColor,
+            color: DesignColors.red.shade300,
           ),
           child: Center(
             child: Text(text, style: currentStyle.textStyle),

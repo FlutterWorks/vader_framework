@@ -41,9 +41,9 @@ final simpleButtonStories = [
       text: textKnobOptions(context),
       onTap: onTap,
       style: const SimpleButtonStyle(
-        defaultColor: DesignColors.redLight,
+        defaultColor: DesignColors.red300,
         textStyle: TextStyle(
-          color: DesignColors.blueDark,
+          color: DesignColors.blue900,
           fontSize: 24,
         ),
       ),
