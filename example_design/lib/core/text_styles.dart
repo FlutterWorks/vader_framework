@@ -12,6 +12,14 @@ import 'package:example_design/core/colors.dart';
 /// );
 ///
 
+class ExampleTextStyles {
+  static const TextStyle semiboldInterText = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+    fontStyle: FontStyle.normal,
+  );
+}
+
 class TextStyles {
   static const TextStyle extraLargeBoldText = TextStyle(
     fontSize: 24,

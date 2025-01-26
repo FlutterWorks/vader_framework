@@ -1,4 +1,5 @@
 import 'package:example_design/core/colors.dart';
+import 'package:example_design/design/buttons/example_button.dart';
 import 'package:example_design/design/buttons/simple_button/simple_button.dart';
 import 'package:flutter/widgets.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
@@ -23,13 +24,22 @@ String textKnobOptions(BuildContext context) => context.knobs.options(
 
 onTap() => debugPrint("Test click.");
 
-final simpleButtonStories = [
+final buttonStories = [
   Story(
     tags: const ['buttons'],
     name: 'Default',
     goldenPathBuilder: (c) => goldenTestPathBuilder(c),
     builder: (context) => SimpleButton(
       text: textKnobOptions(context),
+      onTap: onTap,
+    ),
+  ),
+  Story(
+    tags: const ['buttons'],
+    name: 'ExampleButton',
+    goldenPathBuilder: (c) => goldenTestPathBuilder(c),
+    builder: (context) => const ExampleButton(
+      text: "Vytvořit",
       onTap: onTap,
     ),
   ),
@@ -51,4 +61,4 @@ final simpleButtonStories = [
   ),
 ];
 
-void main() => runApp(storybook(simpleButtonStories));
+void main() => runApp(storybook(buttonStories));

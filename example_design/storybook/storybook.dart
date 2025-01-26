@@ -1,6 +1,4 @@
 import 'package:example_design/design_package_example.dart';
-import 'package:example_design/theme/dark_mode.dart';
-import 'package:example_design/theme/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 import 'package:stack_trace/stack_trace.dart' as stacktrace;
@@ -47,7 +45,7 @@ Storybook storybook([List<Story>? stories]) {
     initialStory: stories?.first.name,
     stories: stories ??
         [
-          ...simpleButtonStories,
+          ...buttonStories,
         ],
   );
 }

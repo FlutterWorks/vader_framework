@@ -10,13 +10,16 @@ part of 'buttons.dart';
 
 mixin _$ButtonsStyleTailorMixin on ThemeExtension<ButtonsStyle> {
   SimpleButtonStyle get simpleButtonStyle;
+  ExampleButtonStyle get exampleButtonStyle;
 
   @override
   ButtonsStyle copyWith({
     SimpleButtonStyle? simpleButtonStyle,
+    ExampleButtonStyle? exampleButtonStyle,
   }) {
     return ButtonsStyle(
       simpleButtonStyle: simpleButtonStyle ?? this.simpleButtonStyle,
+      exampleButtonStyle: exampleButtonStyle ?? this.exampleButtonStyle,
     );
   }
 
@@ -26,6 +29,8 @@ mixin _$ButtonsStyleTailorMixin on ThemeExtension<ButtonsStyle> {
     return ButtonsStyle(
       simpleButtonStyle: simpleButtonStyle.lerp(other.simpleButtonStyle, t)
           as SimpleButtonStyle,
+      exampleButtonStyle: exampleButtonStyle.lerp(other.exampleButtonStyle, t)
+          as ExampleButtonStyle,
     );
   }
 
@@ -35,7 +40,9 @@ mixin _$ButtonsStyleTailorMixin on ThemeExtension<ButtonsStyle> {
         (other.runtimeType == runtimeType &&
             other is ButtonsStyle &&
             const DeepCollectionEquality()
-                .equals(simpleButtonStyle, other.simpleButtonStyle));
+                .equals(simpleButtonStyle, other.simpleButtonStyle) &&
+            const DeepCollectionEquality()
+                .equals(exampleButtonStyle, other.exampleButtonStyle));
   }
 
   @override
@@ -43,6 +50,7 @@ mixin _$ButtonsStyleTailorMixin on ThemeExtension<ButtonsStyle> {
     return Object.hash(
       runtimeType.hashCode,
       const DeepCollectionEquality().hash(simpleButtonStyle),
+      const DeepCollectionEquality().hash(exampleButtonStyle),
     );
   }
 }
@@ -50,4 +58,5 @@ mixin _$ButtonsStyleTailorMixin on ThemeExtension<ButtonsStyle> {
 extension ButtonsStyleBuildContextProps on BuildContext {
   ButtonsStyle get buttonsStyle => Theme.of(this).extension<ButtonsStyle>()!;
   SimpleButtonStyle get simpleButtonStyle => buttonsStyle.simpleButtonStyle;
+  ExampleButtonStyle get exampleButtonStyle => buttonsStyle.exampleButtonStyle;
 }
