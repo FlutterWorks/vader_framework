@@ -1,6 +1,6 @@
 export 'simple_button/simple_button.dart';
 
-import 'package:example_design/design/buttons/example_button.dart';
+import 'package:example_design/design/buttons/example_button/example_button.dart';
 import 'package:example_design/design/buttons/simple_button/simple_button.dart';
 import 'package:flutter/material.dart';
 import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';

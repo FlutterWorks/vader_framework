@@ -1,6 +1,7 @@
 import 'package:example_design/core/colors.dart';
-import 'package:example_design/design/buttons/example_button.dart';
+import 'package:example_design/design/buttons/example_button/example_button.dart';
 import 'package:example_design/design/buttons/simple_button/simple_button.dart';
+import 'package:example_design/utils/path_builder.dart';
 import 'package:flutter/widgets.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 

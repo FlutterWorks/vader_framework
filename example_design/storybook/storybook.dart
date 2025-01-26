@@ -1,21 +1,9 @@
-import 'package:example_design/design_package_example.dart';
+import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
-import 'package:stack_trace/stack_trace.dart' as stacktrace;
 
-import 'design/buttons/simple_button.stories.dart';
+import 'design/buttons/button.stories.dart';
 
-String goldenTestPathBuilder(c) {
-  List<String> path = stacktrace.Frame.caller(1).library.split('/');
-  path = path.sublist(2, path.length - 1);
-  final componentPath = path.join('/');
-  final useCasePath = (c.path as String).split('/').fold(
-    [],
-    (p, e) => path.contains(e) ? p : p
-      ..add(e),
-  ).join('/');
-  return "${c.rootPath}/$componentPath/golden_tests/$useCasePath/${c.file}";
-}
 
 Storybook storybook([List<Story>? stories]) {
   return Storybook(

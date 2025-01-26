@@ -1,4 +1,4 @@
-import 'package:example_design/design/buttons/example_button.dart';
+import 'package:example_design/design/buttons/example_button/example_button.dart';
 import 'package:flutter/material.dart';
 import 'package:example_design/core/text_styles.dart';
 import 'package:example_design/core/colors.dart';
