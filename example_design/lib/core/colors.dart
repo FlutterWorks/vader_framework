@@ -37,7 +37,7 @@ class DesignColors {
   static const Color white = Color(0xffeef0eb);
   static const Color black = Colors.black;
 
-  static const DesignColor red = DesignColor(0xffbf3931);
-  static const DesignColor blue = DesignColor(0xff1490E3);
-  static const DesignColor purple = DesignColor(0xffB314E3);
+  static const DesignColor red = DesignColor(Color(0xffbf3931));
+  static const DesignColor blue = DesignColor(Color(0xff1490E3));
+  static const DesignColor purple = DesignColor(Color(0xffB314E3));
 }

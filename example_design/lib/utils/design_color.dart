@@ -2,22 +2,23 @@ import 'dart:ui';
 
 import 'package:color_palette_plus/color_palette_plus.dart';
 
-final Map<int, Map<int, Color>> _colorMemory = {};
+final Map<String, Map<int, Color>> _colorMemory = {};
 
 class DesignColor {
   const DesignColor(this.color);
 
-  final int color;
+  final Color color;
 
   Color getShade(int shade) {
-    if (!_colorMemory.containsKey(color)) {
-      _colorMemory[color] = {};
+    final colorIndex = "${color.a}${color.r}${color.g}${color.b}";
+    if (!_colorMemory.containsKey(colorIndex)) {
+      _colorMemory[colorIndex] = {};
     }
-    if (!_colorMemory[color]!.containsKey(shade)) {
-      _colorMemory[color]![shade] = ColorPalette.getShade(Color(color), shade);
+    if (!_colorMemory[colorIndex]!.containsKey(shade)) {
+      _colorMemory[colorIndex]![shade] = ColorPalette.getShade(color, shade);
     }
 
-    return _colorMemory[color]![shade]!;
+    return _colorMemory[colorIndex]![shade]!;
   }
 
   Color get shade50 => getShade(50);
