@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:example_design/core/colors.dart';
+import 'package:example_design/constants/colors.dart';
 
 ///
 /// Here will be the most common text styles.
