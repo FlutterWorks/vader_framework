@@ -1,0 +1,14 @@
+name: design_builder
+description: Builder for build directory structure in vader design package.
+version: 0.1.0
+
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+
+dependencies:
+  vader_cli:
+    path: ../../core/vader_cli
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.24.0
