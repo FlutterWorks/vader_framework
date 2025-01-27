@@ -1,5 +1,5 @@
 import 'package:vader/framework.dart';
-import 'package:example/entities/user.dart';
+import 'package:example_project/entities/user.dart';
 
 part 'auth_state.freezed.dart';
 

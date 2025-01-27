@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:example/entities/user.dart';
-import 'package:example/repositories/user_repository.dart';
+import 'package:example_project/entities/user.dart';
+import 'package:example_project/repositories/user_repository.dart';
 import 'package:vader/framework.dart';
 
 enum LoginType { basic, token }

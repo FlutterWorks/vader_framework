@@ -1,4 +1,4 @@
-import 'package:example/entities/product.dart';
+import 'package:example_project/entities/product.dart';
 import 'package:vader/framework.dart';
 
 class ProductRepository {

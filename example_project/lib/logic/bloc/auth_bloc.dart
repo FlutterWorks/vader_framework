@@ -1,7 +1,7 @@
 import 'package:vader/framework.dart';
-import 'package:example/logic/events/auth_events.dart';
-import 'package:example/logic/states/auth_state.dart';
-import 'package:example/repositories/auth_repository.dart';
+import 'package:example_project/logic/events/auth_events.dart';
+import 'package:example_project/logic/states/auth_state.dart';
+import 'package:example_project/repositories/auth_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, UserState> {
   AuthBloc({required AuthRepository authRepository})

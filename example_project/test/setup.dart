@@ -1,4 +1,4 @@
-import 'package:example/global.dart';
+import 'package:example_project/global.dart';
 import 'package:vader/framework.dart' hide setupInjector;
 
 setupData(Function() setupFakeData, {required bool useFakeData}) {

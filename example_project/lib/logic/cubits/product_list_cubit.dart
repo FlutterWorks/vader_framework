@@ -1,5 +1,5 @@
-import 'package:example/entities/product.dart';
-import 'package:example/repositories/product_repository.dart';
+import 'package:example_project/entities/product.dart';
+import 'package:example_project/repositories/product_repository.dart';
 import 'package:vader/framework.dart';
 
 class ProductListCubit extends Cubit<List<Product>?> {

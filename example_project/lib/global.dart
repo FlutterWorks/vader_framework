@@ -1,6 +1,6 @@
-import 'package:example/repositories/auth_repository.dart';
-import 'package:example/repositories/product_repository.dart';
-import 'package:example/repositories/user_repository.dart';
+import 'package:example_project/repositories/auth_repository.dart';
+import 'package:example_project/repositories/product_repository.dart';
+import 'package:example_project/repositories/user_repository.dart';
 import 'package:vader/framework.dart';
 
 setupInjector({required HttpClient httpClient}) {

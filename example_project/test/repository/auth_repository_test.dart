@@ -1,6 +1,6 @@
-import 'package:example/entities/user.dart';
-import 'package:example/global.dart';
-import 'package:example/repositories/auth_repository.dart';
+import 'package:example_project/entities/user.dart';
+import 'package:example_project/global.dart';
+import 'package:example_project/repositories/auth_repository.dart';
 import 'package:vader/framework.dart';
 import 'package:test/test.dart';
 
