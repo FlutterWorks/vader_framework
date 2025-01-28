@@ -1,0 +1,80 @@
+vader:
+  desc: "Root commands for our Vader CLI"
+  init:
+    cmd: "fvm flutter create --org com.yourdomain -t skeleton your_app_name"
+    desc: "Creates a new Flutter project using a skeleton template"
+  update:
+    cmd: "fvm dart pub get"
+    desc: "Updates Dart dependencies"
+  version:
+    cmd: "vader -v"
+    desc: "Displays Vader CLI version"
+  doctor:
+    cmd: "fvm flutter doctor"
+    desc: "Runs Flutter doctor"
+  rename:
+    cmd: "bash scrips/rename_project.sh"
+    desc: "Renames the project using a Bash script"
+  clean:
+    cmd: "fvm flutter clean"
+    desc: "Cleans Flutter build and cache"
+  echo:
+    cmd: "echo"
+    desc: "Print arguments as a single message"
+
+  generate:
+    desc: "Commands for code generation, assets, and more"
+    code:
+      cmd: "fvm dart run build_runner build --delete-conflicting-outputs"
+      desc: "Runs code generation (build_runner)"
+    icon:
+      cmd: "fvm flutter pub run flutter_launcher_icons"
+      desc: "Generates launcher icons"
+    i18n:
+      cmd: "fvm flutter pub run slang watch"
+      desc: "Watches and generates translations"
+    design:
+      cmd: "bash scrips/design_builder.sh"
+      desc: "Custom design builder"
+    goldens:
+      cmd: "fvm flutter test --update-goldens"
+      desc: "Updates Golden tests"
+
+  run:
+    desc: "Run the app in different modes"
+    dev:
+      cmd: "fvm flutter run --dart-define=\"FLAVOR=dev\""
+      desc: "Runs the app in dev mode"
+    beta:
+      cmd: "fvm flutter run --dart-define=\"FLAVOR=beta\""
+      desc: "Runs the app in beta mode"
+    prod:
+      cmd: "fvm flutter run --dart-define=\"FLAVOR=production\""
+      desc: "Runs the app in production mode"
+    tests:
+      cmd: "fvm flutter test"
+      desc: "Runs Dart/Flutter tests"
+
+  features:
+    add:
+      auth:
+        cmd: "scrips/features auth"
+        desc: "Add auth feature"
+      profile:
+        cmd: "scrips/features profile"
+        desc: "Add profile feature"
+      settings:
+        cmd: "scrips/features settings"
+        desc: "Add settings feature"
+
+  release:
+    desc: "Release commands"
+    ios:
+      cmd: "fvm flutter release ipa"
+      desc: "Builds and prepares an iOS IPA"
+    apk:
+      cmd: "fvm flutter release apk"
+      desc: "Builds an Android APK"
+    aab:
+      cmd: "fvm flutter release bundle"
+      desc: "Builds an Android App Bundle"
