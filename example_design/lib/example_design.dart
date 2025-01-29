@@ -1,5 +1,3 @@
-library design_package;
-
 import 'package:example_design/design/design.dart';
 import 'package:example_design/theme/dark_mode.dart';
 import 'package:example_design/theme/light_mode.dart';
