@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 
-import 'example_button.widget.dart';
+import 'example_button.dart';
 
 class ExampleButtonStory {
   String textKnob(BuildContext context) => context.knobs.text(label: 'Button text', initial: 'START!');
