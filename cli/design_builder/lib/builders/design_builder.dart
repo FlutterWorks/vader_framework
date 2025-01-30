@@ -1,0 +1,109 @@
+import 'dart:io';
+
+import 'package:design_builder/builders/component_builder.dart';
+import 'package:design_builder/builders/style_builder.dart';
+import 'package:recase/recase.dart';
+
+class DesignBuilder {
+  final inputPath = 'src/design/';
+  final outputPath = 'out/design/';
+
+  run() {
+    final result = DesignBuilder()._printSubdirectoriesAndFiles(inputPath);
+    final List<String> directories = [];
+    final List<String> filePaths = [];
+    for (final r in result) {
+      if (r.isDirectory) {
+        directories.add(r.path);
+      } else {
+        filePaths.add(r.path);
+      }
+    }
+
+    directoryStructureProcess(directories);
+    fileStructureProcess(filePaths);
+  }
+
+  void fileStructureProcess(List<String> filePaths) {
+    print("Building file structure...");
+
+    for (final filePath in filePaths) {
+      final pathList = filePath.split('/');
+      final fileList = pathList.last.split('.');
+
+      final fileType = fileList.last;
+      if (fileType != 'dart') continue;
+
+      final type = fileList[1];
+      final name = fileList.first;
+      final path = pathList.sublist(0, pathList.length - 1).join('/');
+
+      final componentBuilder = ComponentBuilder(
+        inputPath: inputPath,
+        outputPath: outputPath,
+      );
+
+      switch (type) {
+        case 'widget' || 'dart':
+          componentBuilder.buildWidget(path, name);
+        case 'style':
+          componentBuilder.buildStyle(path, name);
+      }
+    }
+  }
+
+  void directoryStructureProcess(List<String> directories) {
+    Map<String, List<String>> styles = {};
+
+    final designPathLength = inputPath.split('/').length;
+
+    print("Building directory structure...");
+    // Prepare directory structure
+    for (var directory in directories) {
+      final pathList = directory.split('/');
+      final path = pathList.sublist(designPathLength - 1);
+      final styleName = ReCase(path.last);
+
+      final key = [...pathList.sublist(0, path.length + 1), ''].join('/');
+      styles[key] = [...styles[key] ?? [], styleName.snakeCase];
+
+      Directory(directory.replaceFirst(inputPath, outputPath)).createSync(recursive: true);
+    }
+
+    // Build directory styles
+    print("Building directory styles...");
+    for (final style in styles.entries) {
+      final styleKeyList = style.key.split('/');
+      final styleName = ReCase(styleKeyList[styleKeyList.length - 2]);
+      final styleCode = StyleBuilder(
+        packageName: "example_design",
+        className: styleName.originalText == 'design' ? "DesignTheme" : "${styleName.pascalCase}Style",
+        fileName: styleName.snakeCase,
+        filePath: style.key.replaceFirst('src/', ''),
+        styles: style.value,
+      ).build();
+
+      final outputFile = File('${style.key.replaceFirst(inputPath, outputPath)}/${styleName.snakeCase}.style.dart');
+      outputFile.writeAsStringSync(styleCode);
+    }
+  }
+
+  List<({String path, bool isDirectory})> _printSubdirectoriesAndFiles(String path) {
+    final directory = Directory(path);
+    final subdirectories = directory.listSync().whereType<Directory>().toList();
+    final files = directory.listSync().whereType<File>().toList();
+
+    List<({String path, bool isDirectory})> result = [];
+
+    for (final subdirectory in subdirectories) {
+      result.add((path: subdirectory.path, isDirectory: true));
+      result.addAll(_printSubdirectoriesAndFiles(subdirectory.path));
+    }
+
+    for (final file in files) {
+      result.add((path: file.path, isDirectory: false));
+    }
+
+    return result;
+  }
+}

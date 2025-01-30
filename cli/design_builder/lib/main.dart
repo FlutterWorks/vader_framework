@@ -1,4 +1,5 @@
 import 'package:design_builder/arguments.dart';
+import 'package:design_builder/builders/design_builder.dart';
 import 'package:vader_cli/vader_cli.dart';
 
 void main(List<String> args) {
@@ -12,8 +13,7 @@ void main(List<String> args) {
       description: "Builder for build directory structure in vader design package.",
     ),
     app: (args) {
-      print("Main part of my app...");
-      print("Message: ${args.message}");
+      DesignBuilder().run();
     },
   );
 }
