@@ -24,6 +24,7 @@ class DesignBuilder {
     fileStructureProcess(filePaths);
   }
 
+
   void fileStructureProcess(List<String> filePaths) {
     print("Building file structure...");
 

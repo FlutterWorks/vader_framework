@@ -1,0 +1,48 @@
+import 'dart:io';
+
+class ConstantsBuilder {
+  void copyConstants({
+    required String source,
+    required String target,
+  }) {
+    print("Copying constants structure...");
+
+    final inputPath = source;
+    final outputPath = target;
+
+    final directory = Directory('$inputPath/constants');
+    final targetDirectory = Directory('$outputPath/constants');
+
+    if (targetDirectory.existsSync()) {
+      targetDirectory.deleteSync(recursive: true);
+    }
+
+    directory.listSync().forEach((element) {
+      if (element is File) {
+        final file = File(element.path);
+        final targetFile = File('$outputPath/constants/${file.path.split('/').last}');
+        targetFile.createSync(recursive: true);
+        targetFile.writeAsBytesSync(file.readAsBytesSync());
+      } else if (element is Directory) {
+        final targetElement = Directory('$outputPath/constants/${element.path.split('/').last}');
+        targetElement.createSync(recursive: true);
+        _copyConstantsDirectory(element, targetElement);
+      }
+    });
+  }
+
+  void _copyConstantsDirectory(Directory source, Directory target) {
+    source.listSync().forEach((element) {
+      if (element is File) {
+        final file = File(element.path);
+        final targetFile = File('${target.path}/${file.path.split('/').last}');
+        targetFile.createSync(recursive: true);
+        targetFile.writeAsBytesSync(file.readAsBytesSync());
+      } else if (element is Directory) {
+        final targetElement = Directory('${target.path}/${element.path.split('/').last}');
+        targetElement.createSync(recursive: true);
+        _copyConstantsDirectory(element, targetElement);
+      }
+    });
+  }
+}

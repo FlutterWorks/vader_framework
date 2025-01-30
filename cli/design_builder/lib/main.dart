@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:design_builder/arguments.dart';
+import 'package:design_builder/builders/constants_builder.dart';
 import 'package:design_builder/builders/design_builder.dart';
 import 'package:vader_cli/vader_cli.dart';
 
@@ -14,6 +17,7 @@ void main(List<String> args) {
     ),
     app: (args) {
       DesignBuilder().run();
+      ConstantsBuilder().copyConstants(source: 'src', target: 'out');
     },
   );
 }
