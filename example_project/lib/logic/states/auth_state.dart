@@ -9,11 +9,13 @@ sealed class UserState with _$UserState {
 
   const factory UserState.init([User? user]) = UserStateInit;
 
-  const factory UserState.reset([User? user]) = UserStateReset;
-
   const factory UserState.loading() = UserStateLoading;
 
   const factory UserState.failure(Exception error) = UserStateFailure;
 
   const factory UserState.success(User user) = UserStateSuccess;
+
+  const factory UserState.loggedIn(User user) = UserStateLoggedIn;
+
+  const factory UserState.loggedOut() = UserStateLoggedOut;
 }

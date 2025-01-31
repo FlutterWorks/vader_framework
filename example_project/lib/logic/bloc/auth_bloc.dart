@@ -17,7 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, UserState> {
   Future<void> _onLogin(AuthLogin event, Emitter<UserState> emit) async {
     try {
       emit(UserState.loading());
-      final UserState user = UserState.success(
+      final UserState user = UserState.loggedIn(
         await _authRepository.login(
           userName: event.userName,
           password: event.password,
@@ -43,7 +43,7 @@ class AuthBloc extends Bloc<AuthEvent, UserState> {
   void _onLogout(AuthLogout event, Emitter<UserState> emit) {
     try {
       _authRepository.logout();
-      emit(UserState.reset());
+      emit(UserState.loggedOut());
     } catch (e, stackTrace) {
       emit(UserState.failure(e as Exception));
     }

@@ -53,7 +53,7 @@ void main() {
       )),
       expect: () => [
         UserState.loading(),
-        UserState.success(expectedLoginUser),
+        UserState.loggedIn(expectedLoginUser),
       ],
     );
 
