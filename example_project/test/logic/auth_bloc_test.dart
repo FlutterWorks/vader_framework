@@ -66,5 +66,15 @@ void main() {
         UserState.success(expectedLoggedUser),
       ],
     );
+
+    blocTest(
+      'Logout user',
+      build: () => authBloc,
+      act: (bloc) => bloc.add(AuthLogout()),
+      expect: () => [
+        UserState.loading(),
+        UserState.loggedOut(),
+      ],
+    );
   });
 }
