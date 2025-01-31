@@ -34,18 +34,18 @@ fakeData() {
 }
 
 void main() {
-  late AuthBloc counterBloc;
+  late AuthBloc authBloc;
 
   group(AuthBloc, () {
     setUp(() {
       setupData(fakeData, useFakeData: true);
-      counterBloc = AuthBloc(authRepository: repositoryInjector.get<AuthRepository>());
+      authBloc = AuthBloc(authRepository: repositoryInjector.get<AuthRepository>());
     });
     tearDown(() => resetInjector());
 
     blocTest(
       'Auth Login',
-      build: () => counterBloc,
+      build: () => authBloc,
       act: (bloc) => bloc.add(AuthLogin(
         userName: "emilys",
         password: "emilyspass",
@@ -59,7 +59,7 @@ void main() {
 
     blocTest(
       'Get logged user',
-      build: () => counterBloc,
+      build: () => authBloc,
       act: (bloc) => bloc.add(AuthGetUser()),
       expect: () => [
         UserState.loading(),
