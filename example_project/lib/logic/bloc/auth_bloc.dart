@@ -1,3 +1,4 @@
+import 'package:example_project/entities/user.dart';
 import 'package:vader/framework.dart';
 import 'package:example_project/logic/events/auth_events.dart';
 import 'package:example_project/logic/states/auth_state.dart';
@@ -17,14 +18,12 @@ class AuthBloc extends Bloc<AuthEvent, UserState> {
   Future<void> _onLogin(AuthLogin event, Emitter<UserState> emit) async {
     try {
       emit(UserState.loading());
-      final UserState user = UserState.loggedIn(
-        await _authRepository.login(
-          userName: event.userName,
-          password: event.password,
-          type: event.type,
-        ),
+      final User user = await _authRepository.login(
+        userName: event.userName,
+        password: event.password,
+        type: event.type,
       );
-      emit(user);
+      emit(UserState.loggedIn(user));
     } catch (e, stackTrace) {
       emit(UserState.failure(e as Exception));
     }
@@ -33,8 +32,8 @@ class AuthBloc extends Bloc<AuthEvent, UserState> {
   Future<void> _onGetUser(AuthGetUser event, Emitter<UserState> emit) async {
     try {
       emit(UserState.loading());
-      final UserState user = UserState.success(await _authRepository.loggedUser());
-      emit(user);
+      final User user = await _authRepository.loggedUser();
+      emit(UserState.success(user));
     } catch (e, stackTrace) {
       emit(UserState.failure(e as Exception));
     }
