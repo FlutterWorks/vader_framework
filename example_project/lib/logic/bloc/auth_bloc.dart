@@ -7,7 +7,7 @@ class AuthBloc extends Bloc<AuthEvent, UserState> {
   AuthBloc({required AuthRepository authRepository})
       : _authRepository = authRepository,
         super(UserState.init()) {
-    on<AuthShowUser>(_onShowUser);
+    on<AuthGetUser>(_onGetUser);
     on<AuthLogin>(_onLogin);
     on<AuthLogout>(_onLogout);
   }
@@ -30,7 +30,7 @@ class AuthBloc extends Bloc<AuthEvent, UserState> {
     }
   }
 
-  Future<void> _onShowUser(AuthShowUser event, Emitter<UserState> emit) async {
+  Future<void> _onGetUser(AuthGetUser event, Emitter<UserState> emit) async {
     try {
       emit(UserState.loading());
       final UserState user = UserState.success(await _authRepository.loggedUser());

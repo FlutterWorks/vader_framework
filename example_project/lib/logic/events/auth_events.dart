@@ -5,8 +5,8 @@ sealed class AuthEvent {
   const AuthEvent();
 }
 
-final class AuthShowUser extends AuthEvent {
-  const AuthShowUser();
+final class AuthGetUser extends AuthEvent {
+  const AuthGetUser();
 }
 
 final class AuthLogin extends AuthEvent {

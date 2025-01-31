@@ -60,7 +60,7 @@ void main() {
     blocTest(
       'Get logged user',
       build: () => counterBloc,
-      act: (bloc) => bloc.add(AuthShowUser()),
+      act: (bloc) => bloc.add(AuthGetUser()),
       expect: () => [
         UserState.loading(),
         UserState.success(expectedLoggedUser),

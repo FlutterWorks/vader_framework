@@ -9,7 +9,7 @@ sealed class UserState with _$UserState {
 
   const factory UserState.init([User? user]) = UserStateInit;
 
-  factory UserState.reset([User? user]) => UserStateInit(user);
+  const factory UserState.reset([User? user]) = UserStateReset;
 
   const factory UserState.loading() = UserStateLoading;
 
