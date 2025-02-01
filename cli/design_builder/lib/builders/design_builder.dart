@@ -20,13 +20,38 @@ class DesignBuilder {
       }
     }
 
-    directoryStructureProcess(directories);
+    //directoryStructureProcess(directories);
     fileStructureProcess(filePaths);
   }
 
 
+  /*
+
+DesignTheme get lightDesignThemeExtension => DesignTheme(
+      buttonsStyle: ButtonsStyle(
+        exampleButtonStyle: ExampleButtonStyle(
+          color: ExampleColors.blue,
+          textStyle: ExampleTextStyles.semiboldInterText.copyWith(
+            color: ExampleColors.white,
+            fontSize: 16,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        simpleButtonStyle: SimpleButtonStyle(
+          defaultColor: DesignColors.purple.shade300,
+          textStyle: TextStyles.mediumNormalText.copyWith(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: DesignColors.black,
+          ),
+        ),
+      ),
+    );
+   */
+
   void fileStructureProcess(List<String> filePaths) {
     print("Building file structure...");
+    final Map<String, WidgetTheme> themeCache = {};
 
     for (final filePath in filePaths) {
       final pathList = filePath.split('/');
@@ -44,13 +69,20 @@ class DesignBuilder {
         outputPath: outputPath,
       );
 
+
       switch (type) {
         case 'widget' || 'dart':
-          componentBuilder.buildWidget(path, name);
+          //componentBuilder.buildWidget(path, name);
+          break;
         case 'style':
-          componentBuilder.buildStyle(path, name);
+          //componentBuilder.buildStyle(path, name);
+          break;
+        case 'theme':
+          themeCache[name] = componentBuilder.getTheme(path, name, themes: ['light', 'dark']);
       }
     }
+
+    print(themeCache);
   }
 
   void directoryStructureProcess(List<String> directories) {

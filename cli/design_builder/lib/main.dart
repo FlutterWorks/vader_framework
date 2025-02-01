@@ -17,7 +17,7 @@ void main(List<String> args) {
     ),
     app: (args) {
       DesignBuilder().run();
-      ConstantsBuilder().copyConstants(source: 'src', target: 'out');
+      //ConstantsBuilder().copyConstants(source: 'src', target: 'out');
     },
   );
 }

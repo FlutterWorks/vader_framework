@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:recase/recase.dart';
 
+typedef WidgetTheme = Map<String, StringBuffer>;
+
 class ComponentBuilder {
   const ComponentBuilder({
     required this.inputPath,
@@ -49,5 +51,44 @@ class ComponentBuilder {
     final outputFile =
         File('$outputPath$path${name.snakeCase == 'design' ? '' : '${name.snakeCase}/'}/${name.snakeCase}.style.dart');
     outputFile.writeAsStringSync(code);
+  }
+
+  WidgetTheme getTheme(String path, String fileName, {required List<String> themes}) {
+    ReCase name = ReCase(fileName);
+    final file = File('$path/${name.snakeCase}.theme.dart');
+    final lines = file.readAsStringSync().split('\n');
+
+    int countLetter(String input, String letter) {
+      return letter.isEmpty ? 0 : input.split(letter).length - 1;
+    }
+
+    WidgetTheme result = {
+      for (final theme in themes) theme: StringBuffer(),
+    };
+
+    String? currentTheme;
+    int i = 0;
+
+    saveLine(String line) {
+      result[currentTheme]!.writeln(line);
+      i += countLetter(line, '(');
+      i -= countLetter(line, ')');
+      if (i == 0) currentTheme = null;
+    }
+
+    for (final line in lines) {
+      if (currentTheme == null) {
+        for (final theme in themes) {
+          if (line.contains('$theme = ${name.pascalCase}Style')) {
+            currentTheme = theme;
+            saveLine(line.split(' = ').last);
+          }
+        }
+      } else {
+        saveLine(line);
+      }
+    }
+
+    return result;
   }
 }
