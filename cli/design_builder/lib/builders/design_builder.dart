@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:design_builder/builders/component_builder.dart';
 import 'package:design_builder/builders/style_builder.dart';
+import 'package:design_builder/builders/theme_builder.dart';
 import 'package:recase/recase.dart';
 
 class DesignBuilder {
@@ -51,8 +52,8 @@ DesignTheme get lightDesignThemeExtension => DesignTheme(
 
   void fileStructureProcess(List<String> directories, List<String> filePaths) {
     print("Building file structure...");
-    final Map<String, WidgetTheme> theme = {};
 
+    final themeBuilder = ThemeBuilder(['light', 'dark']);
     final componentBuilder = ComponentBuilder(
       inputPath: inputPath,
       outputPath: outputPath,
@@ -77,13 +78,10 @@ DesignTheme get lightDesignThemeExtension => DesignTheme(
           //componentBuilder.buildStyle(path, name);
           break;
         case 'theme':
-          theme[name] = componentBuilder.getTheme(path, name, themes: ['light', 'dark']);
+          themeBuilder.addTheme(path, name);
       }
     }
-
-    final themeFiles = filePaths.where((e) => e.contains('theme.dart')).toList();
-    final themeStructure = componentBuilder.getThemeStructure(themeFiles, theme);
-    print(themeStructure);
+    themeBuilder.buildTheme();
   }
 
   void directoryStructureProcess(List<String> directories) {
