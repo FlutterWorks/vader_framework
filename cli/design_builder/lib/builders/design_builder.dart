@@ -56,7 +56,7 @@ class DesignBuilder {
           themeBuilder.addTheme(path, name);
       }
     }
-    themeBuilder.buildTheme();
+    themeBuilder.buildThemeModes();
   }
 
   void directoryStructureProcess(List<String> directories) {

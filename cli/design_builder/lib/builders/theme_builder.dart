@@ -47,9 +47,10 @@ class ThemeBuilder {
     int i = 0;
 
     saveLine(String line) {
-      result[currentTheme]!.writeln(line);
       i += countLetter(line, '(');
       i -= countLetter(line, ')');
+      if (i == 0) line = line.replaceAll(');', '),');
+      result[currentTheme]!.writeln(line);
       if (i == 0) currentTheme = null;
     }
 
@@ -82,12 +83,42 @@ class ThemeBuilder {
     _themeStructure = _deepMerge(_themeStructure, newTheme);
   }
 
-  buildTheme() {
-    print("Building design theme...");
+  buildThemeModes() {
+    //for (String theme in themes) {
+    //  buildTheme(theme);
+    //}
+    buildTheme('light');
+  }
 
-    final StringBuffer sb = StringBuffer();
-    sb.writeln("DesignTheme(");
+  buildTheme(String themeMode) {
+    print("Building $themeMode theme...");
 
-    print(_themeStructure);
+    int indent = 0;
+    final StringBuffer sb = StringBuffer("DesignTheme get ${themeMode}DesignThemeExtension => ");
+
+    for (final entry in _themeStructure.entries) {
+      if (entry.key == 'design') {
+        sb.writeln("DesignTheme(");
+        _buildStyle(sb, entry.value, indent + 2, themeMode);
+      }
+      sb.writeln(");");
+    }
+
+    print(sb);
+  }
+
+  _buildStyle(StringBuffer sb, Map style, int indent, String themeMode) {
+    for (final entry in style.entries) {
+      final name = ReCase(entry.key);
+
+      if (entry.value.runtimeType.toString() == '_Map<String, StringBuffer>') {
+        sb.write("${' ' * indent}${name.camelCase}Style: ");
+        sb.writeln(entry.value[themeMode]);
+      } else {
+        sb.writeln("${' ' * indent}${name.camelCase}Style: ${name.pascalCase}Style(");
+        _buildStyle(sb, entry.value, indent + 2, themeMode);
+        sb.writeln("${' ' * indent}),");
+      }
+    }
   }
 }
