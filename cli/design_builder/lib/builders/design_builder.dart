@@ -21,7 +21,7 @@ class DesignBuilder {
     }
 
     //directoryStructureProcess(directories);
-    fileStructureProcess(filePaths);
+    fileStructureProcess(directories, filePaths);
   }
 
 
@@ -49,9 +49,14 @@ DesignTheme get lightDesignThemeExtension => DesignTheme(
     );
    */
 
-  void fileStructureProcess(List<String> filePaths) {
+  void fileStructureProcess(List<String> directories, List<String> filePaths) {
     print("Building file structure...");
-    final Map<String, WidgetTheme> themeCache = {};
+    final Map<String, WidgetTheme> theme = {};
+
+    final componentBuilder = ComponentBuilder(
+      inputPath: inputPath,
+      outputPath: outputPath,
+    );
 
     for (final filePath in filePaths) {
       final pathList = filePath.split('/');
@@ -64,12 +69,6 @@ DesignTheme get lightDesignThemeExtension => DesignTheme(
       final name = fileList.first;
       final path = pathList.sublist(0, pathList.length - 1).join('/');
 
-      final componentBuilder = ComponentBuilder(
-        inputPath: inputPath,
-        outputPath: outputPath,
-      );
-
-
       switch (type) {
         case 'widget' || 'dart':
           //componentBuilder.buildWidget(path, name);
@@ -78,11 +77,13 @@ DesignTheme get lightDesignThemeExtension => DesignTheme(
           //componentBuilder.buildStyle(path, name);
           break;
         case 'theme':
-          themeCache[name] = componentBuilder.getTheme(path, name, themes: ['light', 'dark']);
+          theme[name] = componentBuilder.getTheme(path, name, themes: ['light', 'dark']);
       }
     }
 
-    print(themeCache);
+    final themeFiles = filePaths.where((e) => e.contains('theme.dart')).toList();
+    final themeStructure = componentBuilder.getThemeStructure(themeFiles, theme);
+    print(themeStructure);
   }
 
   void directoryStructureProcess(List<String> directories) {

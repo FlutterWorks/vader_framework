@@ -91,4 +91,43 @@ class ComponentBuilder {
 
     return result;
   }
+
+  Map getThemeStructure(List<String> paths, Map<String, WidgetTheme> theme) {
+    final StringBuffer sb = StringBuffer();
+    sb.writeln("DesignTheme(");
+
+    Map design = {};
+    bool recording = false;
+
+    for (final path in paths) {
+      final buffer = path.split('/').reversed.fold({}, (buffer, e) {
+        if (recording) buffer = {e: theme.containsKey(e) ? theme[e] : buffer};
+        if (e.contains('theme.dart')) recording = true;
+        if (e == 'design') recording = false;
+
+        return buffer;
+      });
+      design = _deepMerge(design, buffer);
+    }
+    return design;
+  }
+}
+
+Map<K, dynamic> _deepMerge<K>(Map<K, dynamic> a, Map<K, dynamic> b) {
+  final result = Map<K, dynamic>.from(a);
+
+  b.forEach((key, bValue) {
+    if (result.containsKey(key)) {
+      final aValue = result[key];
+      if (aValue is Map && bValue is Map) {
+        result[key] = _deepMerge(aValue, bValue);
+      } else {
+        result[key] = bValue;
+      }
+    } else {
+      result[key] = bValue;
+    }
+  });
+
+  return result;
 }
