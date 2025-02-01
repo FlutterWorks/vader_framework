@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dart_style/dart_style.dart';
 import 'package:recase/recase.dart';
 
 typedef WidgetTheme = Map<String, StringBuffer>;
@@ -83,18 +84,34 @@ class ThemeBuilder {
     _themeStructure = _deepMerge(_themeStructure, newTheme);
   }
 
-  buildThemeModes() {
-    //for (String theme in themes) {
-    //  buildTheme(theme);
-    //}
-    buildTheme('light');
+  buildThemeModes({required String inputPath, required String outputPath}) {
+    Directory(outputPath).createSync();
+
+    for (String theme in themes) {
+      // Move default theme
+      final file = File('$inputPath${theme}_theme.dart');
+      String content = file.readAsStringSync();
+      content =
+          "import '${theme}_theme_extension.dart';\n${content.replaceAll("get lightDesignThemeExtension {}", "")}";
+
+      File('$outputPath${theme}_theme.dart').writeAsStringSync(content);
+
+      // Create theme extension
+      final outputFile = File('$outputPath${theme}_theme_extension.dart');
+      outputFile.writeAsStringSync(buildTheme(theme));
+    }
   }
 
-  buildTheme(String themeMode) {
+  String buildTheme(String themeMode) {
     print("Building $themeMode theme...");
 
     int indent = 0;
-    final StringBuffer sb = StringBuffer("DesignTheme get ${themeMode}DesignThemeExtension => ");
+    final StringBuffer sb = StringBuffer();
+    sb.writeln("import 'package:flutter/material.dart';");
+    sb.writeln("import 'package:example_design/design/design.dart';");
+    sb.writeln("");
+
+    sb.write("DesignTheme get ${themeMode}DesignThemeExtension => ");
 
     for (final entry in _themeStructure.entries) {
       if (entry.key == 'design') {
@@ -104,7 +121,8 @@ class ThemeBuilder {
       sb.writeln(");");
     }
 
-    print(sb);
+    final formatter = DartFormatter(languageVersion: DartFormatter.latestLanguageVersion);
+    return formatter.format(sb.toString());
   }
 
   _buildStyle(StringBuffer sb, Map style, int indent, String themeMode) {

@@ -23,7 +23,8 @@ class ComponentBuilder {
     final file = File('$path/${name.snakeCase}.dart');
     final code = file
         .readAsStringSync()
-        .replaceAll("style!", "(style ?? context.designTheme.$designPathStyle${name.camelCase}Style)");
+        .replaceAll("style!", "(style ?? context.designTheme.$designPathStyle${name.camelCase}Style)")
+        .replaceAll("export '${name.snakeCase}.story.dart';\n", "");
 
     path = path.replaceFirst(inputPath, '').replaceFirst(name.snakeCase, '');
     final outputFile = File('$outputPath$path${name.snakeCase}/${name.snakeCase}.dart');
