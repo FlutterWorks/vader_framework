@@ -53,7 +53,23 @@ class Arguments {
     if (results.wasParsed(option)) {
       return results.option(option);
     } else {
-      throw MissingOptionException(message: errorMessage ?? 'Missing option: \'$option\'');
+      throw MissingOptionException(
+        message: errorMessage ?? 'Missing option: \'$option\'',
+      );
+    }
+  }
+
+  static getMultipleOptionOrNull(ArgResults results, {required String option}) {
+    return results.wasParsed(option) ? results.multiOption(option) : null;
+  }
+
+  static getMultipleOptionOrThrow(ArgResults results, {required String option, String? errorMessage}) {
+    if (results.wasParsed(option)) {
+      return results.multiOption(option);
+    } else {
+      throw MissingMultipleOptionException(
+        message: errorMessage ?? 'Missing multiple option: \'$option\'',
+      );
     }
   }
 }
