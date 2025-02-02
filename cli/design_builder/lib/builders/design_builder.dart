@@ -7,12 +7,22 @@ import 'package:design_builder/builders/theme_builder.dart';
 import 'package:recase/recase.dart';
 
 class DesignBuilder {
-  final inputPath = 'src/design/';
-  final outputPath = 'out/design/';
-  final packageName = 'example_design';
+  final String sourcePoint = 'src';
+  final String targetPoint = 'out';
+  final String packageName = 'example_design';
+  final List<String> themes = ['light', 'dark'];
+
+  String get inputDesignPath => "$sourcePoint/design/";
+  String get outputDesignPath => '$targetPoint/design/';
+
+  String get inputThemePath => "$sourcePoint/theme/";
+  String get outputThemePath => '$targetPoint/theme/';
+
+  String get inputConstantsPath => "$sourcePoint/constants/";
+  String get outputConstantsPath => '$targetPoint/constants/';
 
   run() {
-    final result = DesignBuilder()._printSubdirectoriesAndFiles(inputPath);
+    final result = _printSubdirectoriesAndFiles(inputDesignPath);
     final List<String> directories = [];
     final List<String> filePaths = [];
     for (final r in result) {
@@ -25,16 +35,16 @@ class DesignBuilder {
 
     directoryStructureProcess(directories);
     fileStructureProcess(directories, filePaths);
-    ConstantsBuilder().copyConstants(source: 'src', target: 'out');
+    ConstantsBuilder().copyConstants(source: inputConstantsPath, target: outputConstantsPath);
   }
 
   void fileStructureProcess(List<String> directories, List<String> filePaths) {
     print("Building file structure...");
 
-    final themeBuilder = ThemeBuilder(['light', 'dark']);
+    final themeBuilder = ThemeBuilder(packageName, themes);
     final componentBuilder = ComponentBuilder(
-      inputPath: inputPath,
-      outputPath: outputPath,
+      inputPath: inputDesignPath,
+      outputPath: outputDesignPath,
     );
     final List<String> packages = [];
 
@@ -52,7 +62,7 @@ class DesignBuilder {
       switch (type) {
         case 'widget' || 'dart':
           componentBuilder.buildWidget(path, name);
-          packages.add(filePath.replaceAll('src', 'package:$packageName'));
+          packages.add(filePath.replaceAll(sourcePoint, 'package:$packageName'));
           break;
         case 'style':
           componentBuilder.buildStyle(path, name);
@@ -61,8 +71,8 @@ class DesignBuilder {
           themeBuilder.addTheme(path, name);
       }
     }
-    themeBuilder.buildThemeModes(inputPath: 'src/theme/', outputPath: 'out/theme/');
-    exportPackageProcess('src/', 'out/', packages: packages);
+    themeBuilder.buildThemeModes(inputPath: inputThemePath, outputPath: outputThemePath);
+    exportPackageProcess(sourcePoint, targetPoint, packages: packages);
   }
 
   void exportPackageProcess(String inputPath, String outputPath, {required List<String> packages}) {
@@ -74,14 +84,14 @@ class DesignBuilder {
     }
     sb.writeln();
 
-    final file = File('$inputPath$packageName.dart');
+    final file = File('$inputPath/$packageName.dart');
     sb.write(file.readAsStringSync());
-    File('$outputPath$packageName.dart').writeAsStringSync(sb.toString());
+    File('$outputPath/$packageName.dart').writeAsStringSync(sb.toString());
   }
 
   void directoryStructureProcess(List<String> directories) {
     Map<String, List<String>> styles = {};
-    final designPathLength = inputPath.split('/').length;
+    final designPathLength = inputDesignPath.split('/').length;
 
     print("Building directory structure...");
 
@@ -94,7 +104,7 @@ class DesignBuilder {
       final key = [...pathList.sublist(0, path.length + 1), ''].join('/');
       styles[key] = [...styles[key] ?? [], styleName.snakeCase];
 
-      Directory(directory.replaceFirst(inputPath, outputPath)).createSync(recursive: true);
+      Directory(directory.replaceFirst(inputDesignPath, outputDesignPath)).createSync(recursive: true);
     }
 
     // Build directory styles
@@ -106,11 +116,11 @@ class DesignBuilder {
         packageName: packageName,
         className: styleName.originalText == 'design' ? "DesignTheme" : "${styleName.pascalCase}Style",
         fileName: styleName.snakeCase,
-        filePath: style.key.replaceFirst('src/', ''),
+        filePath: style.key.replaceFirst('$sourcePoint/', ''),
         styles: style.value,
       ).build();
 
-      final outputFile = File('${style.key.replaceFirst(inputPath, outputPath)}/${styleName.snakeCase}.style.dart');
+      final outputFile = File('${style.key.replaceFirst(inputDesignPath, outputDesignPath)}/${styleName.snakeCase}.style.dart');
       outputFile.writeAsStringSync(styleCode);
     }
   }

@@ -10,11 +10,8 @@ class ConstantsBuilder {
   }) {
     print("Copying constants structure...");
 
-    final inputPath = source;
-    final outputPath = target;
-
-    final directory = Directory('$inputPath/constants');
-    final targetDirectory = Directory('$outputPath/constants');
+    final directory = Directory(source);
+    final targetDirectory = Directory(target);
 
     if (targetDirectory.existsSync()) {
       targetDirectory.deleteSync(recursive: true);
@@ -23,11 +20,11 @@ class ConstantsBuilder {
     directory.listSync().forEach((element) {
       if (element is File) {
         final file = File(element.path);
-        final targetFile = File('$outputPath/constants/${file.path.split('/').last}');
+        final targetFile = File('$target${file.path.split('/').last}');
         targetFile.createSync(recursive: true);
         targetFile.writeAsBytesSync(file.readAsBytesSync());
       } else if (element is Directory) {
-        final targetElement = Directory('$outputPath/constants/${element.path.split('/').last}');
+        final targetElement = Directory('$target${element.path.split('/').last}');
         targetElement.createSync(recursive: true);
         _copyConstantsDirectory(element, targetElement);
       }
