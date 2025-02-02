@@ -1,13 +1,13 @@
 import 'package:vader_cli/vader_cli.dart';
 
 List<Command> commands = [
-  ...CoreCommands.list,
   Command(
     flag: 'm',
     name: 'message',
     commandType: CommandType.option,
     commandHelp: 'Print message.',
   ),
+  ...CoreCommands.list,
 ];
 
 class CliArguments extends Arguments {

@@ -2,8 +2,8 @@
 CLI Manager for Vader framework.
 
 
-## Install
-Run command: `bin/build-and-install.sh`
+## Build
+Run command: `bin/build.sh`
 
 
 ## Usage:

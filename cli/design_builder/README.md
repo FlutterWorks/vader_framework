@@ -2,8 +2,8 @@
 Builder for build directory structure in vader design package.
 
 
-## Install
-Run command: `bin/build-and-install.sh`
+## Build
+Run command: `bin/build.sh`
 
 
 ## Usage:
