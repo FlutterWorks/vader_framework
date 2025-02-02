@@ -1,33 +1,59 @@
 import 'package:vader_cli/vader_cli.dart';
 
 List<Command> commands = [
-  ...CoreCommands.list,
   Command(
-    flag: 'm',
-    name: 'message',
+    flag: 's',
+    name: 'source',
     commandType: CommandType.option,
-    commandHelp: 'Print message.',
+    commandHelp: 'Path of source code.',
   ),
+  Command(
+    flag: 'o',
+    name: 'output',
+    commandType: CommandType.option,
+    commandHelp: 'Path of generated code.',
+  ),
+  Command(
+    flag: 'p',
+    name: 'package',
+    commandType: CommandType.option,
+    commandHelp: 'Name of package.',
+  ),
+  Command(
+    flag: 't',
+    name: 'themes',
+    commandType: CommandType.multipleOption,
+    commandHelp: 'List of themes. ',
+  ),
+  ...CoreCommands.list,
 ];
 
-
-class ExampleArguments extends Arguments {
-  ExampleArguments({
+class CliArguments extends Arguments {
+  CliArguments({
     required super.showVersion,
     required super.showHelp,
     required super.isVerbose,
-    this.message,
+    this.source,
+    this.output,
+    this.package,
+    this.themes,
   });
 
-  final String? message;
+  final String? source;
+  final String? output;
+  final String? package;
+  final List<String>? themes;
 
-  factory ExampleArguments.parse(List<String> arguments, List<Command> commands) {
+  static CliArguments parse(List<String> arguments, List<Command> commands) {
     final results = ArgumentParser(commands).parse(arguments);
-    return ExampleArguments(
+    return CliArguments(
       showHelp: results.wasParsed(CoreCommands.help.name),
       isVerbose: results.wasParsed(CoreCommands.verbose.name),
       showVersion: results.wasParsed(CoreCommands.version.name),
-      message: Arguments.getOptionOrNull(results, option: "message"),
+      source: Arguments.getOptionOrNull(results, option: "source"),
+      output: Arguments.getOptionOrNull(results, option: "output"),
+      package: Arguments.getOptionOrNull(results, option: "package"),
+      themes: Arguments.getMultipleOptionOrNull(results, option: "themes") ?? const ['light', 'dark'],
     );
   }
 }

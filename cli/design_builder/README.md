@@ -8,16 +8,19 @@ Run command: `bin/build-and-install.sh`
 
 ## Usage:
 ```
--m, --message     Print message.
--h, --help        Print this usage information.
--V, --verbose     Show additional command output.
--v, --version     Print the tool version.
+-s, --source     Path of source code.
+-o, --output     Path of generated code.
+-p, --package    Name of package.
+-t, --themes     List of themes. 
+-h, --help       Print this usage information.
+-V, --verbose    Show additional command output.
+-v, --version    Print the tool version.
 ```
 
 
 ## Example
 ```
-dart lib/main.dart -m "Hello world!!"
+dart lib/main.dart -p example_design
 ```
 
 

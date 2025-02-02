@@ -7,18 +7,28 @@ import 'package:design_builder/builders/theme_builder.dart';
 import 'package:recase/recase.dart';
 
 class DesignBuilder {
-  final String sourcePoint = 'src';
-  final String targetPoint = 'out';
-  final String packageName = 'example_design';
-  final List<String> themes = ['light', 'dark'];
+  const DesignBuilder({
+    required this.sourcePoint,
+    required this.targetPoint,
+    required this.packageName,
+    required this.themes,
+  });
+
+  final String sourcePoint;
+  final String targetPoint;
+  final String packageName;
+  final List<String> themes;
 
   String get inputDesignPath => "$sourcePoint/design/";
+
   String get outputDesignPath => '$targetPoint/design/';
 
   String get inputThemePath => "$sourcePoint/theme/";
+
   String get outputThemePath => '$targetPoint/theme/';
 
   String get inputConstantsPath => "$sourcePoint/constants/";
+
   String get outputConstantsPath => '$targetPoint/constants/';
 
   run() {
@@ -111,7 +121,8 @@ class DesignBuilder {
         styles: style.value,
       ).build();
 
-      final outputFile = File('${style.key.replaceFirst(inputDesignPath, outputDesignPath)}/${styleName.snakeCase}.style.dart');
+      final outputFile =
+          File('${style.key.replaceFirst(inputDesignPath, outputDesignPath)}/${styleName.snakeCase}.style.dart');
       outputFile.writeAsStringSync(styleCode);
     }
   }
