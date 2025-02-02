@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:design_builder/builders/component_builder.dart';
+import 'package:design_builder/builders/constants_builder.dart';
 import 'package:design_builder/builders/style_builder.dart';
 import 'package:design_builder/builders/theme_builder.dart';
 import 'package:recase/recase.dart';
@@ -24,6 +25,7 @@ class DesignBuilder {
 
     directoryStructureProcess(directories);
     fileStructureProcess(directories, filePaths);
+    ConstantsBuilder().copyConstants(source: 'src', target: 'out');
   }
 
   void fileStructureProcess(List<String> directories, List<String> filePaths) {
