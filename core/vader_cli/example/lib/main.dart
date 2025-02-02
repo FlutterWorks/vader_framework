@@ -5,7 +5,7 @@ void main(List<String> args) {
   runCliApp(
     arguments: args,
     commands: commands,
-    parser: ExampleArguments.parse,
+    parser: CliArguments.parse,
     appInfo: AppInfo(
       name: "Project test",
       version: '1.3.2',

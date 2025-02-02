@@ -38,7 +38,7 @@ void runCliApp<T extends Arguments>({
   } on FormatException catch (error) {
     print(error.message);
     showHelp(commands);
-  } on Exception catch (e) {
+  } catch (e) {
     print("$e\n");
   } finally {
     exit(1);

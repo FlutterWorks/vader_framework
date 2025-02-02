@@ -34,7 +34,7 @@ class Arguments {
     required this.isVerbose,
   });
 
-  factory Arguments.parse(List<String> arguments, List<Command> commands) {
+  static Arguments parse(List<String> arguments, List<Command> commands) {
     ArgResults results = ArgumentParser(commands).parse(arguments);
     return Arguments(
       showHelp: results.wasParsed("help"),
