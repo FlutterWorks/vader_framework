@@ -11,4 +11,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Generation of Components, Styles and Design folder structure
 - Move Constants
-- Generation of Theme
+- Generation of Theme and Modes
+- Generation exports
