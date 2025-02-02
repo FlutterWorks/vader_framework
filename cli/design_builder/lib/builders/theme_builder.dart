@@ -71,7 +71,7 @@ class ThemeBuilder {
     return result;
   }
 
-  addTheme(String path, String fileName) {
+  void addTheme(String path, String fileName) {
     bool recording = true;
 
     final newTheme = path.split('/').reversed.fold({}, (buffer, e) {
@@ -84,7 +84,8 @@ class ThemeBuilder {
     _themeStructure = _deepMerge(_themeStructure, newTheme);
   }
 
-  buildThemeModes({required String inputPath, required String outputPath}) {
+  void buildThemeModes({required String inputPath, required String outputPath}) {
+    print("Building theme modes...");
     Directory(outputPath).createSync();
 
     for (String theme in themes) {

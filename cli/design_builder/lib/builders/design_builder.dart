@@ -8,6 +8,7 @@ import 'package:recase/recase.dart';
 class DesignBuilder {
   final inputPath = 'src/design/';
   final outputPath = 'out/design/';
+  final packageName = 'example_design';
 
   run() {
     final result = DesignBuilder()._printSubdirectoriesAndFiles(inputPath);
@@ -21,7 +22,7 @@ class DesignBuilder {
       }
     }
 
-    //directoryStructureProcess(directories);
+    directoryStructureProcess(directories);
     fileStructureProcess(directories, filePaths);
   }
 
@@ -33,6 +34,7 @@ class DesignBuilder {
       inputPath: inputPath,
       outputPath: outputPath,
     );
+    final List<String> packages = [];
 
     for (final filePath in filePaths) {
       final pathList = filePath.split('/');
@@ -47,16 +49,32 @@ class DesignBuilder {
 
       switch (type) {
         case 'widget' || 'dart':
-          //componentBuilder.buildWidget(path, name);
+          componentBuilder.buildWidget(path, name);
+          packages.add(filePath.replaceAll('src', 'package:$packageName'));
           break;
         case 'style':
-          //componentBuilder.buildStyle(path, name);
+          componentBuilder.buildStyle(path, name);
           break;
         case 'theme':
           themeBuilder.addTheme(path, name);
       }
     }
     themeBuilder.buildThemeModes(inputPath: 'src/theme/', outputPath: 'out/theme/');
+    exportPackageProcess('src/', 'out/', packages: packages);
+  }
+
+  void exportPackageProcess(String inputPath, String outputPath, {required List<String> packages}) {
+    print("Building exports...");
+
+    StringBuffer sb = StringBuffer();
+    for (final package in packages) {
+      sb.writeln("export '$package';");
+    }
+    sb.writeln();
+
+    final file = File('$inputPath$packageName.dart');
+    sb.write(file.readAsStringSync());
+    File('$outputPath$packageName.dart').writeAsStringSync(sb.toString());
   }
 
   void directoryStructureProcess(List<String> directories) {
@@ -83,7 +101,7 @@ class DesignBuilder {
       final styleKeyList = style.key.split('/');
       final styleName = ReCase(styleKeyList[styleKeyList.length - 2]);
       final styleCode = StyleBuilder(
-        packageName: "example_design",
+        packageName: packageName,
         className: styleName.originalText == 'design' ? "DesignTheme" : "${styleName.pascalCase}Style",
         fileName: styleName.snakeCase,
         filePath: style.key.replaceFirst('src/', ''),
