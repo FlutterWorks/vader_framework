@@ -15,21 +15,20 @@ class StyleBuilder {
   final String filePath;
   final List<String> styles;
 
+  String getType(String name) => name == 'design' ? 'theme' : 'style';
+
   StringBuffer _writeImports(StringBuffer sb) {
     String path = "package:$packageName/$filePath";
 
-    for (final styleName in styles) {
-      sb.writeln("export '$styleName/$styleName.dart';");
-    }
     sb.writeln("");
     for (final styleName in styles) {
-      sb.writeln("import '$path/$styleName/$styleName.dart';");
+      sb.writeln("import '$path$styleName/$styleName.${getType(styleName)}.dart';");
     }
     sb.writeln("");
     sb.writeln("import 'package:flutter/material.dart';");
     sb.writeln("import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';");
     sb.writeln("");
-    sb.writeln("part '$fileName.tailor.dart';");
+    sb.writeln("part '$fileName.${getType(fileName)}.tailor.dart';");
     sb.writeln("");
     return sb;
     /*
@@ -46,7 +45,7 @@ class StyleBuilder {
   StringBuffer _writeClassConstructor(StringBuffer sb) {
     sb.writeln("  const $className({");
     for (final styleName in styles) {
-      sb.writeln("    required this.${styleName}Style,");
+      sb.writeln("    required this.${styleName.camelCase}Style,");
     }
     sb.writeln("  });");
     return sb;

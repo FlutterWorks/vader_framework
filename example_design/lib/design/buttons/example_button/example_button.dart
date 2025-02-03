@@ -1,8 +1,6 @@
+import 'package:example_design/design/design.theme.dart';
 import 'package:flutter/material.dart';
-import 'package:example_design/design/design.dart';
-import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
-
-part 'example_button.tailor.dart';
+import 'example_button.style.dart';
 
 class ExampleButton extends StatelessWidget {
   const ExampleButton({
@@ -18,7 +16,7 @@ class ExampleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentStyle = style ?? context.designTheme.buttonsStyle.exampleButtonStyle;
+    final currentStyle = (style ?? context.designTheme.buttonsStyle.exampleButtonStyle);
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -33,22 +31,4 @@ class ExampleButton extends StatelessWidget {
       ),
     );
   }
-}
-
-@tailorMixinComponent
-class ExampleButtonStyle extends ThemeExtension<ExampleButtonStyle> with _$ExampleButtonStyleTailorMixin {
-  const ExampleButtonStyle({
-    required this.color,
-    required this.textStyle,
-    required this.borderRadius,
-  });
-
-  @override
-  final Color color;
-
-  @override
-  final TextStyle textStyle;
-
-  @override
-  final BorderRadius borderRadius;
 }

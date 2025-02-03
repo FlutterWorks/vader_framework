@@ -1,5 +1,5 @@
-import 'package:example_design/utils/design_color.dart';
 import 'package:flutter/material.dart';
+import 'package:vader/design_utils/design_color.dart';
 
 /*
 Name examples:
@@ -40,9 +40,4 @@ class DesignColors {
   static const DesignColor blue = DesignColor(Color(0xff5E71FF));
   static const DesignColor red = DesignColor(Color(0xffbf3931));
   static const DesignColor purple = DesignColor(Color(0xffB314E3));
-}
-
-class ExampleColors {
-  static const Color blue = Color(0xFF5E71FF);
-  static const Color white = Color(0xFFFFFFFF);
 }

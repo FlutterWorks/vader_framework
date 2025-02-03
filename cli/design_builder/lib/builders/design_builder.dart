@@ -1,13 +1,12 @@
 import 'dart:io';
 
 import 'package:design_builder/builders/component_builder.dart';
-import 'package:design_builder/builders/constants_builder.dart';
 import 'package:design_builder/builders/style_builder.dart';
 import 'package:design_builder/builders/theme_builder.dart';
 import 'package:recase/recase.dart';
 
 class DesignBuilder {
-  const DesignBuilder({
+  DesignBuilder({
     required this.sourcePoint,
     required this.targetPoint,
     required this.packageName,
@@ -18,6 +17,7 @@ class DesignBuilder {
   final String targetPoint;
   final String packageName;
   final List<String> themes;
+  final Set<String> _packages = {};
 
   String get inputDesignPath => "$sourcePoint/design/";
 
@@ -31,15 +31,35 @@ class DesignBuilder {
 
   String get outputConstantsPath => '$targetPoint/constants/';
 
+  String _convertPathToPackage(String path) => path.replaceAll(sourcePoint, 'package:$packageName');
+
   run() {
     final (:directories, :files) = getSourcePaths();
 
     directoryStructureProcess(directories);
     fileStructureProcess(files);
-    ConstantsBuilder().copyConstants(source: inputConstantsPath, target: outputConstantsPath);
+    _copyConstantsDirectory(Directory(inputConstantsPath), Directory(outputConstantsPath));
+
+    exportPackageProcess(sourcePoint, targetPoint);
   }
 
-  void fileStructureProcess(List<String> filePaths) {
+  void _copyConstantsDirectory(Directory source, Directory target) {
+    source.listSync().forEach((element) {
+      if (element is File) {
+        final file = File(element.path);
+        final targetFile = File('${target.path}/${file.path.split('/').last}');
+        targetFile.createSync(recursive: true);
+        targetFile.writeAsBytesSync(file.readAsBytesSync());
+        _packages.add(element.path.replaceAll(sourcePoint, 'package:$packageName'));
+      } else if (element is Directory) {
+        final targetElement = Directory('${target.path}/${element.path.split('/').last}');
+        targetElement.createSync(recursive: true);
+        _copyConstantsDirectory(element, targetElement);
+      }
+    });
+  }
+
+  List<String> fileStructureProcess(List<String> filePaths) {
     print("Building file structure...");
 
     final themeBuilder = ThemeBuilder(packageName, themes);
@@ -49,7 +69,7 @@ class DesignBuilder {
     );
     final List<String> packages = [];
 
-    for (final filePath in filePaths) {
+    for (String filePath in filePaths) {
       final pathList = filePath.split('/');
       final fileList = pathList.last.split('.');
 
@@ -63,49 +83,58 @@ class DesignBuilder {
       switch (type) {
         case 'widget' || 'dart':
           componentBuilder.buildWidget(path, name);
-          packages.add(filePath.replaceAll(sourcePoint, 'package:$packageName'));
+          _packages.add(_convertPathToPackage(filePath));
           break;
         case 'style':
           componentBuilder.buildStyle(path, name);
+          _packages.add(_convertPathToPackage(filePath));
           break;
         case 'theme':
           themeBuilder.addTheme(path, name);
       }
     }
     themeBuilder.buildThemeModes(inputPath: inputThemePath, outputPath: outputThemePath);
-    exportPackageProcess(sourcePoint, targetPoint, packages: packages);
+
+    return packages;
   }
 
-  void exportPackageProcess(String inputPath, String outputPath, {required List<String> packages}) {
+  void exportPackageProcess(String inputPath, String outputPath) {
     print("Building exports...");
 
     StringBuffer sb = StringBuffer();
-    for (final package in packages) {
+    for (final package in _packages) {
       sb.writeln("export '$package';");
     }
     sb.writeln();
+    sb.write("""
+import 'package:$packageName/design/design.theme.dart';
+import 'package:$packageName/theme/dark_theme.dart';
+import 'package:$packageName/theme/dark_theme_extension.dart';
+import 'package:$packageName/theme/light_theme.dart';
+import 'package:$packageName/theme/light_theme_extension.dart';
+import 'package:flutter/material.dart';
+""");
 
     final file = File('$inputPath/$packageName.dart');
-    sb.write(file.readAsStringSync());
+    sb.write(file.readAsStringSync().replaceAll(RegExp(r"(?:import|export)\s+'[^']+';\n"), ''));
     File('$outputPath/$packageName.dart').writeAsStringSync(sb.toString());
   }
 
   void directoryStructureProcess(List<String> directories) {
     Map<String, List<String>> styles = {};
-    final designPathLength = inputDesignPath.split('/').length;
-
-    print("Building directory structure...");
 
     // Prepare directory structure
+    print("Building directory structure...");
     for (var directory in directories) {
-      final pathList = directory.split('/');
-      final path = pathList.sublist(designPathLength - 1);
-      final styleName = ReCase(path.last);
+      directory = directory.replaceFirst("$sourcePoint/", '');
 
-      final key = [...pathList.sublist(0, path.length + 1), ''].join('/');
+      final pathList = directory.split('/');
+      final styleName = ReCase(pathList.last);
+
+      final key = [...pathList.sublist(0, pathList.length - 1), ''].join('/');
       styles[key] = [...styles[key] ?? [], styleName.snakeCase];
 
-      Directory(directory.replaceFirst(inputDesignPath, outputDesignPath)).createSync(recursive: true);
+      Directory('$targetPoint/$directory').createSync(recursive: true);
     }
 
     // Build directory styles
@@ -117,13 +146,15 @@ class DesignBuilder {
         packageName: packageName,
         className: styleName.originalText == 'design' ? "DesignTheme" : "${styleName.pascalCase}Style",
         fileName: styleName.snakeCase,
-        filePath: style.key.replaceFirst('$sourcePoint/', ''),
+        filePath: style.key,
         styles: style.value,
       ).build();
 
-      final outputFile =
-          File('${style.key.replaceFirst(inputDesignPath, outputDesignPath)}/${styleName.snakeCase}.style.dart');
-      outputFile.writeAsStringSync(styleCode);
+      final fileType = styleName.originalText == 'design' ? 'theme' : 'style';
+      final filePath = "${style.key}${styleName.snakeCase}.$fileType.dart";
+      File('$targetPoint/$filePath').writeAsStringSync(styleCode);
+
+      _packages.add('package:$packageName/$filePath');
     }
   }
 

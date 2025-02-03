@@ -1,12 +1,11 @@
 import 'package:example_design/constants/colors.dart';
 import 'package:example_design/design/buttons/example_button/example_button.dart';
-import 'package:example_design/design/buttons/simple_button/simple_button.dart';
-import 'package:example_design/utils/path_builder.dart';
+import 'package:example_design/design/buttons/example_button/example_button.style.dart';
 import 'package:flutter/widgets.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
+import 'package:vader/design_utils/path_builder.dart';
 
 import '../../storybook.dart';
-
 
 String textKnob(BuildContext context) => context.knobs.text(label: 'Button text', initial: 'START!');
 
@@ -30,7 +29,7 @@ final buttonStories = [
     tags: const ['buttons'],
     name: 'Default',
     goldenPathBuilder: (c) => goldenTestPathBuilder(c),
-    builder: (context) => SimpleButton(
+    builder: (context) => ExampleButton(
       text: textKnobOptions(context),
       onTap: onTap,
     ),
@@ -48,15 +47,16 @@ final buttonStories = [
     tags: const ['buttons'],
     name: 'Customized',
     goldenPathBuilder: (c) => goldenTestPathBuilder(c),
-    builder: (context) => SimpleButton(
+    builder: (context) => ExampleButton(
       text: textKnobOptions(context),
       onTap: onTap,
-      style: const SimpleButtonStyle(
-        defaultColor: DesignColors.red300,
-        textStyle: TextStyle(
+      style: ExampleButtonStyle(
+        color: DesignColors.red300,
+        textStyle: const TextStyle(
           color: DesignColors.blue900,
           fontSize: 24,
         ),
+        borderRadius: BorderRadius.circular(5),
       ),
     ),
   ),

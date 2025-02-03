@@ -1,10 +1,17 @@
-import 'package:example_design/design/design.dart';
-import 'package:example_design/theme/dark_mode.dart';
-import 'package:example_design/theme/light_mode.dart';
+export 'package:example_design/design/design.theme.dart';
+export 'package:example_design/design/buttons/buttons.style.dart';
+export 'package:example_design/design/buttons/example_button/example_button.style.dart';
+export 'package:example_design/design/buttons/example_button/example_button.dart';
+export 'package:example_design/constants/colors.dart';
+export 'package:example_design/constants/text_styles.dart';
+
+import 'package:example_design/design/design.theme.dart';
+import 'package:example_design/theme/dark_theme.dart';
+import 'package:example_design/theme/dark_theme_extension.dart';
+import 'package:example_design/theme/light_theme.dart';
+import 'package:example_design/theme/light_theme_extension.dart';
 import 'package:flutter/material.dart';
 
-export 'constants/colors.dart';
-export 'constants/text_styles.dart';
 
 class ExampleDesignTheme {
   static ThemeData get light => lightTheme;

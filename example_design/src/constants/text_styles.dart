@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 /// );
 ///
 
-class ExampleTextStyles {
+class DesignTextStyles {
   static const TextStyle semiboldInterText = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w500,
