@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:vader_manager/core/help.dart';
 import 'package:yaml/yaml.dart';
@@ -79,19 +80,26 @@ void processCommandsRecursively(
 Future<void> _runShellCommand(String command, List<String> arguments) async {
   stdout.writeln('Executing: $command ${arguments.join(" ")}\n');
   try {
-    final result = await Process.run(
+    final process = await Process.start(
       'bash',
       ['-c', "$command ${arguments.join(" ")}"],
       runInShell: true,
     );
 
-    stdout.write(result.stdout);
-    stderr.write(result.stderr);
+    process.stdout.transform(utf8.decoder).listen((data) {
+      stdout.write(data);
+    });
 
-    if (result.exitCode != 0) {
-      stderr.writeln('Command exited with code: ${result.exitCode}');
+    process.stderr.transform(utf8.decoder).listen((data) {
+      stderr.write(data);
+    });
+
+    final exitCode = await process.exitCode;
+
+    if (exitCode != 0) {
+      stderr.writeln('Command exited with code: $exitCode');
     }
   } catch (e) {
-    stderr.writeln('Failed to run "$command": $e');
+    stderr.writeln('Failed to run "$command ${arguments.join(" ")}": $e');
   }
 }

@@ -1,5 +1,10 @@
 vader:
   desc: "Root commands for our Vader CLI"
+  completions:
+    desc: "Generate shell autocomplete scripts"
+    zsh:
+      run: "vader completions zsh"
+      desc: "Generate zsh autocomplete scripts"
   init:
     cmd: "fvm flutter create --org com.yourdomain -t skeleton your_app_name"
     desc: "Creates a new Flutter project using a skeleton template"
