@@ -11,7 +11,7 @@ void main(List<String> args) {
     parser: CliArguments.parse,
     appInfo: AppInfo(
       name: "design_builder",
-      version: '0.1.0',
+      version: '1.0.0-dev.0',
       description: "Builder for build directory structure in vader design package.",
     ),
     app: (CliArguments args) {
