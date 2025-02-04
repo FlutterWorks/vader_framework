@@ -16,26 +16,26 @@ dependencies:
   mek_data_class: 1.4.0
 
   # Repository:
-  dio: 5.5.0+1
+  dio: 5.8.0+1
   auto_injector: 2.0.5
-  flutter_secure_storage: 9.2.2
-  internet_connection_checker: 1.0.0+1
+  flutter_secure_storage: 9.2.4
 
   # State Manager:
-  bloc: 8.1.4
-  flutter_bloc: 8.1.6
+  bloc: 9.0.0
+  flutter_bloc: 9.0.0
 
   # Logger:
-  talker: <=4.1.2             # Upgrade to higher version only after upgrade Java SDK to version 17
-  talker_dio_logger: <=4.1.2  # Upgrade to higher version only after upgrade Java SDK to version 17
+  talker: 4.6.7
+  talker_dio_logger: 4.6.7
 
   # Design:
   color_palette_plus: 1.0.0
 
   # Connection:
   #flutter_offline: 3.0.1
-  #internet_connection_checker: 1.0.0+1
+  simple_connection_checker: 0.3.4
+  #internet_connection_checker: 3.0.1
 
 dev_dependencies:
-  lints: 4.0.0
-  test: 1.24.0
+  lints: 5.1.1
+  test: 1.25.14

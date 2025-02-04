@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:simple_connection_checker/simple_connection_checker.dart';
 import 'package:vader/foundation/exceptions.dart';
 import 'package:vader/clients/logger.dart';
 
@@ -108,7 +108,7 @@ class HttpClient {
       }
       throw ServerException();
     } on DioException catch (e) {
-      bool result = await InternetConnectionChecker().hasConnection;
+      bool result = await SimpleConnectionChecker.isConnectedToInternet();
       if (!result) throw InternetConnectionException();
 
       if (e.response?.statusCode == 403) {
