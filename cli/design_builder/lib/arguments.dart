@@ -16,7 +16,7 @@ List<Command> commands = [
   Command(
     name: 'storybook',
     commandType: CommandType.option,
-    commandHelp: 'Path of storybook. ',
+    commandHelp: 'Path of storybook.',
   ),
   Command(
     flag: 'p',
@@ -28,7 +28,13 @@ List<Command> commands = [
     flag: 't',
     name: 'themes',
     commandType: CommandType.multipleOption,
-    commandHelp: 'List of themes. ',
+    commandHelp: 'List of themes.',
+  ),
+  Command(
+    flag: 'd',
+    name: 'devel',
+    commandType: CommandType.flag,
+    commandHelp: 'Enable development mode and save generated files into sandbox folder.',
   ),
   ...CoreCommands.list,
 ];
@@ -38,6 +44,7 @@ class CliArguments extends Arguments {
     required super.showVersion,
     required super.showHelp,
     required super.isVerbose,
+    this.isDevModeEnabled = false,
     this.source,
     this.output,
     this.storybook,
@@ -45,6 +52,7 @@ class CliArguments extends Arguments {
     this.themes,
   });
 
+  final bool isDevModeEnabled;
   final String? source;
   final String? output;
   final String? storybook;
@@ -57,6 +65,7 @@ class CliArguments extends Arguments {
       showHelp: results.wasParsed(CoreCommands.help.name),
       isVerbose: results.wasParsed(CoreCommands.verbose.name),
       showVersion: results.wasParsed(CoreCommands.version.name),
+      isDevModeEnabled: results.wasParsed("devel"),
       source: Arguments.getOptionOrNull(results, option: "source"),
       output: Arguments.getOptionOrNull(results, option: "output"),
       storybook: Arguments.getOptionOrNull(results, option: "storybook"),

@@ -14,17 +14,20 @@ void main(List<String> args) {
       version: '0.1.0',
       description: "Builder for build directory structure in vader design package.",
     ),
-    app: (args) {
+    app: (CliArguments args) {
       if (args.package == null) {
         print("You didn't fill package name.");
         print("You must add parameter: '-p <your_package_name>'\n");
         exit(1);
       }
 
+      final sandbox = args.isDevModeEnabled ? "sandbox/" : "";
+      if (args.isDevModeEnabled) print("Development mode is enabled!\n");
+
       DesignBuilder(
-        sourcePoint: args.source ?? 'src',
-        targetPoint: args.output ?? 'out',
-        storybookPoint: args.output ?? 'storybook',
+        sourcePoint: sandbox + (args.source ?? 'src'),
+        targetPoint: sandbox + (args.output ?? 'out'),
+        storybookPoint: sandbox + (args.output ?? 'storybook'),
         packageName: args.package!,
         themes: args.themes!,
       ).run();
