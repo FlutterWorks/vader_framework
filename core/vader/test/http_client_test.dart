@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:test/test.dart';
 import 'package:flutter/widgets.dart';
 import 'package:vader/framework.dart';
-import 'package:vader/global.dart';
+import 'package:vader/foundation/global.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

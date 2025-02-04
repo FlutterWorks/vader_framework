@@ -1,10 +1,8 @@
-library vader_data;
-
-export 'base_entity.dart';
-export 'exceptions.dart';
-export 'global.dart' hide setupInjector;
-export 'logger.dart';
-export 'repository.dart';
+export 'foundation/base_entity.dart';
+export 'foundation/exceptions.dart';
+export 'foundation/global.dart' hide setupInjector;
+export 'clients/logger.dart';
+export 'foundation/repository.dart';
 
 export 'clients/http_client.dart';
 export 'clients/secure_storage.dart';

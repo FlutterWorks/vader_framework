@@ -1,5 +1,5 @@
 import 'package:vader/framework.dart';
-import 'package:vader/global.dart';
+import 'package:vader/foundation/global.dart';
 
 setupData(Function() setupFakeData, {required bool useFakeData}) {
   final apiUrl = "https://dummyjson.com";
