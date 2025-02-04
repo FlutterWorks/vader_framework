@@ -27,7 +27,7 @@ import 'package:vader_manager/core/command.dart';
 
 Future<void> main(List<String> arguments) async {
   if (arguments.isNotEmpty && (arguments.first == '-v' || arguments.first == '--version')) {
-    stdout.writeln("Version: 0.1.0");
+    stdout.writeln("Version: 1.0.0-dev.0");
     exit(0);
   }
 
