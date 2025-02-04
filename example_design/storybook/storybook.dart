@@ -2,8 +2,7 @@ import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 
-import 'design/buttons/button.stories.dart';
-
+import 'all_stories.dart';
 
 Storybook storybook([List<Story>? stories]) {
   return Storybook(
@@ -31,10 +30,7 @@ Storybook storybook([List<Story>? stories]) {
       ),
     ),
     initialStory: stories?.first.name,
-    stories: stories ??
-        [
-          ...buttonStories,
-        ],
+    stories: stories ?? allStories,
   );
 }
 

@@ -14,6 +14,11 @@ List<Command> commands = [
     commandHelp: 'Path of generated code.',
   ),
   Command(
+    name: 'storybook',
+    commandType: CommandType.option,
+    commandHelp: 'Path of storybook. ',
+  ),
+  Command(
     flag: 'p',
     name: 'package',
     commandType: CommandType.option,
@@ -35,12 +40,14 @@ class CliArguments extends Arguments {
     required super.isVerbose,
     this.source,
     this.output,
+    this.storybook,
     this.package,
     this.themes,
   });
 
   final String? source;
   final String? output;
+  final String? storybook;
   final String? package;
   final List<String>? themes;
 
@@ -52,6 +59,7 @@ class CliArguments extends Arguments {
       showVersion: results.wasParsed(CoreCommands.version.name),
       source: Arguments.getOptionOrNull(results, option: "source"),
       output: Arguments.getOptionOrNull(results, option: "output"),
+      storybook: Arguments.getOptionOrNull(results, option: "storybook"),
       package: Arguments.getOptionOrNull(results, option: "package"),
       themes: Arguments.getMultipleOptionOrNull(results, option: "themes") ?? const ['light', 'dark'],
     );

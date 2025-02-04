@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:design_builder/builders/component_builder.dart';
+import 'package:design_builder/builders/storybook_builder.dart';
 import 'package:design_builder/builders/style_builder.dart';
 import 'package:design_builder/builders/theme_builder.dart';
 import 'package:recase/recase.dart';
@@ -9,12 +10,14 @@ class DesignBuilder {
   DesignBuilder({
     required this.sourcePoint,
     required this.targetPoint,
+    required this.storybookPoint,
     required this.packageName,
     required this.themes,
   });
 
   final String sourcePoint;
   final String targetPoint;
+  final String storybookPoint;
   final String packageName;
   final List<String> themes;
   final Set<String> _packages = {};
@@ -59,15 +62,15 @@ class DesignBuilder {
     });
   }
 
-  List<String> fileStructureProcess(List<String> filePaths) {
+  void fileStructureProcess(List<String> filePaths) {
     print("Building file structure...");
 
+    final storybookBuilder = StorybookBuilder(storybookPoint);
     final themeBuilder = ThemeBuilder(packageName, themes);
     final componentBuilder = ComponentBuilder(
       inputPath: inputDesignPath,
       outputPath: outputDesignPath,
     );
-    final List<String> packages = [];
 
     for (String filePath in filePaths) {
       final pathList = filePath.split('/');
@@ -89,13 +92,15 @@ class DesignBuilder {
           componentBuilder.buildStyle(path, name);
           _packages.add(_convertPathToPackage(filePath));
           break;
+        case 'story':
+          storybookBuilder.buildStory(path, name);
+          break;
         case 'theme':
           themeBuilder.addTheme(path, name);
       }
     }
     themeBuilder.buildThemeModes(inputPath: inputThemePath, outputPath: outputThemePath);
-
-    return packages;
+    storybookBuilder.buildAllStoriesList();
   }
 
   void exportPackageProcess(String inputPath, String outputPath) {

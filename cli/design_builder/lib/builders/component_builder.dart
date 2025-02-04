@@ -12,7 +12,6 @@ class ComponentBuilder {
   final String outputPath;
 
   void buildWidget(String path, String fileName) {
-
     ReCase name = ReCase(fileName);
     final designPathStyle = path
         .replaceFirst(inputPath, '')
@@ -36,6 +35,7 @@ class ComponentBuilder {
   void buildStyle(String path, String fileName) {
     ReCase name = ReCase(fileName);
     final file = File('$path/${name.snakeCase}.style.dart');
+
     var code = file
         .readAsStringSync()
         .replaceAll("@tailorMixinComponent", "\npart '${name.snakeCase}.style.tailor.dart';\n\n@tailorMixinComponent");

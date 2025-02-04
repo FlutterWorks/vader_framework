@@ -24,6 +24,7 @@ void main(List<String> args) {
       DesignBuilder(
         sourcePoint: args.source ?? 'src',
         targetPoint: args.output ?? 'out',
+        storybookPoint: args.output ?? 'storybook',
         packageName: args.package!,
         themes: args.themes!,
       ).run();
