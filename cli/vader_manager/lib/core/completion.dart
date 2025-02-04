@@ -35,7 +35,7 @@ String generateZshCompletions(YamlMap vaderSection) {
 
   final buffer = StringBuffer();
 
-  buffer.writeln(r'#compdef vader');
+  buffer.writeln(r'#compdef vader ./vader');
   buffer.writeln();
   buffer.writeln(r'_vader_cli_zsh_completions() {');
   buffer.writeln(r'  local context state state_descr line');
@@ -58,7 +58,7 @@ String generateZshCompletions(YamlMap vaderSection) {
   buffer.writeln(r'  path=()');
   buffer.writeln();
   buffer.writeln(r'  for (( i=1; i<=$CURRENT; i++ )); do');
-  buffer.writeln(r'    if [[ $words[$i] != "vader" ]]; then');
+  buffer.writeln(r'    if [[ $words[$i] != "vader" && $words[$i] != "./vader" ]]; then');
   buffer.writeln(r'      path+="$words[$i]"');
   buffer.writeln(r'    fi');
   buffer.writeln(r'  done');
@@ -87,7 +87,7 @@ String generateZshCompletions(YamlMap vaderSection) {
   buffer.writeln(r'  compadd -- $completions');
   buffer.writeln(r'}');
   buffer.writeln();
-  buffer.writeln(r'compdef _vader_cli_zsh_completions vader');
+  buffer.writeln(r'compdef _vader_cli_zsh_completions vader ./vader');
 
   return buffer.toString();
 }
