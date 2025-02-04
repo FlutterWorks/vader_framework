@@ -45,10 +45,12 @@ class StorybookBuilder {
     final clearPath = sourcePath.split('/design/').last;
     final storiesCode = _buildStoriesList(functions, clearPath, name);
 
+    String resultCode = "import 'package:vader/design.dart';\n$code\n\n$storiesCode";
+
     // Write result into storybook
     final outputFile = File('$outputStoriesPath$clearPath.stories.dart');
     Directory(outputFile.parent.path).createSync(recursive: true);
-    outputFile.writeAsStringSync('$code\n\n$storiesCode');
+    outputFile.writeAsStringSync(resultCode);
 
     _stories[clearPath] = fileName;
   }
