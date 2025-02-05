@@ -6,11 +6,11 @@ environment:
   sdk: '>=3.6.0 <4.0.0'
 
 dependencies:
-  dart_style: 3.0.1
-  recase: 4.1.0
+  dart_style: ^3.0.1
+  recase: ^4.1.0
   vader_cli:
     path: ../../core/vader_cli
 
 dev_dependencies:
-  lints: ^4.0.0
-  test: ^1.24.0
+  lints: ^5.0.0
+  test: ^1.25.14
