@@ -1,5 +1,5 @@
 import 'package:example_project/entities/user.dart';
-import 'package:vader/framework.dart';
+import 'package:vader/vader.dart';
 import 'package:example_project/logic/events/auth_events.dart';
 import 'package:example_project/logic/states/auth_state.dart';
 import 'package:example_project/repositories/auth_repository.dart';

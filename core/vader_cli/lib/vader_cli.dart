@@ -11,13 +11,13 @@ export 'commands.dart';
 export 'exceptions.dart';
 export 'args_parser.dart';
 
-void runCliApp<T extends Arguments>({
+Future<void> runCliApp<T extends Arguments>({
   required List<String> arguments,
   required List<Command> commands,
   required T Function(List<String>, List<Command>) parser,
   required AppInfo appInfo,
   required Function(T) app,
-}) {
+}) async {
   try {
     final args = parser(arguments, commands);
     if (args.showHelp) {
@@ -29,7 +29,7 @@ void runCliApp<T extends Arguments>({
     } else if (args.showVersion) {
       print("Version: ${appInfo.version}");
     } else {
-      app.call(args);
+      await app.call(args);
       exit(0);
     }
   } on MissingOptionException catch (error) {

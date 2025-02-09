@@ -1,6 +1,6 @@
 name: vader
 description: Framework for simplify development of Flutter apps
-version: 0.1.0
+version: 0.2.0
 
 environment:
   sdk: '>=3.6.0 <4.0.0'
@@ -9,31 +9,19 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # Common:
-  mocktail: ^1.0.4
-  freezed_annotation: ^2.4.4
-  json_annotation: ^4.9.0
-  mek_data_class: ^1.4.0
-
-  # Repository:
-  dio: ^5.8.0+1
-  auto_injector: ^2.0.5
-  flutter_secure_storage: ^9.2.4
+  vader_core:
+    path: ../vader_core
 
   # State Manager:
   bloc: ^9.0.0
   flutter_bloc: ^9.0.0
-
-  # Logger:
-  talker: ^4.6.7
-  talker_dio_logger: ^4.6.7
 
   # Design:
   color_palette_plus: ^1.0.0
 
   # Connection:
   #flutter_offline: 3.0.1
-  simple_connection_checker: ^0.3.4
+  #simple_connection_checker: ^0.3.4
   #internet_connection_checker: 3.0.1
 
 dev_dependencies:

@@ -1,4 +1,4 @@
-import 'package:vader/framework.dart';
+import 'package:vader/vader.dart';
 
 part 'user.freezed.dart';
 

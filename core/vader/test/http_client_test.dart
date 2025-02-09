@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:test/test.dart';
 import 'package:flutter/widgets.dart';
-import 'package:vader/framework.dart';
-import 'package:vader/foundation/global.dart';
+import 'package:test/test.dart';
+import 'package:vader/vader.dart';
+import 'package:vader_core/foundation/global.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

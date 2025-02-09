@@ -1,5 +1,5 @@
 import 'package:example_project/entities/product.dart';
-import 'package:vader/framework.dart';
+import 'package:vader/vader.dart';
 
 class ProductRepository {
   ProductRepository({required HttpClient httpClient}) {

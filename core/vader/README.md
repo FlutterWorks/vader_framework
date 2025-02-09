@@ -8,7 +8,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vader: ^0.1.0
+  vader: ^0.2.0
 ```
 
 Then run:
@@ -20,7 +20,7 @@ flutter pub get
 ## Usage:
 
 ```
-import 'package:vader/framework.dart';
+import 'package:vader/vader.dart';
 ```
 
 /*

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vader/design.dart';
+import 'package:vader/vader.dart';
 
 /*
 Name examples:

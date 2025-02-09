@@ -1,4 +1,4 @@
-import 'package:vader/framework.dart';
+import 'package:vader/vader.dart';
 import 'package:example_project/entities/user.dart';
 
 part 'auth_state.freezed.dart';
