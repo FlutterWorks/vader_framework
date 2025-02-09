@@ -1,3 +1,4 @@
+import 'package:example_project/entities/user.dart';
 import 'package:example_project/global.dart';
 import 'package:example_project/logic/bloc/auth_bloc.dart';
 import 'package:example_project/logic/events/auth_events.dart';
@@ -13,9 +14,16 @@ import 'mock_entities_data.dart';
 
 fakeData() {
   final httpClient = HttpClientMock();
-  setupInjector(httpClient: httpClient);
+  final secureStorage = SecureStorageMock();
+  setupInjector(httpClient: httpClient, secureStorage: secureStorage);
 
   when(() => httpClient.setHeader('authorization', any())).thenReturn(true);
+
+  when(() => secureStorage.saveMap(StorageKey.loggedUser.name, User.fromJson(userLoginResponse.data).toJson()))
+      .thenAnswer((i) => Future.value());
+
+  when(() => secureStorage.remove(StorageKey.loggedUser.name))
+      .thenAnswer((i) => Future.value());
 
   when(
     () => httpClient.request(

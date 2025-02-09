@@ -9,9 +9,13 @@ import 'mock_response_data.dart';
 
 fakeData() {
   final httpClient = HttpClientMock();
-  setupInjector(httpClient: httpClient);
+  final secureStorage = SecureStorageMock();
+  setupInjector(httpClient: httpClient, secureStorage: secureStorage);
 
   when(() => httpClient.setHeader('authorization', any())).thenReturn(true);
+
+  when(() => secureStorage.saveMap(StorageKey.loggedUser.name, User.fromJson(userLoginResponse.data).toJson()))
+      .thenAnswer((i) => Future.value());
 
   when(
     () => httpClient.request(

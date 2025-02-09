@@ -1,15 +1,14 @@
 import 'package:example_project/entities/product.dart';
 import 'package:vader/vader.dart';
 
-class ProductRepository {
-  ProductRepository({required HttpClient httpClient}) {
-    _httpClient = httpClient;
-  }
-
-  late final HttpClient _httpClient;
+class ProductRepository extends Repository {
+  ProductRepository({
+    required super.httpClient,
+    required super.secureStorage,
+  });
 
   Future<List<Product>> getProducts() async {
-    final response = await _httpClient.request(
+    final response = await httpClient.request(
       path: '/products',
       method: HttpMethod.get,
     );

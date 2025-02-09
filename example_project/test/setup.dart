@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:example_project/global.dart';
 import 'package:vader/vader.dart' hide setupInjector;
 
@@ -14,6 +16,7 @@ setupData(Function() setupFakeData, {required bool useFakeData}) {
         enableLogs: true,
         preventLargeResponses: false,
       ),
+      secureStorage: SecureStorage(path: Directory.systemTemp.path),
     );
   }
 }

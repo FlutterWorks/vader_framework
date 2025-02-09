@@ -1,21 +1,14 @@
 import 'package:vader/vader.dart';
 import 'package:example_project/entities/user.dart';
 
-class UserRepository {
+class UserRepository extends Repository {
   UserRepository({
-    required HttpClient httpClient,
-    /*required SecureStorage storage*/
-  }) {
-    _httpClient = httpClient;
-    //_storage = storage;
-  }
-
-  late final HttpClient _httpClient;
-
-  //late final SecureStorage _storage;
+    required super.httpClient,
+    required super.secureStorage,
+  });
 
   Future<User> getLoggedUser() async {
-    final response = await _httpClient.request(
+    final response = await httpClient.request(
       path: '/auth/me',
       method: HttpMethod.get,
     );
@@ -27,13 +20,11 @@ class UserRepository {
     return User(firstName: "John", lastName: "Doe", userName: userName);
   }
 
-/*
   Future<void> saveLoggedUser(User? user) {
     if (user != null) {
-      return _storage.saveMap(StorageKey.loggedUser.name, user.toJson());
+      return secureStorage.saveMap(StorageKey.loggedUser.name, user.toJson());
     } else {
-      return _storage.remove(StorageKey.loggedUser.name);
+      return secureStorage.remove(StorageKey.loggedUser.name);
     }
   }
-   */
 }
