@@ -4,12 +4,12 @@ import 'package:hive_ce/hive.dart';
 import 'package:mocktail/mocktail.dart';
 
 
-class SecureStorageMock extends Mock implements SecureStorage {}
+class StorageClientMock extends Mock implements StorageClient {}
 
-class SecureStorage {
+class StorageClient {
   late final Box _storage;
 
-  SecureStorage({String name = 'defaultBox', String? path}) {
+  StorageClient({String name = 'defaultBox', String? path}) {
     Hive.openBox(name, path: path).then((box) => _storage = box);
   }
 

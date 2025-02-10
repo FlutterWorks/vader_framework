@@ -14,8 +14,8 @@ import 'mock_entities_data.dart';
 
 fakeData() {
   final httpClient = HttpClientMock();
-  final secureStorage = SecureStorageMock();
-  setupInjector(httpClient: httpClient, secureStorage: secureStorage);
+  final secureStorage = StorageClientMock();
+  setupInjector(httpClient: httpClient, storageClient: secureStorage);
 
   when(() => httpClient.setHeader('authorization', any())).thenReturn(true);
 

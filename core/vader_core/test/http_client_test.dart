@@ -1,11 +1,15 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:vader_core/framework.dart';
 import 'package:vader_core/foundation/global.dart';
 
 void main() {
-  setupInjector(httpClient: HttpClient(apiUrl: "https://dummyjson.com", enableLogs: true, preventLargeResponses: false));
+  setupInjector(
+    httpClient: HttpClient(apiUrl: "https://dummyjson.com", enableLogs: true, preventLargeResponses: false),
+    storageClient: StorageClient(path: Directory.systemTemp.path),
+  );
   final httpClient = repositoryInjector.get<HttpClient>();
 
   test('HttpClient', () async {
@@ -17,5 +21,4 @@ void main() {
     final result = jsonEncode(response.data).toString();
     expect(result, '{"status":"ok","method":"GET"}');
   });
-
 }

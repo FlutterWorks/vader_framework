@@ -4,7 +4,7 @@ import 'package:vader/vader.dart';
 class ProductRepository extends Repository {
   ProductRepository({
     required super.httpClient,
-    required super.secureStorage,
+    required super.storageClient,
   });
 
   Future<List<Product>> getProducts() async {

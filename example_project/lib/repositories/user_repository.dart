@@ -4,7 +4,7 @@ import 'package:example_project/entities/user.dart';
 class UserRepository extends Repository {
   UserRepository({
     required super.httpClient,
-    required super.secureStorage,
+    required super.storageClient,
   });
 
   Future<User> getLoggedUser() async {
@@ -22,9 +22,9 @@ class UserRepository extends Repository {
 
   Future<void> saveLoggedUser(User? user) {
     if (user != null) {
-      return secureStorage.saveMap(StorageKey.loggedUser.name, user.toJson());
+      return storageClient.saveMap(StorageKey.loggedUser.name, user.toJson());
     } else {
-      return secureStorage.remove(StorageKey.loggedUser.name);
+      return storageClient.remove(StorageKey.loggedUser.name);
     }
   }
 }

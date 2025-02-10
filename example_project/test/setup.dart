@@ -16,7 +16,7 @@ setupData(Function() setupFakeData, {required bool useFakeData}) {
         enableLogs: true,
         preventLargeResponses: false,
       ),
-      secureStorage: SecureStorage(path: Directory.systemTemp.path),
+      storageClient: StorageClient(path: Directory.systemTemp.path),
     );
   }
 }

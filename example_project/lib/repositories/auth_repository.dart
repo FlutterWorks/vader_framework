@@ -10,7 +10,7 @@ class AuthRepository extends Repository {
   const AuthRepository({
     required this.userRepository,
     required super.httpClient,
-    required super.secureStorage,
+    required super.storageClient,
   });
 
   final UserRepository userRepository;

@@ -4,10 +4,10 @@ import 'package:vader_core/clients/secure_storage.dart';
 abstract class Repository {
   const Repository({
     required this.httpClient,
-    required this.secureStorage,
+    required this.storageClient,
   });
 
   final HttpClient httpClient;
 
-  final SecureStorage secureStorage;
+  final StorageClient storageClient;
 }

@@ -7,10 +7,13 @@ class MockInjector extends Mock implements AutoInjector {}
 
 AutoInjector repositoryInjector = AutoInjector();
 
-AutoInjector setupInjector({required HttpClient httpClient}) {
+AutoInjector setupInjector({
+  required HttpClient httpClient,
+  required StorageClient storageClient,
+}) {
   return repositoryInjector
-    ..addInstance(httpClient);
-    //..addSingleton(SecureStorage.new);
+    ..addInstance(httpClient)
+    ..addInstance(storageClient);
 }
 
 resetInjector() {
