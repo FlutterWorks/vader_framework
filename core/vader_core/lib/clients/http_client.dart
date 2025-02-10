@@ -11,7 +11,7 @@ enum HttpMethod { get, post, put, delete, head, options, patch }
 
 class HttpResponse {
   const HttpResponse(this.data);
-  
+
   final dynamic data;
 }
 
@@ -82,12 +82,23 @@ class HttpClient {
     required String path,
     required HttpMethod method,
     Object? data,
-    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? params,
     Map<String, dynamic>? headers,
   }) {
     final options = Options(headers: headers, method: method.name.toUpperCase());
     return _createRequest(
-      () => _dio.request(path, data: data, queryParameters: queryParameters, options: options),
+      () => _dio.request(path, data: data, queryParameters: params, options: options),
+      onSuccess: (data) async => HttpResponse(data),
+    );
+  }
+
+  Future<HttpResponse> fetch({
+    required String path,
+    Map<String, dynamic>? params,
+    Map<String, dynamic>? headers,
+  }) {
+    return _createRequest(
+      () => _dio.get(path, queryParameters: params, options: Options(headers: headers)),
       onSuccess: (data) async => HttpResponse(data),
     );
   }
