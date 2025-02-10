@@ -1,5 +1,5 @@
 import 'package:vader_core/clients/http_client.dart';
-import 'package:vader_core/clients/secure_storage.dart';
+import 'package:vader_core/clients/storage_client.dart';
 
 abstract class Repository {
   const Repository({

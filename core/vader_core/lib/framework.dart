@@ -5,7 +5,7 @@ export 'clients/logger.dart';
 export 'foundation/repository.dart';
 
 export 'clients/http_client.dart';
-export 'clients/secure_storage.dart';
+export 'clients/storage_client.dart';
 
 export 'package:freezed_annotation/freezed_annotation.dart';
 export 'package:json_annotation/json_annotation.dart';

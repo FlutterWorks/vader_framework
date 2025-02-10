@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:retry/retry.dart';
 import 'package:vader_core/clients/logger.dart';
-import 'package:vader_core/clients/secure_storage.dart';
+import 'package:vader_core/clients/storage_client.dart';
 import 'package:vader_core/foundation/exceptions.dart';
 
 class HttpClientMock extends Mock implements HttpClient {}
