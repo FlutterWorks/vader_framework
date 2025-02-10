@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:retry/retry.dart';
+import 'package:vader_core/clients/cache_client.dart';
 import 'package:vader_core/clients/logger.dart';
 import 'package:vader_core/clients/storage_client.dart';
 import 'package:vader_core/foundation/exceptions.dart';
@@ -12,11 +13,11 @@ class HttpClientMock extends Mock implements HttpClient {}
 
 enum HttpMethod { get, post, put, delete, head, options, patch }
 
-class Cache {
-  const Cache({required this.duration});
-
-  final Duration duration;
-}
+// class Cache {
+//   const Cache({required this.duration});
+//
+//   final Duration duration;
+// }
 
 class HttpResponse {
   const HttpResponse(this.data);

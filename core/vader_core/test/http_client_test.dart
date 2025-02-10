@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
+import 'package:vader_core/clients/cache_client.dart';
 import 'package:vader_core/framework.dart';
 import 'package:vader_core/foundation/global.dart';
 
