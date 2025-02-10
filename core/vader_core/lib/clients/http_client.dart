@@ -118,7 +118,8 @@ class HttpClient {
   }) async {
     if (enableCache != null) {
       final Map? data = await _cacheDb.getMap(path);
-      if (data != null && DateTime.now().millisecondsSinceEpoch < data['until_time']) {
+      final untilTime = DateTime.now().millisecondsSinceEpoch - enableCache.duration.inMilliseconds;
+      if (data != null && data['time'] > untilTime) {
         return HttpResponse(data['data']);
       }
     }
@@ -131,7 +132,7 @@ class HttpClient {
 
     if (enableCache != null) {
       _cacheDb.saveMap(path, {
-        'until_time': DateTime.now().add(enableCache.duration).millisecondsSinceEpoch,
+        'time': DateTime.now().millisecondsSinceEpoch,
         'data': response.data,
       });
     }

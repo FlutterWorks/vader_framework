@@ -54,7 +54,7 @@ void main() {
     await httpClient.cleanCache();
     response = await httpClient.fetch(
       path: '/test',
-      enableCache: Cache(duration: Duration(seconds: 1)),
+      enableCache: Cache(duration: Duration(seconds: 10)),
     );
     result = jsonEncode(response.data).toString();
     expect(result, '{"status":"ok","method":"GET"}');
