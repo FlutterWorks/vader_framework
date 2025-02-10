@@ -24,8 +24,8 @@ void main() {
     expect(result, '{"status":"ok","method":"GET"}');
   });
 
-  test('HttpClient fetch', () async {
-    print('\nHttpClient fetch:');
+  test('HttpClient fetch without cache', () async {
+    print('\nHttpClient fetch without cache:');
     final response = await httpClient.fetch(
       path: '/test',
     );

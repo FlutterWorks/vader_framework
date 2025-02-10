@@ -13,12 +13,6 @@ class HttpClientMock extends Mock implements HttpClient {}
 
 enum HttpMethod { get, post, put, delete, head, options, patch }
 
-// class Cache {
-//   const Cache({required this.duration});
-//
-//   final Duration duration;
-// }
-
 class HttpResponse {
   const HttpResponse(this.data);
 
@@ -117,28 +111,23 @@ class HttpClient {
     int? maxAttempts,
     Cache? enableCache,
   }) async {
-    if (enableCache != null) {
-      final Map? data = await _cacheDb.getMap(path);
-      final untilTime = DateTime.now().millisecondsSinceEpoch - enableCache.duration.inMilliseconds;
-      if (data != null && data['time'] > untilTime) {
-        return HttpResponse(data['data']);
-      }
+    Future<Map> makeRequest() {
+      return _createRequest(
+        () => _dio.get(path, queryParameters: params, options: Options(headers: headers)),
+        onSuccess: (data) => Future.value(data),
+        maxAttempts: maxAttempts,
+      );
     }
 
-    final HttpResponse response = await _createRequest(
-      () => _dio.get(path, queryParameters: params, options: Options(headers: headers)),
-      onSuccess: (data) async => HttpResponse(data),
-      maxAttempts: maxAttempts,
-    );
-
-    if (enableCache != null) {
-      _cacheDb.saveMap(path, {
-        'time': DateTime.now().millisecondsSinceEpoch,
-        'data': response.data,
-      });
+    final Map result;
+    if (enableCache == null) {
+      result = await makeRequest();
+    } else {
+      final cache = Cache(storageClient: _cacheDb, duration: enableCache.duration);
+      result = await cache.get(key: path, process: makeRequest);
     }
 
-    return response;
+    return HttpResponse(result);
   }
 
   Future<bool> _isConnectedToInternet([testAddress = 'google.com']) async {
