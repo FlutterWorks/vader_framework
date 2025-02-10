@@ -5,11 +5,18 @@ import 'package:dio/dio.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:retry/retry.dart';
 import 'package:vader_core/clients/logger.dart';
+import 'package:vader_core/clients/secure_storage.dart';
 import 'package:vader_core/foundation/exceptions.dart';
 
 class HttpClientMock extends Mock implements HttpClient {}
 
 enum HttpMethod { get, post, put, delete, head, options, patch }
+
+class Cache {
+  const Cache({required this.duration});
+
+  final Duration duration;
+}
 
 class HttpResponse {
   const HttpResponse(this.data);
@@ -19,6 +26,7 @@ class HttpResponse {
 
 class HttpClient {
   late final Dio _dio;
+  late final StorageClient _cacheDb;
 
   final String apiUrl;
   final bool enableLogs;
@@ -32,6 +40,7 @@ class HttpClient {
     this.maxAttempts = 3,
   }) {
     //logger.log('DeviceId: ${cached.deviceId}');
+    _cacheDb = StorageClient(name: 'httpCache', path: Directory.systemTemp.path);
     _dio = Dio(
       BaseOptions(
         baseUrl: apiUrl,
@@ -82,6 +91,8 @@ class HttpClient {
     }
   }
 
+  Future<int> cleanCache() => _cacheDb.removeAll();
+
   Future<HttpResponse> request({
     required String path,
     required HttpMethod method,
@@ -103,12 +114,30 @@ class HttpClient {
     Map<String, dynamic>? params,
     Map<String, dynamic>? headers,
     int? maxAttempts,
-  }) {
-    return _createRequest(
+    Cache? enableCache,
+  }) async {
+    if (enableCache != null) {
+      final Map? data = await _cacheDb.getMap(path);
+      final untilCacheTime = DateTime.now().subtract(enableCache.duration);
+      if (data != null && DateTime.parse(data['time']).isAfter(untilCacheTime)) {
+        return HttpResponse(data['data']);
+      }
+    }
+
+    final HttpResponse response = await _createRequest(
       () => _dio.get(path, queryParameters: params, options: Options(headers: headers)),
       onSuccess: (data) async => HttpResponse(data),
       maxAttempts: maxAttempts,
     );
+
+    if (enableCache != null) {
+      _cacheDb.saveMap(path, {
+        'time': DateTime.now().toString(),
+        'data': response.data,
+      });
+    }
+
+    return response;
   }
 
   Future<bool> _isConnectedToInternet([testAddress = 'google.com']) async {

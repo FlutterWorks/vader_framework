@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:hive_ce/hive.dart';
 import 'package:mocktail/mocktail.dart';
 
-
 class StorageClientMock extends Mock implements StorageClient {}
 
 class StorageClient {
@@ -11,6 +10,10 @@ class StorageClient {
 
   StorageClient({String name = 'defaultBox', String? path}) {
     Hive.openBox(name, path: path).then((box) => _storage = box);
+  }
+
+  Future<int> removeAll() async {
+    return _storage.clear();
   }
 
   Future<void> remove(String key) {
