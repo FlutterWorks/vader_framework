@@ -112,6 +112,7 @@ class HttpClient {
     Cache? enableCache,
   }) async {
     Future<Map> makeRequest() {
+      logger.debug('Make request: $path');
       return _createRequest(
         () => _dio.get(path, queryParameters: params, options: Options(headers: headers)),
         onSuccess: (data) => Future.value(data),
