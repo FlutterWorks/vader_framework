@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:retry/retry.dart';
 import 'package:vader_core/clients/logger.dart';
 import 'package:vader_core/foundation/exceptions.dart';
 
@@ -21,11 +23,13 @@ class HttpClient {
   final String apiUrl;
   final bool enableLogs;
   final bool preventLargeResponses;
+  final int maxAttempts;
 
   HttpClient({
     required this.apiUrl,
     required this.enableLogs,
     required this.preventLargeResponses,
+    this.maxAttempts = 3,
   }) {
     //logger.log('DeviceId: ${cached.deviceId}');
     _dio = Dio(
@@ -84,11 +88,13 @@ class HttpClient {
     Object? data,
     Map<String, dynamic>? params,
     Map<String, dynamic>? headers,
+    int? maxAttempts,
   }) {
     final options = Options(headers: headers, method: method.name.toUpperCase());
     return _createRequest(
       () => _dio.request(path, data: data, queryParameters: params, options: options),
       onSuccess: (data) async => HttpResponse(data),
+      maxAttempts: maxAttempts,
     );
   }
 
@@ -96,10 +102,12 @@ class HttpClient {
     required String path,
     Map<String, dynamic>? params,
     Map<String, dynamic>? headers,
+    int? maxAttempts,
   }) {
     return _createRequest(
       () => _dio.get(path, queryParameters: params, options: Options(headers: headers)),
       onSuccess: (data) async => HttpResponse(data),
+      maxAttempts: maxAttempts,
     );
   }
 
@@ -116,9 +124,15 @@ class HttpClient {
     Future<Response> Function() request, {
     required Future<T> Function(dynamic data) onSuccess,
     Future<ServerException?> Function(int? status, dynamic data)? onServerError,
+    int? maxAttempts,
   }) async {
     try {
-      final response = await request.call();
+      final response = await RetryOptions(maxAttempts: maxAttempts ?? this.maxAttempts).retry(
+        () => request.call(),
+        retryIf: (e) async => await _isConnectedToInternet() && (e is SocketException || e is TimeoutException),
+      );
+
+      //final response = await request.call();
       if (response.statusCode == 200 && response.data != null) {
         try {
           return await onSuccess(response.data);
