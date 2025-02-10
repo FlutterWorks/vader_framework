@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   theme_tailor_annotation: ^3.0.1
-  vader:
-    path: ../core/vader
+  vader_design:
+    path: ../core/vader_design
 
 dev_dependencies:
   flutter_test:

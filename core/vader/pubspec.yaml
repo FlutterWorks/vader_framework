@@ -12,12 +12,12 @@ dependencies:
   vader_core:
     path: ../vader_core
 
+  vader_design:
+    path: ../vader_design
+
   # State Manager:
   bloc: ^9.0.0
   flutter_bloc: ^9.0.0
-
-  # Design:
-  color_palette_plus: ^1.0.0
 
   # Connection:
   #flutter_offline: 3.0.1

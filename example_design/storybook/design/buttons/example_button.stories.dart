@@ -1,4 +1,4 @@
-import 'package:vader/vader.dart';
+import 'package:vader_design/vader_design.dart';
 import 'package:flutter/material.dart';
 import 'package:example_design/example_design.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
