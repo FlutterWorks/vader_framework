@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
 
+
+part 'my_button.style.tailor.dart';
+
 @tailorMixinComponent
-class ExampleButtonStyle {
-  const ExampleButtonStyle({
+class MyButtonStyle extends ThemeExtension<MyButtonStyle> with _$MyButtonStyleTailorMixin {
+  const MyButtonStyle({
     required this.color,
     required this.iconColor,
     required this.textStyle,

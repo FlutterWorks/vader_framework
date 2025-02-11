@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class ExampleButtonTheme {
-  static final light = ExampleButtonStyle(
+  static final light = MyButtonStyle(
     color: DesignColors.blue.shade700,
     iconColor: DesignColors.white,
     textStyle: DesignTextStyles.semiboldInterText.copyWith(
@@ -14,7 +14,7 @@ class ExampleButtonTheme {
     borderRadius: BorderRadius.circular(10),
   );
 
-  static final dark = ExampleButtonStyle(
+  static final dark = MyButtonStyle(
     color: DesignColors.blue.shade500,
     iconColor: DesignColors.white,
     textStyle: DesignTextStyles.semiboldInterText.copyWith(

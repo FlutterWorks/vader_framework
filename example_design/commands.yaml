@@ -13,6 +13,14 @@ vader:
     cmd: "fvm dart pub get"
     desc: "Updates Dart dependencies"
 
+  watch:
+    code:
+      cmd: "fvm dart run build_runner watch --delete-conflicting-outputs"
+      desc: "Runs code generation (build_runner)"
+    design:
+      cmd: "watch -n1 ./vader generate design"
+      desc: "Custom design builder"
+
   generate:
     desc: "Commands for code generation, assets, and more"
     code:

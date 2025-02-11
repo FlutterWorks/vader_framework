@@ -5,11 +5,13 @@ class ExampleButton extends StatelessWidget {
   const ExampleButton({
     super.key,
     required this.text,
+    this.icon,
     this.onTap,
     this.style,
   });
 
   final String text;
+  final IconData? icon;
   final GestureTapCallback? onTap;
   final ExampleButtonStyle? style;
 
@@ -24,8 +26,13 @@ class ExampleButton extends StatelessWidget {
           borderRadius: currentStyle.borderRadius,
           color: currentStyle.color,
         ),
-        child: Center(
-          child: Text(text, style: currentStyle.textStyle),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 4,
+          children: [
+            if (icon != null) Icon(icon!, color: currentStyle.iconColor,),
+            Text(text, style: currentStyle.textStyle),
+          ],
         ),
       ),
     );

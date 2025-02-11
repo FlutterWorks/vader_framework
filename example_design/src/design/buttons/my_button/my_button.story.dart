@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:example_design/example_design.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 
+
 //region Knobs
 String textKnob(BuildContext context) => context.knobs.text(label: 'Button text', initial: 'START!');
 
@@ -23,7 +24,7 @@ onTap() => debugPrint("Test click.");
 
 
 buttonStory(BuildContext context) {
-  return ExampleButton(
+  return MyButton(
     text: textKnobOptions(context),
     onTap: onTap,
     icon: Icons.add,
@@ -31,14 +32,14 @@ buttonStory(BuildContext context) {
 }
 
 createButtonStory(BuildContext context) {
-  return const ExampleButton(
+  return const MyButton(
     text: "Vytvořit",
     onTap: onTap,
   );
 }
 
 iconButtonStory(BuildContext context) {
-  return const ExampleButton(
+  return const MyButton(
     text: "Přidat",
     onTap: onTap,
     icon: Icons.add,
@@ -46,10 +47,10 @@ iconButtonStory(BuildContext context) {
 }
 
 customizedButtonStory(BuildContext context) {
-  return ExampleButton(
+  return MyButton(
     text: textKnobOptions(context),
     onTap: onTap,
-    style: ExampleButtonStyle(
+    style: MyButtonStyle(
       color: DesignColors.red300,
       iconColor: DesignColors.blue900,
       textStyle: const TextStyle(

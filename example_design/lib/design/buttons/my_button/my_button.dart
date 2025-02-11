@@ -1,9 +1,9 @@
 import 'package:example_design/design/design.theme.dart';
 import 'package:flutter/material.dart';
-import 'example_button.style.dart';
+import 'my_button.style.dart';
 
-class ExampleButton extends StatelessWidget {
-  const ExampleButton({
+class MyButton extends StatelessWidget {
+  const MyButton({
     super.key,
     required this.text,
     this.icon,
@@ -14,11 +14,11 @@ class ExampleButton extends StatelessWidget {
   final String text;
   final IconData? icon;
   final GestureTapCallback? onTap;
-  final ExampleButtonStyle? style;
+  final MyButtonStyle? style;
 
   @override
   Widget build(BuildContext context) {
-    final currentStyle = (style ?? context.designTheme.buttonsStyle.exampleButtonStyle);
+    final currentStyle = (style ?? context.designTheme.buttonsStyle.myButtonStyle);
     return GestureDetector(
       onTap: onTap,
       child: Container(

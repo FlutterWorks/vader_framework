@@ -8,12 +8,16 @@ part 'example_button.style.tailor.dart';
 class ExampleButtonStyle extends ThemeExtension<ExampleButtonStyle> with _$ExampleButtonStyleTailorMixin {
   const ExampleButtonStyle({
     required this.color,
+    required this.iconColor,
     required this.textStyle,
     required this.borderRadius,
   });
 
   @override
   final Color color;
+
+  @override
+  final Color iconColor;
 
   @override
   final TextStyle textStyle;

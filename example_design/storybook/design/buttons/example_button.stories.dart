@@ -23,10 +23,11 @@ onTap() => debugPrint("Test click.");
 //endregion
 
 
-defaultButtonStory(BuildContext context) {
+buttonStory(BuildContext context) {
   return ExampleButton(
     text: textKnobOptions(context),
     onTap: onTap,
+    icon: Icons.add,
   );
 }
 
@@ -37,12 +38,21 @@ createButtonStory(BuildContext context) {
   );
 }
 
+iconButtonStory(BuildContext context) {
+  return const ExampleButton(
+    text: "Přidat",
+    onTap: onTap,
+    icon: Icons.add,
+  );
+}
+
 customizedButtonStory(BuildContext context) {
   return ExampleButton(
     text: textKnobOptions(context),
     onTap: onTap,
     style: ExampleButtonStyle(
       color: DesignColors.red300,
+      iconColor: DesignColors.blue900,
       textStyle: const TextStyle(
         color: DesignColors.blue900,
         fontSize: 24,
@@ -57,15 +67,21 @@ customizedButtonStory(BuildContext context) {
 final List<Story> exampleButtonStories = [
   Story(
     tags: const ['buttons', 'exampleButton'],
-    name: 'Buttons/ExampleButton/DefaultButton',
+    name: 'Buttons/ExampleButton/Button',
     goldenPathBuilder: (c) => goldenTestPathBuilder(c),
-    builder: (c) => defaultButtonStory(c),
+    builder: (c) => buttonStory(c),
   ),
   Story(
     tags: const ['buttons', 'exampleButton'],
     name: 'Buttons/ExampleButton/CreateButton',
     goldenPathBuilder: (c) => goldenTestPathBuilder(c),
     builder: (c) => createButtonStory(c),
+  ),
+  Story(
+    tags: const ['buttons', 'exampleButton'],
+    name: 'Buttons/ExampleButton/IconButton',
+    goldenPathBuilder: (c) => goldenTestPathBuilder(c),
+    builder: (c) => iconButtonStory(c),
   ),
   Story(
     tags: const ['buttons', 'exampleButton'],
