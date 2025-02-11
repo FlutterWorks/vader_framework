@@ -1,12 +1,17 @@
 import 'package:talker/talker.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
+export 'package:talker/talker.dart' show LogLevel;
 
 final logger = Logger.get;
 
 class Logger {
   late final Talker _talker;
 
-  static final Logger _instance = Logger._internal();
+  static Logger get get => Logger._internal();
+
+  final TalkerLogger _talkerLogger = TalkerLogger(
+    filter: LogLevelFilter(LogLevel.verbose),
+  );
 
   Logger._internal() {
     _talker = Talker(
@@ -15,10 +20,15 @@ class Logger {
         useConsoleLogs: true,
         enabled: true,
       ),
+      logger: _talkerLogger,
     );
   }
 
-  static Logger get get => _instance;
+  setLogLevel(LogLevel level) {
+    _talker.configure(
+      logger: _talkerLogger.copyWith(filter: LogLevelFilter(level)),
+    );
+  }
 
   void debug(String msg, {Object? exception, StackTrace? stackTrace}) {
     return _talker.debug(msg, exception, stackTrace);
@@ -63,4 +73,3 @@ class Logger {
     );
   }
 }
-

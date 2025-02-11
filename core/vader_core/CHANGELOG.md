@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Cache client for results after performant processes
 - Cache for HttpClient
+- Update LogLevel in Logger
   
 ### Changed
 - hive_ce instead of flutter_secure_storage 
