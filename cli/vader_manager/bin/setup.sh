@@ -4,7 +4,7 @@ script_version=1.0.0
 
 cd $(dirname $(realpath "$0"))
 
-app_name="design_builder"
+app_name="vader"
 
 compilation () {
   dart compile exe ../lib/main.dart -o ../bin/$app_name
@@ -12,7 +12,8 @@ compilation () {
 
 installation () {
   cp ../bin/$app_name ~/.local/bin/
-  cp ../bin/$app_name ../../../example_design/bin/
+  cp ../bin/$app_name ../../../example_design/
+  cp ../bin/$app_name ../../../example_project/
 }
 
 
@@ -46,4 +47,3 @@ if [ "$1" = "install" ] || [ "$2" = "install" ] || [ "$1" = "--install" ] || [ "
   installation
   echo "Success install"
 fi
-
