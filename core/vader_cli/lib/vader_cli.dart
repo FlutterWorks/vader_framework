@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:vader_cli/app_info.dart';
 import 'package:vader_cli/commands.dart';
+import 'package:vader_cli/path.dart';
 
 import 'args_parser.dart';
 import 'exceptions.dart';
@@ -49,3 +50,5 @@ showHelp(List<Command> commands) {
   print("\nUsage:");
   print(Arguments.getUsage(commands));
 }
+
+final path = Path();

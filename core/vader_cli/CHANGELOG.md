@@ -1,6 +1,6 @@
 ## 1.0.0-dev.1
 
-- Add utils.
+- Add path.
   
 ## 1.0.0-dev.0
 
