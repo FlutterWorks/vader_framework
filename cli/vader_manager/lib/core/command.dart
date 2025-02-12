@@ -83,8 +83,11 @@ Future<void> _runShellCommand(String command, List<String> arguments) async {
     final process = await Process.start(
       'bash',
       ['-c', "$command ${arguments.join(" ")}"],
+      mode: ProcessStartMode.inheritStdio,
       runInShell: true,
     );
+
+    stdin.pipe(process.stdin);
 
     process.stdout.transform(utf8.decoder).listen((data) {
       stdout.write(data);

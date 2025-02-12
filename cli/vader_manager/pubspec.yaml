@@ -1,6 +1,6 @@
 name: vader_manager
 description: CLI Manager for Vader framework.
-version: 0.1.0
+version: 1.0.0-dev.1
 
 environment:
   sdk: '>=3.6.0 <4.0.0'
