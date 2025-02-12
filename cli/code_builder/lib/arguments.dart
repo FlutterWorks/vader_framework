@@ -41,8 +41,8 @@ class CliArguments extends Arguments {
 
   final String type;
   final String package;
-  final String name;
-  final String output;
+  final String? name;
+  final String? output;
 
   static CliArguments parse(List<String> arguments, List<Command> commands) {
     final results = ArgumentParser(commands).parse(arguments);
@@ -52,8 +52,8 @@ class CliArguments extends Arguments {
       showVersion: results.wasParsed(CoreCommands.version.name),
       type: Arguments.getOptionOrThrow(results, option: "type"),
       package: Arguments.getOptionOrThrow(results, option: "package"),
-      name: Arguments.getOptionOrThrow(results, option: "name"),
-      output: Arguments.getOptionOrThrow(results, option: "output"),
+      name: Arguments.getOptionOrNull(results, option: "name"),
+      output: Arguments.getOptionOrNull(results, option: "output"),
     );
   }
 }
