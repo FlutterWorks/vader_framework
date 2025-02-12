@@ -1,6 +1,6 @@
 name: vader_cli
 description: Vader package for build cli programs.
-version: 1.0.0-dev.1
+version: 1.0.0-dev.2
 
 environment:
   sdk: '>=3.6.0 <4.0.0'
