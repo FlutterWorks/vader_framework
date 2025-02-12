@@ -5,7 +5,7 @@ enum CoreCommands {
     flag: 'h',
     name: 'help',
     commandType: CommandType.flag,
-    commandHelp: 'Print this usage information.',
+    commandHelp: 'Print help information.',
   )),
   verbose(Command(
     flag: 'V',
@@ -17,7 +17,7 @@ enum CoreCommands {
     flag: 'v',
     name: 'version',
     commandType: CommandType.flag,
-    commandHelp: 'Print the tool version.',
+    commandHelp: 'Print program version.',
   ));
 
   const CoreCommands(this.command);

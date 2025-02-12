@@ -6,11 +6,6 @@ void main(List<String> args) {
     arguments: args,
     commands: commands,
     parser: CliArguments.parse,
-    appInfo: AppInfo(
-      name: "Project test",
-      version: '1.3.2',
-      description: "This is simple description of my program.",
-    ),
     app: (args) {
       print("Main part of my app...");
       print("Message: ${args.message}");

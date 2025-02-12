@@ -18,16 +18,15 @@ Future<void> runCliApp<T extends Arguments>({
   required List<String> arguments,
   required List<Command> commands,
   required T Function(List<String>, List<Command>) parser,
-  required AppInfo appInfo,
   required Function(T) app,
 }) async {
   try {
+    final appInfo = AppInfo();
     final args = parser(arguments, commands);
     if (args.showHelp) {
-      print(appInfo.name);
-      if (appInfo.description != null) {
-        print(appInfo.description);
-      }
+      print('Name: ${appInfo.name}');
+      print('Description: ${appInfo.description}');
+
       showHelp(commands);
     } else if (args.showVersion) {
       print("Version: ${appInfo.version}");

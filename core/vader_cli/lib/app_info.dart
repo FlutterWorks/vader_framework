@@ -1,17 +1,7 @@
-import 'dart:io';
-
 class AppInfo {
-  const AppInfo({
-    required this.name,
-    this.description,
-    required this.version,
-  });
+  String version = const String.fromEnvironment('version');
 
-  String get appPath => Directory.current.path;
+  String name = const String.fromEnvironment('name');
 
-  final String version;
-
-  final String name;
-
-  final String? description;
+  String description = const String.fromEnvironment('description');
 }
