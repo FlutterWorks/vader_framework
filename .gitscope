@@ -2,8 +2,11 @@ vader
 vader_cli
 vader_core
 vader_design
-vader_manager
 vader_app_info
+
+code_builder
 design_builder
+vader_manager
+
 example_design
 example_project
