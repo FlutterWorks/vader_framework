@@ -9,11 +9,6 @@ void main(List<String> args) {
     arguments: args,
     commands: commands,
     parser: CliArguments.parse,
-    appInfo: AppInfo(
-      name: "Code Builder",
-      version: '0.1.0',
-      description: "This is simple description of my program.",
-    ),
     app: (args) async {
       final String projectRoot = path.script.parent.path;
       final pubspecExists = File(path.join(projectRoot, 'pubspec.yaml')).existsSync();

@@ -9,11 +9,6 @@ void main(List<String> args) {
     arguments: args,
     commands: commands,
     parser: CliArguments.parse,
-    appInfo: AppInfo(
-      name: "design_builder",
-      version: '1.0.0-dev.0',
-      description: "Builder for build directory structure in vader design package.",
-    ),
     app: (CliArguments args) {
       if (args.package == null) {
         print("You didn't fill package name.");

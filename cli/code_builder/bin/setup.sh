@@ -3,16 +3,38 @@
 script_version=1.0.0
 
 cd $(dirname $(realpath "$0"))
+cd ..
 
-app_name="code_builder"
+project_root=$(pwd)
+pubspec_file=pubspec.yaml
+
+if [[ ! -f "$pubspec_file" ]]; then
+  echo "Cannot find pubspec.yaml file in path: $project_root"
+  exit 1
+fi
+
+app_name=$(grep -E '^name:' "$pubspec_file" | sed 's/name: //')
+app_description=$(grep -E '^description:' "$pubspec_file" | sed 's/description: //')
+app_version=$(grep -E '^version:' "$pubspec_file" | sed 's/version: //')
+
+echo "Name: $app_name"
+echo "Description: $app_description"
+echo "Version: $app_version"
+echo ""
+
 
 compilation () {
-  dart compile exe ../lib/main.dart -o ../bin/$app_name
+  dart compile exe \
+    "$project_root/lib/main.dart" \
+    -D name="$app_name" \
+    -D version="$app_version" \
+    -D description="$app_description" \
+    -o "$project_root/bin/$app_name"
 }
 
 installation () {
-  cp ../bin/$app_name ~/.local/bin/
-  cp ../bin/$app_name ../../../example_design/bin/
+  cp $project_root/bin/$app_name ~/.local/bin/
+  cp $project_root/bin/$app_name ../../example_design/bin/
 }
 
 
