@@ -7,8 +7,10 @@ import 'package:vader_cli/path.dart';
 import 'args_parser.dart';
 import 'exceptions.dart';
 
+export 'path.dart';
 export 'app_info.dart';
 export 'commands.dart';
+export 'user_input.dart';
 export 'exceptions.dart';
 export 'args_parser.dart';
 

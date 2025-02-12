@@ -1,6 +1,7 @@
 ## 1.0.0-dev.1
 
-- Add path.
+- Add path
+- Add UserInput
   
 ## 1.0.0-dev.0
 
