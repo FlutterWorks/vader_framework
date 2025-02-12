@@ -13,10 +13,10 @@ vader:
     cmd: "fvm dart pub get"
     desc: "Updates Dart dependencies"
 
-  # create:
-  #   component:
-  #     cmd: "mason make vader_component"
-  #     desc: "Create new component"
+  create:
+    component:
+      cmd: "./bin/code_builder -t component -p example_design"
+      desc: "Create new component"
 
   watch:
     code:

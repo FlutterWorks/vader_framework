@@ -1,11 +1,7 @@
 export 'package:example_design/design/design.theme.dart';
 export 'package:example_design/design/buttons/buttons.style.dart';
-export 'package:example_design/design/buttons/example_button/example_button.style.dart';
-export 'package:example_design/design/buttons/example_button/example_button.dart';
 export 'package:example_design/design/buttons/my_button/my_button.style.dart';
 export 'package:example_design/design/buttons/my_button/my_button.dart';
-export 'package:example_design/design/buttons/test_button/test_button.dart';
-export 'package:example_design/design/buttons/test_button/test_button.style.dart';
 export 'package:example_design/constants/colors.dart';
 export 'package:example_design/constants/text_styles.dart';
 
