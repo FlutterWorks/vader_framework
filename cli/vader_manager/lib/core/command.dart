@@ -83,7 +83,7 @@ Future<void> _runShellCommand(String command, List<String> arguments) async {
     final process = await Process.start(
       'bash',
       ['-c', "$command ${arguments.join(" ")}"],
-      mode: ProcessStartMode.inheritStdio,
+      //mode: ProcessStartMode.inheritStdio,
       runInShell: true,
     );
 
