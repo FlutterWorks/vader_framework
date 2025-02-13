@@ -1,4 +1,3 @@
-import 'package:vader_design/vader_design.dart';
 import 'package:flutter/material.dart';
 import 'package:example_design/example_design.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
@@ -24,34 +23,34 @@ onTap() => debugPrint("Test click.");
 //endregion
 
 
-buttonStory(BuildContext context) {
-  return MyButton(
+exampleButtonStory(BuildContext context) {
+  return ExampleButton(
     text: textKnobOptions(context),
     onTap: onTap,
     icon: Icons.add,
   );
 }
 
-createButtonStory(BuildContext context) {
-  return const MyButton(
+createExampleButtonStory(BuildContext context) {
+  return const ExampleButton(
     text: "Vytvořit",
     onTap: onTap,
   );
 }
 
-iconButtonStory(BuildContext context) {
-  return const MyButton(
+iconExampleButtonStory(BuildContext context) {
+  return const ExampleButton(
     text: "Přidat",
     onTap: onTap,
     icon: Icons.add,
   );
 }
 
-customizedButtonStory(BuildContext context) {
-  return MyButton(
+customizedExampleButtonStory(BuildContext context) {
+  return ExampleButton(
     text: textKnobOptions(context),
     onTap: onTap,
-    style: MyButtonStyle(
+    style: ExampleButtonStyle(
       color: DesignColors.red300,
       iconColor: DesignColors.blue900,
       textStyle: const TextStyle(
@@ -63,31 +62,3 @@ customizedButtonStory(BuildContext context) {
   );
 }
 
-
-
-final List<Story> myButtonStories = [
-  Story(
-    tags: const ['buttons', 'myButton'],
-    name: 'Buttons/MyButton/Button',
-    goldenPathBuilder: (c) => goldenTestPathBuilder(c),
-    builder: (c) => buttonStory(c),
-  ),
-  Story(
-    tags: const ['buttons', 'myButton'],
-    name: 'Buttons/MyButton/CreateButton',
-    goldenPathBuilder: (c) => goldenTestPathBuilder(c),
-    builder: (c) => createButtonStory(c),
-  ),
-  Story(
-    tags: const ['buttons', 'myButton'],
-    name: 'Buttons/MyButton/IconButton',
-    goldenPathBuilder: (c) => goldenTestPathBuilder(c),
-    builder: (c) => iconButtonStory(c),
-  ),
-  Story(
-    tags: const ['buttons', 'myButton'],
-    name: 'Buttons/MyButton/CustomizedButton',
-    goldenPathBuilder: (c) => goldenTestPathBuilder(c),
-    builder: (c) => customizedButtonStory(c),
-  ),
-];

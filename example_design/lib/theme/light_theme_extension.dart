@@ -3,7 +3,7 @@ import 'package:example_design/example_design.dart';
 
 DesignTheme get lightDesignThemeExtension => DesignTheme(
   buttonsStyle: ButtonsStyle(
-    myButtonStyle: MyButtonStyle(
+    exampleButtonStyle: ExampleButtonStyle(
       color: DesignColors.blue.shade700,
       iconColor: DesignColors.white,
       textStyle: DesignTextStyles.semiboldInterText.copyWith(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'my_button.style.dart';
+import 'example_button.style.dart';
 
-class MyButton extends StatelessWidget {
-  const MyButton({
+class ExampleButton extends StatelessWidget {
+  const ExampleButton({
     super.key,
     required this.text,
     this.icon,
@@ -13,7 +13,7 @@ class MyButton extends StatelessWidget {
   final String text;
   final IconData? icon;
   final GestureTapCallback? onTap;
-  final MyButtonStyle? style;
+  final ExampleButtonStyle? style;
 
   @override
   Widget build(BuildContext context) {
