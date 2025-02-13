@@ -10,13 +10,14 @@ Run command: `bin/setup.sh install`
 
 ## Usage:
 ```
--t, --type       Type of created code.
--n, --name       Component name.
--p, --package    Package name.
--o, --output     Output directory.
--h, --help       Print this usage information.
--V, --verbose    Show additional command output.
--v, --version    Print the tool version.
+-t, --type         Type of created code.
+-n, --name         Component name.
+-p, --package      Package name.
+-d, --directory    Root directory for output.
+-o, --output       Output directory.
+-h, --help         Print help information.
+-V, --verbose      Show additional command output.
+-v, --version      Print program version.
 ```
 
 

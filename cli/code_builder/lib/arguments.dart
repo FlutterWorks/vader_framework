@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:vader_cli/vader_cli.dart';
 
 List<Command> commands = [
@@ -20,6 +22,12 @@ List<Command> commands = [
     commandHelp: 'Package name.',
   ),
   Command(
+    flag: 'd',
+    name: 'directory',
+    commandType: CommandType.option,
+    commandHelp: 'Root directory for output.',
+  ),
+  Command(
     flag: 'o',
     name: 'output',
     commandType: CommandType.option,
@@ -37,12 +45,14 @@ class CliArguments extends Arguments {
     required this.package,
     required this.name,
     required this.output,
+    required this.rootDirectoryPath,
   });
 
   final String type;
   final String package;
   final String? name;
   final String? output;
+  final String rootDirectoryPath;
 
   static CliArguments parse(List<String> arguments, List<Command> commands) {
     final results = ArgumentParser(commands).parse(arguments);
@@ -54,6 +64,7 @@ class CliArguments extends Arguments {
       package: Arguments.getOptionOrThrow(results, option: "package"),
       name: Arguments.getOptionOrNull(results, option: "name"),
       output: Arguments.getOptionOrNull(results, option: "output"),
+      rootDirectoryPath: Arguments.getOptionOrNull(results, option: "directory") ?? Directory.current.path,
     );
   }
 }
