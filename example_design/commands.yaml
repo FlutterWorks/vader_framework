@@ -15,7 +15,7 @@ vader:
 
   create:
     component:
-      cmd: "./bin/code_builder -t component -p example_design"
+      cmd: "./bin/code_builder -t component -p example_design -d src/design/"
       desc: "Create new component"
 
   watch:
