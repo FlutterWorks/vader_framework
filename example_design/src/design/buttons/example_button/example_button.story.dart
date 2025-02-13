@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:example_design/example_design.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 
-
 //region Knobs
 String textKnob(BuildContext context) => context.knobs.text(label: 'Button text', initial: 'START!');
 
@@ -22,43 +21,88 @@ String textKnobOptions(BuildContext context) => context.knobs.options(
 onTap() => debugPrint("Test click.");
 //endregion
 
-
 exampleButtonStory(BuildContext context) {
   return ExampleButton(
     text: textKnobOptions(context),
     onTap: onTap,
-    icon: Icons.add,
   );
 }
 
-createExampleButtonStory(BuildContext context) {
-  return const ExampleButton(
+createPrimaryLargeExampleButtonStory(BuildContext context) {
+  return ExampleButton(
     text: "Vytvořit",
     onTap: onTap,
   );
 }
 
-iconExampleButtonStory(BuildContext context) {
-  return const ExampleButton(
-    text: "Přidat",
-    onTap: onTap,
-    icon: Icons.add,
-  );
-}
-
-customizedExampleButtonStory(BuildContext context) {
+iconPrimaryLargeExampleButtonStory(BuildContext context) {
   return ExampleButton(
-    text: textKnobOptions(context),
+    text: "Zúčastním se",
     onTap: onTap,
-    style: ExampleButtonStyle(
-      color: DesignColors.red300,
-      iconColor: DesignColors.blue900,
-      textStyle: const TextStyle(
-        color: DesignColors.blue900,
-        fontSize: 24,
-      ),
-      borderRadius: BorderRadius.circular(5),
-    ),
+    leadingIcon: Icons.add,
   );
 }
 
+iconPrimarySmallExampleButtonStory(BuildContext context) {
+  return const ExampleButton(
+    text: "Sdílet",
+    onTap: onTap,
+    leadingIcon: Icons.add,
+    size: ButtonSize.small,
+  );
+}
+
+iconOutlinedLargeExampleButtonStory(BuildContext context) {
+  return ExampleButton(
+    text: "Zobrazit na mapě",
+    onTap: onTap,
+    leadingIcon: Icons.add,
+    variant: ButtonVariant.outlined,
+  );
+}
+
+iconOutlinedLargeErrorExampleButtonStory(BuildContext context) {
+  return ExampleButton(
+    text: "Zobrazit na mapě",
+    onTap: onTap,
+    leadingIcon: Icons.add,
+    variant: ButtonVariant.outlined,
+    indicator: ButtonIndicator.error,
+  );
+}
+
+iconOutlinedSmallExampleButtonStory(BuildContext context) {
+  return const ExampleButton(
+    text: "Poslat zprávu",
+    onTap: onTap,
+    leadingIcon: Icons.add,
+    size: ButtonSize.small,
+  );
+}
+
+iconPrimaryMediumExampleButtonStory(BuildContext context) {
+  return const ExampleButton(
+    text: "Jít vyhledávat",
+    onTap: onTap,
+    leadingIcon: Icons.add,
+    size: ButtonSize.medium,
+  );
+}
+
+iconLeadingLinkMediumExampleButtonStory(BuildContext context) {
+  return const ExampleButton(
+    text: "Přidat událost",
+    onTap: onTap,
+    leadingIcon: Icons.add,
+    size: ButtonSize.medium,
+  );
+}
+
+iconTrailingLinkMediumExampleButtonStory(BuildContext context) {
+  return const ExampleButton(
+    text: "Detail",
+    onTap: onTap,
+    trailingIcon: Icons.add,
+    size: ButtonSize.medium,
+  );
+}

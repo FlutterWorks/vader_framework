@@ -1,15 +1,50 @@
-import 'package:example_design/example_design.dart';
+import 'package:example_design/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:vader_design/vader_design.dart';
 
 /*
   ThemeData and DesignTheme MUST be getters due to dynamic change during hot-reload!!
  */
 ShadThemeData get lightTheme => ShadThemeData(
-  brightness: Brightness.dark,
-  colorScheme: const ShadSlateColorScheme.light(),
-  primaryButtonTheme: ShadButtonTheme(backgroundColor: Color(0xff5e71ff)),
-  extensions: [lightDesignThemeExtension],
-);
+      brightness: Brightness.light,
+      radius: BorderRadius.circular(10),
+      colorScheme: ShadBlueColorScheme.light(
+        primary: DesignColors.blue400,
+        border: DesignColors.blue400,
+        background: DesignColors.grey200,
+      ),
+      textTheme: ShadTextTheme(family: 'Inter'),
+      //primaryButtonTheme: ShadButtonTheme(),
+      outlineButtonTheme: ShadButtonTheme(
+        hoverForegroundColor: DesignColors.blue400,
+        backgroundColor: DesignColors.blue100,
+        decoration: ShadDecoration(
+          border: ShadBorder.all(
+            width: 3,
+            color: DesignColors.blue400,
+            radius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+      buttonSizesTheme: ShadButtonSizesTheme(
+        sm: ShadButtonSizeTheme(
+          height: 30,
+          width: 132,
+          padding: EdgeInsets.zero,
+        ),
+        regular: ShadButtonSizeTheme(
+          height: 36,
+          width: 145,
+          padding: EdgeInsets.zero,
+        ),
+        lg: ShadButtonSizeTheme(
+          height: 42,
+          width: 330,
+          padding: EdgeInsets.zero,
+        ),
+      ),
+      extensions: [lightDesignThemeExtension],
+    );
 
 get lightDesignThemeExtension {}

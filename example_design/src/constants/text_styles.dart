@@ -12,9 +12,21 @@ import 'package:flutter/material.dart';
 ///
 
 class DesignTextStyles {
-  static const TextStyle semiboldInterText = TextStyle(
+  static const TextStyle semiboldInter12Text = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w500,
-    fontStyle: FontStyle.normal,
+    fontSize: 12,
+  );
+
+  static const TextStyle boldInter12Text = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12,
+    fontWeight: FontWeight.w800,
+  );
+
+  static const TextStyle semiboldInter16Text = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
   );
 }
