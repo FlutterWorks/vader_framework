@@ -50,3 +50,5 @@ pubspec_overrides.yaml
 *.tailor.dart
 
 lib/
+storybook/design/
+storybook/all_stories.dart
