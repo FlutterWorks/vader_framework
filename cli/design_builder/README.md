@@ -20,7 +20,7 @@ Run command: `bin/build.sh`
 
 ## Example
 ```
-dart lib/main.dart -p example_design
+dart lib/main.dart -d -p example_design -s src -o out 
 ```
 
 

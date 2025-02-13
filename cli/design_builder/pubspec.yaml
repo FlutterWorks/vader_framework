@@ -1,6 +1,6 @@
 name: design_builder
 description: Builder for build directory structure in vader design package.
-version: 1.0.0-dev.0
+version: 1.0.0-dev.1
 
 environment:
   sdk: '>=3.6.0 <4.0.0'

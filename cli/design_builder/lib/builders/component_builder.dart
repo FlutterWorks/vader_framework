@@ -27,8 +27,8 @@ class ComponentBuilder {
 
     code = "import 'package:example_design/design/design.theme.dart';\n$code";
 
-    path = path.replaceFirst(inputPath, '').replaceFirst(name.snakeCase, '');
-    final outputFile = File('$outputPath$path${name.snakeCase}/${name.snakeCase}.dart');
+    path = Directory(path.replaceFirst(inputPath, '')).parent.path;
+    final outputFile = File('$outputPath$path/${name.snakeCase}/${name.snakeCase}.dart');
     outputFile.writeAsStringSync(code);
   }
 
@@ -44,13 +44,14 @@ class ComponentBuilder {
         ' {', ' extends ThemeExtension<${name.pascalCase}Style> with _\$${name.pascalCase}StyleTailorMixin {');
     code = code.replaceAll(classLine, replaceClassLine);
 
-    path = path.replaceFirst(inputPath, '').replaceFirst(name.snakeCase, '');
+    path = Directory(path.replaceFirst(inputPath, '')).parent.path;
 
     if (path == 'src/' || path == 'src/design') path = '';
     if (name.snakeCase == 'design') fileName = '';
 
-    final outputFile =
-        File('$outputPath$path${name.snakeCase == 'design' ? '' : '${name.snakeCase}/'}/${name.snakeCase}.style.dart');
+    final fullPath =
+        '$outputPath$path/${name.snakeCase == 'design' ? '' : name.snakeCase}/${name.snakeCase}.style.dart';
+    final outputFile = File(fullPath);
     outputFile.writeAsStringSync(code);
   }
 }
