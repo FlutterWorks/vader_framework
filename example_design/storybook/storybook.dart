@@ -1,5 +1,6 @@
 import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 
 import 'all_stories.dart';
@@ -7,7 +8,7 @@ import 'all_stories.dart';
 Storybook storybook([List<Story>? stories]) {
   return Storybook(
     wrapperBuilder: (context, child) {
-      return MaterialApp(
+      return ShadApp(
         debugShowCheckedModeBanner: false,
         theme: ExampleDesignTheme.light,
         darkTheme: ExampleDesignTheme.dark,

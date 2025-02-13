@@ -3,14 +3,14 @@ import 'package:example_design/theme/dark_theme.dart';
 import 'package:example_design/theme/dark_theme_extension.dart';
 import 'package:example_design/theme/light_theme.dart';
 import 'package:example_design/theme/light_theme_extension.dart';
-import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 export 'constants/colors.dart';
 export 'constants/text_styles.dart';
 
 class ExampleDesignTheme {
-  static ThemeData get light => lightTheme;
-  static ThemeData get dark => darkTheme;
+  static ShadThemeData get light => lightTheme;
+  static ShadThemeData get dark => darkTheme;
 }
 
 class ExampleDesignThemeExtension {

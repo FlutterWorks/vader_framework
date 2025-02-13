@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 import 'example_button.style.dart';
 
 class ExampleButton extends StatelessWidget {
@@ -18,21 +19,21 @@ class ExampleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentStyle = style!;
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        height: 42,
-        decoration: BoxDecoration(
-          borderRadius: currentStyle.borderRadius,
-          color: currentStyle.color,
+    return ShadButton(
+      onPressed: onTap,
+      width: 350,
+      height: 50,
+      decoration: ShadDecoration(
+        border: ShadBorder(
+          radius: BorderRadius.circular(12),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 4,
-          children: [
-            if (icon != null) Icon(icon!, color: currentStyle.iconColor,),
-            Text(text, style: currentStyle.textStyle),
-          ],
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontFamily: 'Inter',
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );

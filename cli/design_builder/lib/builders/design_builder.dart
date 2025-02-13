@@ -118,6 +118,8 @@ import 'package:$packageName/theme/dark_theme_extension.dart';
 import 'package:$packageName/theme/light_theme.dart';
 import 'package:$packageName/theme/light_theme_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
+
 """);
 
     final file = File('$inputPath/$packageName.dart');

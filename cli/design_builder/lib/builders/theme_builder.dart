@@ -111,6 +111,7 @@ class ThemeBuilder {
     int indent = 0;
     final StringBuffer sb = StringBuffer();
     sb.writeln("import 'package:flutter/material.dart';");
+    sb.writeln("import 'package:shadcn_ui/shadcn_ui.dart';");
     sb.writeln("import 'package:$packageName/$packageName.dart';");
     sb.writeln("");
 

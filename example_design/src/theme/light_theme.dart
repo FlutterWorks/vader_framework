@@ -1,22 +1,15 @@
 import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 /*
   ThemeData and DesignTheme MUST be getters due to dynamic change during hot-reload!!
  */
-ThemeData get lightTheme => ThemeData(
-      brightness: Brightness.light,
-      colorSchemeSeed: DesignColors.green400,
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: const TextStyle(color: DesignColors.green400),
-        focusColor: DesignColors.green200,
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: DesignColors.green200),
-        ),
-        activeIndicatorBorder: const BorderSide(color: DesignColors.red500),
-        fillColor: DesignColors.red.shade600,
-      ),
-      extensions: [lightDesignThemeExtension],
-    );
+ShadThemeData get lightTheme => ShadThemeData(
+  brightness: Brightness.dark,
+  colorScheme: const ShadSlateColorScheme.light(),
+  primaryButtonTheme: ShadButtonTheme(backgroundColor: Color(0xff5e71ff)),
+  extensions: [lightDesignThemeExtension],
+);
 
 get lightDesignThemeExtension {}
