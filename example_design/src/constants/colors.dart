@@ -42,11 +42,27 @@ class DesignColors {
   // static const DesignColor purple = DesignColor(Color(0xffB314E3));
 
 
+  static const Color black = Color(0xff000000);
+  static const Color white = Color(0xffFFFFFF);
+
   static const Color grey200 = Color(0xffF5F5F5);
+  static const Color grey400 = Color(0xff646464);
+  static const Color grey500 = Color.fromRGBO(100, 100, 100, 0.5);
+  static const Color grey700 = Color(0xff3B3B3B);
+
+
+
 
   static const Color blue100 = Color(0xfff3f4fd);
-  static const Color blue400 = Color(0xff5e71ff);
+  //static const Color blue200 = Color(0xffEEEFFA);
+  static const Color blue200 = Color.fromRGBO(94, 113, 255, 0.15);
+  static const Color blue300 = Color(0xffD7DBF7);
+  static const Color blue700 = Color(0xff5e71ff);
+  static const Color blue900 = Color(0xff182796);
+
+
 
   static const Color red100 = Color(0xffFEFBFB);
   static const Color red400 = Color(0xffC33025);
+
 }

@@ -32,7 +32,7 @@ class ExampleButtonTheme {
       decoration: ShadDecoration(
         border: ShadBorder.all(
           width: 3,
-          color: DesignColors.blue400,
+          color: DesignColors.red400,
           radius: BorderRadius.circular(10),
         ),
       ),
