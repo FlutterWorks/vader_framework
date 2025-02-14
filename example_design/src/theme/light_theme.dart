@@ -15,18 +15,6 @@ ShadThemeData get lightTheme => ShadThemeData(
         background: DesignColors.grey200,
       ),
       textTheme: ShadTextTheme(family: 'Inter'),
-      //primaryButtonTheme: ShadButtonTheme(),
-      outlineButtonTheme: ShadButtonTheme(
-        hoverForegroundColor: DesignColors.blue600,
-        backgroundColor: DesignColors.blue100,
-        decoration: ShadDecoration(
-          border: ShadBorder.all(
-            width: 3,
-            color: DesignColors.blue600,
-            radius: BorderRadius.circular(10),
-          ),
-        ),
-      ),
       buttonSizesTheme: ShadButtonSizesTheme(
         lg: ShadButtonSizeTheme(
           height: 42,
