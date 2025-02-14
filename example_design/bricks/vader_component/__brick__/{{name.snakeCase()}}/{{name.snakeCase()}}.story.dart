@@ -27,3 +27,16 @@ onTap() => debugPrint("Test click.");
     onTap: onTap,
   );
 }
+
+{{name.camelCase()}}Story(BuildContext context) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    spacing: 30,
+    children: [
+      {{name.pascalCase()}}(
+        text: textKnobOptions(context),
+        onTap: onTap,
+      ),
+    ],
+  );
+}
