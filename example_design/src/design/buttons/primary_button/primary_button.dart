@@ -24,23 +24,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentStyle = style!;
 
-    final buttonSize = switch (size) {
-      ButtonSize.small => ShadButtonSize.sm,
-      ButtonSize.medium => ShadButtonSize.regular,
-      ButtonSize.large => ShadButtonSize.lg,
-    };
-
-    final textStyle = switch (size) {
-      ButtonSize.small => ButtonTextStyles.smallButtonTextStyle,
-      ButtonSize.medium => ButtonTextStyles.mediumButtonTextStyle,
-      ButtonSize.large => ButtonTextStyles.largeButtonTextStyle,
-    };
-
-    final borderRadius = switch (size) {
-      ButtonSize.small => BorderRadius.circular(6),
-      ButtonSize.medium => BorderRadius.circular(6),
-      ButtonSize.large => BorderRadius.circular(12),
-    };
+    final (:buttonSize, :textStyle, :borderRadius) = ButtonUtils.resolveBySize(size);
 
     final buttonIcon = icon == null ? null : switch (size) {
       ButtonSize.small => Icon(icon, size: 18),
