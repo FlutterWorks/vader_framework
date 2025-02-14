@@ -28,19 +28,19 @@ ShadThemeData get lightTheme => ShadThemeData(
         ),
       ),
       buttonSizesTheme: ShadButtonSizesTheme(
-        sm: ShadButtonSizeTheme(
-          height: 30,
-          width: 132,
+        lg: ShadButtonSizeTheme(
+          height: 42,
+          width: 330,
           padding: EdgeInsets.zero,
         ),
         regular: ShadButtonSizeTheme(
           height: 36,
-          width: 145,
+          width: 165,
           padding: EdgeInsets.zero,
         ),
-        lg: ShadButtonSizeTheme(
-          height: 42,
-          width: 330,
+        sm: ShadButtonSizeTheme(
+          height: 30,
+          width: 132,
           padding: EdgeInsets.zero,
         ),
       ),
