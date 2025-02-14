@@ -57,12 +57,15 @@ class DesignColors {
   //static const Color blue200 = Color(0xffEEEFFA);
   static const Color blue200 = Color.fromRGBO(94, 113, 255, 0.15);
   static const Color blue300 = Color(0xffD7DBF7);
-  static const Color blue700 = Color(0xff5e71ff);
+  static const Color blue600 = Color(0xff5e71ff);
+  static const Color blue700 = Color(0xff4d5eec);
+  static const Color blue800 = Color(0xff3143D1);
   static const Color blue900 = Color(0xff182796);
 
 
 
+
   static const Color red100 = Color(0xffFEFBFB);
-  static const Color red400 = Color(0xffC33025);
+  static const Color red500 = Color(0xffC33025);
 
 }

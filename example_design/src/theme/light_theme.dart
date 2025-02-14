@@ -10,19 +10,19 @@ ShadThemeData get lightTheme => ShadThemeData(
       brightness: Brightness.light,
       radius: BorderRadius.circular(10),
       colorScheme: ShadBlueColorScheme.light(
-        primary: DesignColors.blue700,
-        border: DesignColors.blue700,
+        primary: DesignColors.blue600,
+        border: DesignColors.blue600,
         background: DesignColors.grey200,
       ),
       textTheme: ShadTextTheme(family: 'Inter'),
       //primaryButtonTheme: ShadButtonTheme(),
       outlineButtonTheme: ShadButtonTheme(
-        hoverForegroundColor: DesignColors.blue700,
+        hoverForegroundColor: DesignColors.blue600,
         backgroundColor: DesignColors.blue100,
         decoration: ShadDecoration(
           border: ShadBorder.all(
             width: 3,
-            color: DesignColors.blue700,
+            color: DesignColors.blue600,
             radius: BorderRadius.circular(10),
           ),
         ),

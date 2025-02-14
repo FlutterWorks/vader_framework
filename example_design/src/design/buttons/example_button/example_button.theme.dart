@@ -6,12 +6,12 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 class ExampleButtonTheme {
   static final light = ExampleButtonStyle(
     outlineErrorButton: ShadButtonTheme(
-      hoverForegroundColor: DesignColors.red400,
+      hoverForegroundColor: DesignColors.red500,
       backgroundColor: DesignColors.red100,
       decoration: ShadDecoration(
         border: ShadBorder.all(
           width: 3,
-          color: DesignColors.red400,
+          color: DesignColors.red500,
           radius: BorderRadius.circular(10),
         ),
       ),
@@ -25,24 +25,5 @@ class ExampleButtonTheme {
     //),
   );
 
-  static final dark = ExampleButtonStyle(
-    outlineErrorButton: ShadButtonTheme(
-      hoverForegroundColor: DesignColors.red400,
-      backgroundColor: DesignColors.red100,
-      decoration: ShadDecoration(
-        border: ShadBorder.all(
-          width: 3,
-          color: DesignColors.red400,
-          radius: BorderRadius.circular(10),
-        ),
-      ),
-    ),
-    //color: DesignColors.blue.shade500,
-    //iconColor: DesignColors.white,
-    //textStyle: DesignTextStyles.semiboldInter16Text.copyWith(
-    //  color: DesignColors.white,
-    //  fontSize: 16,
-    //  height: 0.5,
-    //),
-  );
+  static final dark = light;
 }

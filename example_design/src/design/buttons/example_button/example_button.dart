@@ -56,19 +56,19 @@ class ExampleButton extends StatelessWidget {
           fontFamily: 'Inter',
           fontSize: 12,
           fontWeight: FontWeight.w500,
-          color: indicator == ButtonIndicator.error ? DesignColors.red400 : null,
+          color: indicator == ButtonIndicator.error ? DesignColors.red500 : null,
         ),
       ButtonSize.medium => TextStyle(
           fontFamily: 'Inter',
           fontSize: 12,
           fontWeight: FontWeight.w700,
-          color: indicator == ButtonIndicator.error ? DesignColors.red400 : null,
+          color: indicator == ButtonIndicator.error ? DesignColors.red500 : null,
         ),
       ButtonSize.large => TextStyle(
           fontFamily: 'Inter',
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          color: indicator == ButtonIndicator.error ? DesignColors.red400 : null,
+          color: indicator == ButtonIndicator.error ? DesignColors.red500 : null,
         ),
     };
 
@@ -101,7 +101,7 @@ class ExampleButton extends StatelessWidget {
       icon: leadingIcon != null
           ? Icon(
               leadingIcon,
-              color: indicator == ButtonIndicator.error ? DesignColors.red400 : null,
+              color: indicator == ButtonIndicator.error ? DesignColors.red500 : null,
               size: size == ButtonSize.large ? 24 : 18,
             )
           : null,
