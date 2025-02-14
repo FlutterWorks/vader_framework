@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Create path for save component widget and style
+- Setup default theme when parsed theme is empty
 
 ## 1.0.0-dev.0
 

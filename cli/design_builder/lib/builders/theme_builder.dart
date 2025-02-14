@@ -70,6 +70,12 @@ class ThemeBuilder {
       }
     }
 
+    for (var theme in themes) {
+      if (result[theme]?.isEmpty == true) {
+        result[theme] = result['light']!;
+      }
+    }
+
     return result;
   }
 
