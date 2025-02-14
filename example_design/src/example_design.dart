@@ -5,8 +5,6 @@ import 'package:example_design/theme/light_theme.dart';
 import 'package:example_design/theme/light_theme_extension.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-export 'constants/colors.dart';
-//export 'constants/text_styles.dart';
 
 class ExampleDesignTheme {
   static ShadThemeData get light => lightTheme;
