@@ -2,6 +2,8 @@ import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+enum ButtonSize { small, medium, large }
+
 class ButtonUtils {
   static ({
     ShadButtonSize buttonSize,
