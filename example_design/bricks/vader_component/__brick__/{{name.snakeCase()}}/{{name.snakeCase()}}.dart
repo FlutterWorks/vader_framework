@@ -5,13 +5,11 @@ class {{name.pascalCase()}} extends StatelessWidget {
   const {{name.pascalCase()}}({
     super.key,
     required this.text,
-    this.icon,
     this.onTap,
     this.style,
   });
 
   final String text;
-  final IconData? icon;
   final GestureTapCallback? onTap;
   final {{name.pascalCase()}}Style? style;
 
@@ -20,20 +18,10 @@ class {{name.pascalCase()}} extends StatelessWidget {
     final currentStyle = style!;
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: SizedBox(
+        width: 200,
         height: 42,
-        decoration: BoxDecoration(
-          borderRadius: currentStyle.borderRadius,
-          color: currentStyle.color,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 4,
-          children: [
-            if (icon != null) Icon(icon!, color: currentStyle.iconColor,),
-            Text(text, style: currentStyle.textStyle),
-          ],
-        ),
+        child: Text(text),
       ),
     );
   }
