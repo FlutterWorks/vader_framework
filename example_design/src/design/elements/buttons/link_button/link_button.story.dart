@@ -31,7 +31,7 @@ linkButtonStory(BuildContext context) {
       LinkButton(
         text: "Resetovat vše",
         onTap: onTap,
-        style: context.designTheme.buttonsStyle.linkButtonStyle.copyWith(textSize: 14),
+        style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(textSize: 14),
       ),
       LinkButton(
         text: "Přidat událost",
@@ -42,9 +42,9 @@ linkButtonStory(BuildContext context) {
       LinkButton(
         text: "Detail",
         onTap: onTap,
-        icon: iconKnob(context) ? Icons.chevron_right : null,
         leadingIcon: false,
-        style: context.designTheme.buttonsStyle.linkButtonStyle.copyWith(
+        icon: iconKnob(context) ? Icons.chevron_right : null,
+        style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(
           iconSize: 24,
           textSize: 13,
           iconColor: DesignColors.black,
@@ -56,7 +56,7 @@ linkButtonStory(BuildContext context) {
         text: "Upravit",
         onTap: onTap,
         icon: iconKnob(context) ? Icons.add : null,
-        style: context.designTheme.buttonsStyle.linkButtonStyle.copyWith(iconSize: 12, textSize: 12),
+        style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(iconSize: 12, textSize: 12),
       ),
     ],
   );
