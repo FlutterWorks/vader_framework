@@ -27,14 +27,16 @@ class ImageButton extends StatelessWidget {
       width: size.width,
       height: size.height,
       icon: child,
-      decoration: !onlyIcon ? ShadDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-        border: ShadBorder.all(
-          width: 1,
-          color: Colors.black.withAlpha(25),
-        ),
-      ) : null,
+      decoration: !onlyIcon
+          ? ShadDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+              border: ShadBorder.all(
+                width: 1,
+                color: Colors.black.withAlpha(25),
+              ),
+            )
+          : null,
     );
   }
 }
