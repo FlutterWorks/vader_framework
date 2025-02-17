@@ -2,6 +2,7 @@ import 'package:example_design/design/components/chip_list/chip_list.dart';
 import 'package:example_design/design/design.theme.dart';
 import 'package:example_design/design/elements/buttons/image_button/image_button.dart';
 import 'package:example_design/design/elements/chip/chip.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Icons;
 import 'package:flutter/widgets.dart';
 import '../../../constants/colors.dart';
@@ -158,14 +159,14 @@ class EventCard extends StatelessWidget {
           child: LinkButton(
             text: "Detail",
             width: 64,
-            gap: 2,
+            gap: 3,
             onTap: () {},
             leadingIcon: false,
-            icon: Icons.chevron_right,
+            icon: CupertinoIcons.right_chevron,
             style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(
-              iconSize: 24,
+              iconSize: 19,
               textSize: 13,
-              iconColor: DesignColors.grey400,
+              iconColor: DesignColors.grey400.withAlpha(200),
               textColor: DesignColors.grey400,
               fontWeight: FontWeight.w400,
             ),

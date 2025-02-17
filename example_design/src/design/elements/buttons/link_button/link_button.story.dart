@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:example_design/example_design.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
@@ -43,9 +44,9 @@ linkButtonStory(BuildContext context) {
         text: "Detail",
         onTap: onTap,
         leadingIcon: false,
-        icon: iconKnob(context) ? Icons.chevron_right : null,
+        icon: iconKnob(context) ? CupertinoIcons.chevron_right : null,
         style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(
-          iconSize: 24,
+          iconSize: 20,
           textSize: 13,
           iconColor: DesignColors.black,
           textColor: DesignColors.grey400,
