@@ -8,12 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 1.0.0-dev.1
 
 ### Fixed
-
-- Add export for shadcn_ui
-
-## 1.0.0-dev.1
-
-### Fixed
 - Create path for save component widget and style
 - Setup default theme when parsed theme is empty
 

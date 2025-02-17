@@ -119,7 +119,6 @@ import 'package:$packageName/theme/light_theme.dart';
 import 'package:$packageName/theme/light_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
-export 'package:shadcn_ui/shadcn_ui.dart';
 
 """);
 
