@@ -1,5 +1,4 @@
 import 'package:example_design/example_design.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShadApp(
+    return VaderApp(
       debugShowCheckedModeBanner: false,
       theme: ExampleDesignTheme.light,
       darkTheme: ExampleDesignTheme.dark,

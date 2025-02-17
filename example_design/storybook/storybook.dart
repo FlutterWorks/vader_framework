@@ -7,7 +7,7 @@ import 'all_stories.dart';
 Storybook storybook([List<Story>? stories]) {
   return Storybook(
     wrapperBuilder: (context, child) {
-      return ShadApp(
+      return VaderApp(
         debugShowCheckedModeBanner: false,
         theme: ExampleDesignTheme.light,
         darkTheme: ExampleDesignTheme.dark,
