@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  example_design:
+    path: ../example_design
   vader:
     path: ../core/vader
 
