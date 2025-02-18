@@ -71,7 +71,7 @@ class EventCard extends StatelessWidget {
             ),
             SizedBox(height: 12),
             Text(
-              'Od: ${since.hour}:${since.minute}',
+              'Od: ${since.hour}:${since.minute < 10 ? '00' : since.minute}',
               style: TextStyle(
                 fontFamily: TextFonts.inter,
                 fontWeight: FontWeight.w400,
@@ -80,7 +80,7 @@ class EventCard extends StatelessWidget {
               ),
             ),
             Text(
-              'Do: ${since.hour}:${since.minute}',
+              'Do: ${since.hour}:${since.minute < 10 ? '00' : since.minute}',
               style: TextStyle(
                 fontFamily: TextFonts.inter,
                 fontWeight: FontWeight.w400,
@@ -111,7 +111,6 @@ class EventCard extends StatelessWidget {
               fontSize: 11,
             ),
             maxLines: 2,
-
             overflow: TextOverflow.ellipsis,
           ),
           SizedBox(height: 1),
@@ -186,12 +185,16 @@ class EventCard extends StatelessWidget {
         width: width,
         height: height + (tooMuchInfo ? 24 : 0),
         decoration: currentStyle.decoration,
-        child: Row(
-          children: [
-            leftPart(),
-            middlePart(),
-            rightPart(context),
-          ],
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Row(
+              children: [
+                leftPart(),
+                constraints.minWidth > 300 ? Expanded(child: middlePart()) : middlePart(),
+                rightPart(context),
+              ],
+            );
+          }
         ),
       ),
     );

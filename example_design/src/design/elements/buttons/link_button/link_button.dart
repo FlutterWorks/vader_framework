@@ -33,6 +33,7 @@ class LinkButton extends StatelessWidget {
       orderPolicy: leadingIcon ? OrderPolicy.linear() : OrderPolicy.reverse(),
       icon: icon == null ? null : Icon(icon, size: currentStyle.iconSize, color: currentStyle.iconColor),
       gap: gap,
+      padding: EdgeInsets.zero,
       child: Text(
         text,
         style: TextStyle(
