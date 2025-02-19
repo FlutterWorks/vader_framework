@@ -29,7 +29,6 @@ class PageLayout extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: DesignColors.white,
         centerTitle: true,
         elevation: 0,
         toolbarHeight: currentStyle.toolbarHeight,

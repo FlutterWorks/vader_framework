@@ -1,7 +1,12 @@
 import 'package:example_design/example_design.dart';
-import 'package:flutter/material.dart';
+import 'package:example_project/global.dart';
+import 'package:example_project/pages/event_page.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart' show AppBarTheme;
+import 'package:vader/vader.dart';
 
 void main() {
+  setupInjector(httpClient: HttpClientMock(), storageClient: StorageClientMock());
   runApp(const MyApp());
 }
 
@@ -14,48 +19,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ExampleDesignTheme.light,
       darkTheme: ExampleDesignTheme.dark,
-      home: MyHomePage(title: "Seznam událostí"),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return PageLayout(
-      title: "First page",
-      child: Center(
-        child: PrimaryButton(
-          text: "Go to next page",
-          size: ButtonSize.medium,
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => PageLayout(
-                  title: "Second page",
-                  child: Center(
-                    child: PrimaryButton(
-                      text: "Go back",
-                      size: ButtonSize.medium,
-                      onTap: Navigator.of(context).pop,
-                    ),
-                  ),
-                ),
-              ),
-            );
-          },
-        ),
-      ),
+      home: EventPage(),
+      materialThemeBuilder: (context, theme) {
+        return theme.copyWith(
+          appBarTheme: AppBarTheme(
+            color: DesignColors.white,
+            surfaceTintColor: DesignColors.white,
+          ),
+        );
+      },
     );
   }
 }

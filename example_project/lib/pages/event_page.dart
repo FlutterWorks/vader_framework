@@ -1,0 +1,89 @@
+import 'package:example_design/example_design.dart';
+import 'package:example_project/logic/cubits/event_list_cubit.dart';
+import 'package:example_project/logic/states/event_list_state.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart' show Icons;
+import 'package:vader/vader.dart';
+
+class EventPage extends StatelessWidget {
+  const EventPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return PageLayout(
+      title: "Seznam událostí",
+      child: Column(
+        children: [
+          _ButtonSection(),
+          BlocBuilder<EventListCubit, EventListState>(
+            bloc: repositoryInjector.get<EventListCubit>(),
+            builder: (context, state) {
+              return state.when(
+                init: () => Text("Eventy se načítají"),
+                loading: () => Text("Eventy se načítají"),
+                failed: (e) => Text("Nastala chyba: $e"),
+                loaded: (events) {
+                  return Expanded(
+                    child: ListView.builder(
+                      itemCount: events.length,
+                      itemBuilder: (context, index) {
+                        final event = events[index];
+                        return EventCard(
+                          width: double.infinity,
+                          title: event.title,
+                          place: event.address.name,
+                          since: event.since,
+                          until: event.until,
+                          style: EventCardStyle(
+                            decoration: BoxDecoration(
+                              color: index % 2 == 0 ? DesignColors.white : DesignColors.blue200,
+                            ),
+                          ),
+                          tooMuchInfo: event.tags.length >= 3 && event.title.length > 24,
+                          chips: event.tags.map((t) => Chip(text: t)).toList(),
+                          onTap: () {
+                            print("TODO: Go to Event detail page");
+                          },
+                        );
+                      },
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ButtonSection extends StatelessWidget {
+  const _ButtonSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: DesignColors.grey400.withAlpha(25),
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          LinkButton(
+            text: "Filtrovat",
+            width: 100,
+            icon: CupertinoIcons.slider_horizontal_3,
+            style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(iconSize: 14),
+            gap: 7,
+          ),
+          Spacer(),
+          LinkButton(text: "Přidat událost", width: 150, icon: Icons.add),
+        ],
+      ),
+    );
+  }
+}
