@@ -1,6 +1,6 @@
 import 'package:example_design/example_design.dart';
+import 'package:example_project/features/events/event_list_page.dart';
 import 'package:example_project/global.dart';
-import 'package:example_project/pages/event_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show AppBarTheme;
 import 'package:vader/vader.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ExampleDesignTheme.light,
       darkTheme: ExampleDesignTheme.dark,
-      home: EventPage(),
+      home: EventListPage(),
       materialThemeBuilder: (context, theme) {
         return theme.copyWith(
           appBarTheme: AppBarTheme(

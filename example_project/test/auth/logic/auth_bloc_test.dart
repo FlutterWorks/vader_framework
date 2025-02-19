@@ -1,15 +1,15 @@
 import 'package:example_project/entities/user.dart';
 import 'package:example_project/global.dart';
-import 'package:example_project/logic/bloc/auth_bloc.dart';
-import 'package:example_project/logic/events/auth_events.dart';
-import 'package:example_project/logic/states/auth_state.dart';
-import 'package:example_project/repositories/auth_repository.dart';
+import 'package:example_project/features/auth/auth_bloc.dart';
+import 'package:example_project/features/auth/auth_events.dart';
+import 'package:example_project/features/auth/auth_state.dart';
+import 'package:example_project/features/auth/auth_repository.dart';
 import 'package:vader/vader.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:test/test.dart';
 
 import '../repository/mock_response_data.dart';
-import '../setup.dart';
+import '../../setup.dart';
 import 'mock_entities_data.dart';
 
 fakeData() {

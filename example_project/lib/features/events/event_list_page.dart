@@ -1,12 +1,12 @@
 import 'package:example_design/example_design.dart';
-import 'package:example_project/logic/cubits/event_list_cubit.dart';
-import 'package:example_project/logic/states/event_list_state.dart';
+import 'package:example_project/features/events/event_list_cubit.dart';
+import 'package:example_project/features/events/event_list_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Icons;
 import 'package:vader/vader.dart';
 
-class EventPage extends StatelessWidget {
-  const EventPage({super.key});
+class EventListPage extends StatelessWidget {
+  const EventListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

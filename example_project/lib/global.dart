@@ -1,8 +1,8 @@
-import 'package:example_project/logic/cubits/event_list_cubit.dart';
-import 'package:example_project/repositories/auth_repository.dart';
-import 'package:example_project/repositories/event_repository.dart';
-import 'package:example_project/repositories/product_repository.dart';
-import 'package:example_project/repositories/user_repository.dart';
+import 'package:example_project/features/events/event_list_cubit.dart';
+import 'package:example_project/features/auth/auth_repository.dart';
+import 'package:example_project/features/events/event_repository.dart';
+import 'package:example_project/features/products/product_repository.dart';
+import 'package:example_project/features/app/user_repository.dart';
 import 'package:vader/vader.dart';
 
 setupInjector({required HttpClient httpClient, required StorageClient storageClient}) {
