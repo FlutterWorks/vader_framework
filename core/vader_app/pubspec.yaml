@@ -1,4 +1,4 @@
-name: vader
+name: vader_app
 description: Framework for simplify development of Flutter apps
 repository: https://github.com/mjablecnik/vader_framework/tree/master
 resolution: workspace

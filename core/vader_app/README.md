@@ -1,6 +1,6 @@
-# vader
+# vader_app
 
-Framework for simplify development of Flutter apps.
+Vader App Framework for simplify development of Flutter apps.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vader: ^0.2.0
+  vader_app: ^0.2.0
 ```
 
 Then run:
@@ -20,7 +20,7 @@ flutter pub get
 ## Usage:
 
 ```
-import 'package:vader/vader.dart';
+import 'package:vader_app/vader_app.dart';
 ```
 
 
@@ -42,9 +42,7 @@ Give a ⭐️ if this project helped you!
 </a>
 
 
-/*
 ## 📝 License
 
 Copyright © 2024 [Martin Jablečník](https://github.com/mjablecnik).<br />
-This project is licensed under [MIT License](https://github.com/mjablecnik/vader_popup/blob/master/LICENSE).
-*/
+This project is licensed under [MIT License](https://github.com/mjablecnik/vader_framework/blob/master/core/vader/LICENSE).
