@@ -3,7 +3,7 @@ import 'package:example_project/features/events/event_list_cubit.dart';
 import 'package:example_project/features/events/event_list_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Icons;
-import 'package:vader/vader.dart';
+import 'package:vader_app/vader_app.dart';
 
 class EventListPage extends StatelessWidget {
   const EventListPage({super.key});

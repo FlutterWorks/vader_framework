@@ -1,4 +1,4 @@
-import 'package:vader/vader.dart';
+import 'package:vader_app/vader_app.dart';
 
 part 'product.freezed.dart';
 

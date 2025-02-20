@@ -13,8 +13,7 @@ dependencies:
 
   shadcn_ui: ^0.19.3
   theme_tailor_annotation: ^3.0.1
-  vader_design:
-    path: ../core/vader_design
+  vader_design: ^0.1.0
 
   cupertino_icons: ^1.0.8
 

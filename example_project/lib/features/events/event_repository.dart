@@ -1,6 +1,6 @@
 import 'package:example_project/entities/address.dart';
 import 'package:example_project/entities/event.dart';
-import 'package:vader/vader.dart';
+import 'package:vader_app/vader_app.dart';
 
 class EventRepository extends Repository {
   EventRepository({

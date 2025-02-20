@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:example_project/global.dart';
-import 'package:vader/vader.dart' hide setupInjector;
+import 'package:vader_app/vader_app.dart' hide setupInjector;
 
 setupData(Function() setupFakeData, {required bool useFakeData}) {
   final apiUrl = "https://dummyjson.com";

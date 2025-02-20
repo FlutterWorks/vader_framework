@@ -1,7 +1,7 @@
 import 'package:example_project/entities/event.dart';
 import 'package:example_project/features/events/event_list_state.dart';
 import 'package:example_project/features/events/event_repository.dart';
-import 'package:vader/vader.dart';
+import 'package:vader_app/vader_app.dart';
 
 class EventListCubit extends Cubit<EventListState> {
   EventListCubit({required this.eventRepository}) : super(EventListState.init()) {

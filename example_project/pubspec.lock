@@ -305,10 +305,10 @@ packages:
     dependency: transitive
     description:
       name: ffi
-      sha256: "16ed7b077ef01ad6170a3d0c57caa4a112a38d7a2ed5602e0aca9ca6f3d98da6"
+      sha256: "289279317b4b16eb2bb7e271abccd4bf84ec9bdcbe999e278a94b804f5630418"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.3"
+    version: "2.1.4"
   file:
     dependency: transitive
     description:
@@ -696,10 +696,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: c15605cd28af66339f8eb6fbe0e541bfe2d1b72d5825efc6598f3e0a31b9ad27
+      sha256: "07c8f0b1913bcde1ff0d26e57ace2f3012ccbf2b204e070290dad3bb22797646"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.2"
+    version: "6.1.0"
   platform:
     dependency: transitive
     description:
@@ -985,26 +985,28 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.1"
-  vader:
+  vader_app:
     dependency: "direct main"
     description:
-      path: "../core/vader"
+      path: "../core/vader_app"
       relative: true
     source: path
     version: "0.2.0"
   vader_core:
     dependency: transitive
     description:
-      path: "../core/vader_core"
-      relative: true
-    source: path
+      name: vader_core
+      sha256: ad62d967566dd20e77186e470471d49539080d1422a0479f55d634bd94456574
+      url: "https://pub.dev"
+    source: hosted
     version: "0.2.0"
   vader_design:
     dependency: transitive
     description:
-      path: "../core/vader_design"
-      relative: true
-    source: path
+      name: vader_design
+      sha256: "0f92de9d6278e2ec387bfb1d0eb115e70bc1f512bdbb0d192cf11a04880186e3"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.1.0"
   vector_graphics:
     dependency: transitive

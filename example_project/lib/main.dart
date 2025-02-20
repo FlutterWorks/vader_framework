@@ -3,7 +3,7 @@ import 'package:example_project/features/events/event_list_page.dart';
 import 'package:example_project/global.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show AppBarTheme;
-import 'package:vader/vader.dart';
+import 'package:vader_app/vader_app.dart';
 
 void main() {
   setupInjector(httpClient: HttpClientMock(), storageClient: StorageClientMock());
