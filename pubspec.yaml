@@ -1,6 +1,15 @@
 name: vader_framework
 publish_to: none
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.7.0
 workspace:
-  #- core/vader
+  - cli/code_builder
+  - cli/design_builder
+  - cli/vader_manager
+  - core/vader
+  #- core/vader_app_info
+  - core/vader_cli
+  - core/vader_core
+  - core/vader_design
+  #- example_design
+  #- example_project
