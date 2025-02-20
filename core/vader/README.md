@@ -23,13 +23,6 @@ flutter pub get
 import 'package:vader/vader.dart';
 ```
 
-/*
-## Example
-
-```
-dart lib/main.dart -V --name Martin -t dart,python,java -d 'This is my description'
-```
-*/
 
 ## Author
 
