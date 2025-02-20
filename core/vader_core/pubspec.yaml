@@ -1,5 +1,6 @@
 name: vader_core
 description: Framework for simplify development of Flutter apps
+repository: https://github.com/mjablecnik/vader_framework/tree/master/core/vader_core
 resolution: workspace
 version: 0.2.0
 

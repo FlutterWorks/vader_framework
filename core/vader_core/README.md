@@ -1,6 +1,6 @@
 # vader_core
 
-Core of vader package.
+Core package of Vader Framework.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vader: ^0.1.0
+  vader: ^0.2.0
 ```
 
 Then run:
@@ -23,13 +23,6 @@ flutter pub get
 import 'package:vader_core/vader_core.dart';
 ```
 
-/*
-## Example
-
-```
-dart lib/main.dart -V --name Martin -t dart,python,java -d 'This is my description'
-```
-*/
 
 ## Author
 
