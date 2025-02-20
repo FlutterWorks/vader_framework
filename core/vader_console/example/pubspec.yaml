@@ -1,12 +1,12 @@
-name: vader_cli_example
-description: Example of vader_cli.
+name: vader_console_example
+description: Example of vader_console.
 version: 1.0.0
 
 environment:
   sdk: '>=3.6.0 <4.0.0'
 
 dependencies:
-  vader_cli:
+  vader_console:
     path: ../
 
 dev_dependencies:

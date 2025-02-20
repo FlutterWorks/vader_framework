@@ -1,5 +1,5 @@
-import 'package:vader_cli/vader_cli.dart';
-import 'package:vader_cli_example/arguments.dart';
+import 'package:vader_console/vader_console.dart';
+import 'package:vader_console_example/arguments.dart';
 
 void main(List<String> args) {
   runCliApp(

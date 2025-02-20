@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:design_builder/arguments.dart';
 import 'package:design_builder/builders/design_builder.dart';
-import 'package:vader_cli/vader_cli.dart';
+import 'package:vader_console/vader_console.dart';
 
 void main(List<String> args) {
   runCliApp(

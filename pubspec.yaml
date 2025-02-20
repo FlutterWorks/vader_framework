@@ -8,7 +8,7 @@ workspace:
   - cli/vader_manager
   - core/vader_app
   #- core/vader_app_info
-  - core/vader_cli
+  - core/vader_console
   - core/vader_core
   - core/vader_design
   #- example_design

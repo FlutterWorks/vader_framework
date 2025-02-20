@@ -1,5 +1,5 @@
-# vader_cli_example
-Example of vader_cli.
+# vader_console_example
+Example of vader_console.
 
 
 ## Build

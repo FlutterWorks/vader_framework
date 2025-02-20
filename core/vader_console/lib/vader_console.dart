@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:vader_cli/app_info.dart';
-import 'package:vader_cli/commands.dart';
-import 'package:vader_cli/path.dart';
+import 'package:vader_console/app_info.dart';
+import 'package:vader_console/commands.dart';
+import 'package:vader_console/path.dart';
 
 import 'args_parser.dart';
 import 'exceptions.dart';

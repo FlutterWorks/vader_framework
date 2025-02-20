@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:mason/mason.dart';
-import 'package:vader_cli/vader_cli.dart';
+import 'package:vader_console/vader_console.dart';
 import 'package:code_builder/arguments.dart';
 
 void main(List<String> args) {

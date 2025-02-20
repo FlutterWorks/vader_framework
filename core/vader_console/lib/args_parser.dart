@@ -1,6 +1,6 @@
 import 'package:args/args.dart';
-import 'package:vader_cli/exceptions.dart';
-import 'package:vader_cli/commands.dart';
+import 'package:vader_console/exceptions.dart';
+import 'package:vader_console/commands.dart';
 
 class ArgumentParser {
   final argParser = ArgParser();

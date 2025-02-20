@@ -1,4 +1,4 @@
-import 'package:vader_cli/vader_cli.dart';
+import 'package:vader_console/vader_console.dart';
 
 List<Command> commands = [
   Command(

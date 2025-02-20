@@ -37,7 +37,7 @@ String generateZshCompletions(YamlMap vaderSection) {
 
   buffer.writeln(r'#compdef vader ./vader');
   buffer.writeln();
-  buffer.writeln(r'_vader_cli_zsh_completions() {');
+  buffer.writeln(r'_vader_console_zsh_completions() {');
   buffer.writeln(r'  local context state state_descr line');
   buffer.writeln(r'  typeset -A opt_args');
   buffer.writeln();
@@ -46,13 +46,13 @@ String generateZshCompletions(YamlMap vaderSection) {
   buffer.writeln();
   buffer.writeln(r'  case $state in');
   buffer.writeln(r'    subcmd)');
-  buffer.writeln(r'      _vader_cli_zsh_get_completions');
+  buffer.writeln(r'      _vader_console_zsh_get_completions');
   buffer.writeln(r'      return');
   buffer.writeln(r'    ;;');
   buffer.writeln(r'  esac');
   buffer.writeln(r'}');
   buffer.writeln();
-  buffer.writeln(r'_vader_cli_zsh_get_completions() {');
+  buffer.writeln(r'_vader_console_zsh_get_completions() {');
   buffer.writeln(r'  local completions=()');
   buffer.writeln(r'  local -a path');
   buffer.writeln(r'  path=()');
@@ -87,7 +87,7 @@ String generateZshCompletions(YamlMap vaderSection) {
   buffer.writeln(r'  compadd -- $completions');
   buffer.writeln(r'}');
   buffer.writeln();
-  buffer.writeln(r'compdef _vader_cli_zsh_completions vader ./vader');
+  buffer.writeln(r'compdef _vader_console_zsh_completions vader ./vader');
 
   return buffer.toString();
 }
@@ -103,7 +103,7 @@ String generateBashCompletions(YamlMap vaderSection) {
   buffer.writeln(r'#   dart run bin/vader completions bash > ~/.vader_completions.bash');
   buffer.writeln(r'#   echo "source ~/.vader_completions.bash" >> ~/.bashrc');
   buffer.writeln();
-  buffer.writeln(r'_vader_cli_bash_completions() {');
+  buffer.writeln(r'_vader_console_bash_completions() {');
   buffer.writeln(r'  local cur prev words cword');
   buffer.writeln(r'  _get_comp_words_by_ref -n = cur prev words cword');
   buffer.writeln();
@@ -139,7 +139,7 @@ String generateBashCompletions(YamlMap vaderSection) {
   buffer.writeln(r'  COMPREPLY=( $(compgen -W "${completions[*]}" -- "$cur") )');
   buffer.writeln(r'}');
   buffer.writeln();
-  buffer.writeln(r'complete -F _vader_cli_bash_completions vader');
+  buffer.writeln(r'complete -F _vader_console_bash_completions vader');
 
   return buffer.toString();
 }

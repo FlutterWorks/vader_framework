@@ -9,8 +9,8 @@ environment:
 
 dependencies:
   yaml: ^3.1.1
-  vader_cli:
-    path: ../../core/vader_cli
+  vader_console:
+    path: ../../core/vader_console
 
 dev_dependencies:
   lints: ^5.0.0

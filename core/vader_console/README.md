@@ -1,6 +1,6 @@
-# vader
+# vader_console
 
-Framework for simplify development of CLI Dart programs.
+Vader Console Package for simplify development of CLI Dart programs.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vader_cli: ^1.0.0
+  vader_console: ^1.0.0
 ```
 
 Then run:
@@ -93,4 +93,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2024 [Martin Jablečník](https://github.com/mjablecnik).<br />
-This project is licensed under [MIT License](https://github.com/mjablecnik/vader_framework/blob/master/core/vader_cli/LICENSE).
+This project is licensed under [MIT License](https://github.com/mjablecnik/vader_framework/blob/master/core/vader_console/LICENSE).
