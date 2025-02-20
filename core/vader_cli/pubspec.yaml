@@ -1,5 +1,6 @@
 name: vader_cli
 description: Vader package for build cli programs.
+repository: https://github.com/mjablecnik/vader_framework/tree/master/core/vader_cli
 resolution: workspace
 version: 1.0.0-dev.2
 

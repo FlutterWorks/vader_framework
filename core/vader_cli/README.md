@@ -8,7 +8,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vader_cli: ^0.1.0
+  vader_cli: ^1.0.0
 ```
 
 Then run:
@@ -63,11 +63,6 @@ void main(List<String> args) {
     arguments: args,
     commands: commands,
     parser: ExampleArguments.parse,
-    appInfo: AppInfo(
-      name: "Project test",
-      version: '1.3.2',
-      description: "This is simple description of my program.",
-    ),
     app: (args) {
       print("Main part of my app...");
       print("Message: ${args.message}");
@@ -95,9 +90,7 @@ Give a ⭐️ if this project helped you!
 </a>
 
 
-/*
 ## 📝 License
 
 Copyright © 2024 [Martin Jablečník](https://github.com/mjablecnik).<br />
-This project is licensed under [MIT License](https://github.com/mjablecnik/vader_popup/blob/master/LICENSE).
-*/
+This project is licensed under [MIT License](https://github.com/mjablecnik/vader_framework/blob/master/core/vader_cli/LICENSE).
