@@ -12,7 +12,7 @@ void main() {
     storageClient: StorageClient(path: Directory.systemTemp.path),
   ).commit();
 
-  final httpClient = repositoryInjector.get<HttpClient>();
+  final httpClient = injector.get<HttpClient>();
 
   test('HttpClient request', () async {
     print('\nHttpClient request:');

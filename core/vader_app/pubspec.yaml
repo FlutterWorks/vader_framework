@@ -11,7 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  vader_core: ^0.2.0
+  vader_core:
+    path: ../vader_core
   vader_design: ^0.1.0
 
   # State Manager:

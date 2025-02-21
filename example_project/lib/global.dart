@@ -6,7 +6,7 @@ import 'package:example_project/features/app/user_repository.dart';
 import 'package:vader_app/vader_app.dart';
 
 setupInjector({required HttpClient httpClient, required StorageClient storageClient}) {
-  repositoryInjector
+  injector
     ..addInstance(httpClient)
     ..addInstance(storageClient)
     ..addSingleton(AuthRepository.new)

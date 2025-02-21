@@ -5,19 +5,19 @@ import 'package:vader_core/clients/storage_client.dart';
 
 class MockInjector extends Mock implements AutoInjector {}
 
-AutoInjector repositoryInjector = AutoInjector();
+AutoInjector injector = AutoInjector();
 
 AutoInjector setupInjector({
   required HttpClient httpClient,
   required StorageClient storageClient,
 }) {
-  return repositoryInjector
+  return injector
     ..addInstance(httpClient)
     ..addInstance(storageClient);
 }
 
 resetInjector() {
-  repositoryInjector = AutoInjector();
+  injector = AutoInjector();
 }
 
 class StoreKeys {
