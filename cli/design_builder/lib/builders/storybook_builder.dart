@@ -4,13 +4,17 @@ import 'package:dart_style/dart_style.dart';
 import 'package:recase/recase.dart';
 
 class StorybookBuilder {
-  StorybookBuilder(this.storybookPath);
+  StorybookBuilder(this.packageName, this.storybookPath);
 
+  final String packageName;
   final String storybookPath;
 
   String get outputStoriesPath => '$storybookPath/design/';
 
   final Map<String, String> _stories = {};
+
+  String removeSrcExportsFromString(String text) =>
+      text.split('\n').where((e) => !e.contains("/${packageName}_exports.dart';")).join('\n');
 
   void buildAllStoriesList() {
     StringBuffer sb = StringBuffer();
@@ -37,15 +41,19 @@ class StorybookBuilder {
 
     // Load story from source
     final file = File('$sourcePath/${name.snakeCase}.story.dart');
-    final code = file.readAsStringSync();
-    final functions = code.split('\n').where((e) => e.contains(function)).map(_extractFunctionName).toList()
-      ..remove('');
+    String code = removeSrcExportsFromString(file.readAsStringSync());
+
+    final functions =
+        code.split('\n').where((e) => e.contains(function)).map(_extractFunctionName).toList()..remove('');
 
     // Build list of stories
     final clearPath = sourcePath.split('/design/').last;
     final storiesCode = _buildStoriesList(functions, clearPath, name);
 
-    String resultCode = "import 'package:vader_design/vader_design.dart';\n$code\n\n$storiesCode";
+    String resultCode =
+        "import 'package:vader_design/vader_design.dart';\n"
+        "import 'package:$packageName/$packageName.dart';\n"
+        "$code\n\n$storiesCode";
 
     // Write result into storybook
     final outputFile = File('$outputStoriesPath$clearPath.stories.dart');
