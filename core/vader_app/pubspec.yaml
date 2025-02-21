@@ -2,7 +2,7 @@ name: vader_app
 description: Framework for simplify development of Flutter apps
 repository: https://github.com/mjablecnik/vader_framework/tree/master
 resolution: workspace
-version: 0.2.0
+version: 0.2.1
 
 environment:
   sdk: '>=3.7.0 <4.0.0'
@@ -11,8 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  vader_core:
-    path: ../vader_core
+  vader_core: ^0.3.0
   vader_design: ^0.1.0
 
   # State Manager:
