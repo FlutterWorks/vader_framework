@@ -43,7 +43,7 @@ class LinkButton extends StatelessWidget {
           color: currentStyle.textColor,
           decoration: TextDecoration.underline,
           decorationColor: currentStyle.textColor,
-          letterSpacing: 0.3,
+          letterSpacing: 0.1,
         ),
       ),
     );

@@ -64,24 +64,24 @@ class _ButtonSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 42,
       decoration: BoxDecoration(
-        border: Border.symmetric(
-          horizontal: BorderSide(
-            color: DesignColors.grey400.withAlpha(25),
-          ),
-        ),
+        border: Border.symmetric(horizontal: BorderSide(color: DesignColors.grey400.withAlpha(25))),
       ),
       child: Row(
         children: [
           LinkButton(
             text: "Filtrovat",
-            width: 100,
             icon: CupertinoIcons.slider_horizontal_3,
             style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(iconSize: 14),
-            gap: 7,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           ),
           Spacer(),
-          LinkButton(text: "Přidat událost", width: 150, icon: Icons.add),
+          LinkButton(
+            text: "Přidat událost",
+            icon: Icons.add,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          ),
         ],
       ),
     );

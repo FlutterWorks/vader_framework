@@ -159,7 +159,7 @@ class EventCard extends StatelessWidget {
           Spacer(),
           LinkButton(
             text: "Detail",
-            padding: EdgeInsets.only(right: 8),
+            padding: EdgeInsets.only(right: 12),
             onTap: () {},
             leadingIcon: false,
             icon: CupertinoIcons.right_chevron,

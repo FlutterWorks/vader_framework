@@ -17,6 +17,10 @@ ThemeData get lightTheme => ThemeData(
     surface: DesignColors.grey200,
   ),
   //textTheme: TextTheme(),
+  appBarTheme: AppBarTheme(
+    color: DesignColors.white,
+    surfaceTintColor: DesignColors.white,
+  ),
   extensions: [lightDesignThemeExtension],
 );
 
