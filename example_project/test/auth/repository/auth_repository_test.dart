@@ -36,7 +36,7 @@ fakeData() {
 void main() {
   setupData(fakeData, useFakeData: true);
 
-  final authRepository = injector.get<AuthRepository>();
+  final authRepository = injector.use<AuthRepository>();
 
   test('Auth login', () async {
     final loginUser = await authRepository.login(userName: "martin", password: "test123", type: LoginType.token);

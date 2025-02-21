@@ -47,9 +47,9 @@ void main() {
   group(AuthBloc, () {
     setUp(() {
       setupData(fakeData, useFakeData: true);
-      authBloc = AuthBloc(authRepository: injector.get<AuthRepository>());
+      authBloc = AuthBloc(authRepository: injector.use<AuthRepository>());
     });
-    tearDown(() => resetInjector());
+    tearDown(() => injector.reset());
 
     blocTest(
       'Auth Login',

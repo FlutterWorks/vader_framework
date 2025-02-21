@@ -16,7 +16,7 @@ class EventListPage extends StatelessWidget {
         children: [
           _ButtonSection(),
           BlocBuilder<EventListCubit, EventListState>(
-            bloc: injector.get<EventListCubit>(),
+            bloc: injector.use<EventListCubit>(),
             builder: (context, state) {
               return state.when(
                 init: () => Text("Eventy se načítají"),

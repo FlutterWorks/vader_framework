@@ -1,9 +1,10 @@
 export 'foundation/base_entity.dart';
 export 'foundation/exceptions.dart';
-export 'foundation/global.dart' hide setupInjector;
-export 'clients/logger.dart';
+export 'foundation/global.dart';
 export 'foundation/repository.dart';
 
+export 'clients/logger.dart';
+export 'clients/injector.dart';
 export 'clients/http_client.dart';
 export 'clients/storage_client.dart';
 
