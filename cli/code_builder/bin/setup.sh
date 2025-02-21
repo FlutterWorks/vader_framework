@@ -34,7 +34,7 @@ compilation () {
 
 installation () {
   cp $project_root/bin/$app_name ~/.local/bin/
-  cp $project_root/bin/$app_name ../../example_design/bin/
+  cp $project_root/bin/$app_name ../../example_project/example_design/bin/
 }
 
 
