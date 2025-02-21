@@ -1,7 +1,6 @@
-import 'package:flutter/widgets.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:flutter/material.dart';
 
-class VaderApp extends ShadApp {
+class VaderApp extends MaterialApp {
   const VaderApp({
     super.key,
     super.navigatorKey,
@@ -31,9 +30,6 @@ class VaderApp extends ShadApp {
     super.darkTheme,
     super.themeMode,
     super.restorationScopeId,
-    super.scrollBehavior = const ShadScrollBehavior(),
-    super.pageRouteBuilder,
-    super.themeCurve = Curves.linear,
-    super.materialThemeBuilder,
+    super.scrollBehavior = const ScrollBehavior(),
   });
 }

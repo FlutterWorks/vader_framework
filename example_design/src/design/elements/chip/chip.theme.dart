@@ -7,19 +7,11 @@ class ChipTheme {
     color: Colors.blue,
     textStyle: TextStyle(
       fontFamily: 'Inter',
-      color: DesignColors.grey700,
+      color: DesignColors.grey700.withAlpha(210),
       fontWeight: FontWeight.w500,
       fontSize: 10,
     ),
   );
 
-  static final dark = ChipStyle(
-    color: Colors.blue,
-    textStyle: TextStyle(
-      fontFamily: 'Inter',
-      color: DesignColors.grey700,
-      fontWeight: FontWeight.w500,
-      fontSize: 10,
-    ),
-  );
+  static final dark = light;
 }

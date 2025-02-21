@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  shadcn_ui: ^0.19.3
+  #shadcn_ui: ^0.19.3
   theme_tailor_annotation: ^3.0.1
   vader_design: ^0.1.0
 

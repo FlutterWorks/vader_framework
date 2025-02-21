@@ -11,14 +11,14 @@ class Utils {
 
 class ButtonUtils {
   static ({
-  ShadButtonSize buttonSize,
+  Size buttonSize,
   TextStyle textStyle,
   BorderRadius borderRadius,
   }) resolveBySize(ButtonSize size) {
     final buttonSize = switch (size) {
-      ButtonSize.small => ShadButtonSize.sm,
-      ButtonSize.medium => ShadButtonSize.regular,
-      ButtonSize.large => ShadButtonSize.lg,
+      ButtonSize.small => Size(132, 32),
+      ButtonSize.medium => Size(165, 36),
+      ButtonSize.large => Size(330, 42),
     };
 
     final textStyle = switch (size) {

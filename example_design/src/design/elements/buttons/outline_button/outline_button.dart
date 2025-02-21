@@ -1,6 +1,5 @@
 import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 class OutlineButton extends StatelessWidget {
   const OutlineButton({
@@ -26,29 +25,33 @@ class OutlineButton extends StatelessWidget {
 
     final (:buttonSize, :textStyle, :borderRadius) = ButtonUtils.resolveBySize(size);
 
-    final buttonIcon = icon == null
-        ? null
-        : switch (size) {
-            ButtonSize.small => Icon(icon, size: 18, color: currentStyle.iconColor),
-            ButtonSize.medium => Icon(icon, size: 22, color: currentStyle.iconColor),
-            ButtonSize.large => Icon(icon, size: 22, color: currentStyle.iconColor),
-          };
+    final buttonIcon =
+        icon == null
+            ? null
+            : switch (size) {
+              ButtonSize.small => Icon(icon, size: 18, color: currentStyle.iconColor),
+              ButtonSize.medium => Icon(icon, size: 22, color: currentStyle.iconColor),
+              ButtonSize.large => Icon(icon, size: 22, color: currentStyle.iconColor),
+            };
 
-    return ShadButton.outline(
-      size: buttonSize,
-      onPressed: onTap,
-      orderPolicy: leadingIcon ? OrderPolicy.linear() : OrderPolicy.reverse(),
-      icon: buttonIcon,
-      hoverBackgroundColor: currentStyle.secondaryColor,
-      backgroundColor: currentStyle.secondaryColor,
-      decoration: ShadDecoration(
-        border: ShadBorder.all(
-          width: size == ButtonSize.small ? 2.5 : 3,
-          color: currentStyle.primaryColor,
-          radius: borderRadius,
+    return SizedBox(
+      width: buttonSize.width,
+      height: buttonSize.height,
+      child: OutlinedButton.icon(
+        onPressed: onTap,
+        icon: buttonIcon,
+        iconAlignment: leadingIcon ? IconAlignment.start : IconAlignment.end,
+        style: OutlinedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: borderRadius),
+          side: BorderSide(width: size == ButtonSize.small ? 2.5 : 3, color: currentStyle.primaryColor),
+          padding: EdgeInsets.zero,
+          backgroundColor: currentStyle.secondaryColor,
+          foregroundColor: currentStyle.primaryColor,
+          textStyle: textStyle,
+          elevation: 0,
         ),
+        label: Text(text, style: textStyle.copyWith(color: currentStyle.textColor)),
       ),
-      child: Text(text, style: textStyle.copyWith(color: currentStyle.textColor)),
     );
   }
 }

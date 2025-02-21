@@ -1,6 +1,5 @@
 import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -26,23 +25,32 @@ class PrimaryButton extends StatelessWidget {
 
     final (:buttonSize, :textStyle, :borderRadius) = ButtonUtils.resolveBySize(size);
 
-    final buttonIcon = icon == null ? null : switch (size) {
-      ButtonSize.small => Icon(icon, size: 18),
-      ButtonSize.medium => Icon(icon, size: 22),
-      ButtonSize.large => Icon(icon, size: 22),
-    };
+    final buttonIcon =
+        icon == null
+            ? null
+            : switch (size) {
+              ButtonSize.small => Icon(icon, size: 18),
+              ButtonSize.medium => Icon(icon, size: 22),
+              ButtonSize.large => Icon(icon, size: 22),
+            };
 
-    final shadDecoration = ShadTheme.of(context).primaryButtonTheme.decoration;
-
-    return ShadButton(
-      size: buttonSize,
-      onPressed: onTap,
-      orderPolicy: leadingIcon ? OrderPolicy.linear() : OrderPolicy.reverse(),
-      icon: buttonIcon,
-      decoration: ShadDecoration(
-        border: shadDecoration?.border?.copyWith(radius: borderRadius),
+    return SizedBox(
+      width: buttonSize.width,
+      height: buttonSize.height,
+      child: ElevatedButton.icon(
+        iconAlignment: leadingIcon ? IconAlignment.start : IconAlignment.end,
+        icon: buttonIcon,
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: currentStyle.color,
+          foregroundColor: currentStyle.textStyle.color,
+          textStyle: textStyle,
+          shape: RoundedRectangleBorder(borderRadius: borderRadius),
+          elevation: 0,
+          iconColor: currentStyle.iconColor,
+        ),
+        label: Text(text),
       ),
-      child: Text(text, style: textStyle),
     );
   }
 }
