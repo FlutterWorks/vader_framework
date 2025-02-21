@@ -14,9 +14,8 @@ dependencies:
   example_design:
     path: ../example_design
   vader_app:
-    path: ../core/vader_app
+    path: ../../core/vader_app
 
-  dart_appwrite: ^13.0.0
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
