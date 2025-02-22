@@ -7,6 +7,7 @@ class ExportBuilder {
   final String packageName;
 
   final Set<String> _libPackages = {};
+  final Set<String> _libDirPackages = {};
   final Set<String> _srcPackages = {};
 
   String _convertPathToLibPackage(String path) => path.replaceAll(sourcePoint, 'package:$packageName');
@@ -20,6 +21,7 @@ class ExportBuilder {
 
   addDirectory(String filePath) {
     _libPackages.add(filePath);
+    _libDirPackages.add(filePath);
   }
 
   void exportLibPackageProcess(String inputPath, String outputPath) {
@@ -53,6 +55,9 @@ import 'package:flutter/material.dart';
       sb.writeln("export '$package';");
     }
     sb.writeln();
+    for (final package in _libDirPackages) {
+      sb.writeln("export '$package';");
+    }
     sb.write("""
 
 """);

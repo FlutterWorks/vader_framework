@@ -1,13 +1,16 @@
 import 'dart:io';
 
+import 'package:design_builder/utils.dart';
 import 'package:recase/recase.dart';
 
 class ComponentBuilder {
   const ComponentBuilder({
+    required this.packageName,
     required this.inputPath,
     required this.outputPath,
   });
 
+  final String packageName;
   final String inputPath;
   final String outputPath;
 
@@ -25,7 +28,9 @@ class ComponentBuilder {
         .readAsStringSync()
         .replaceAll("style!", "(style ?? context.designTheme.$designPathStyle${name.camelCase}Style)");
 
-    code = "import 'package:example_design/design/design.theme.dart';\n$code";
+    code = "import 'package:example_design/design/design.theme.dart';\n"
+        "import 'package:$packageName/$packageName.dart';\n"
+        "${Utils.removeSrcExportsFromString(code, packageName: packageName)}";
 
     path = Directory(path.replaceFirst(inputPath, '')).parent.path;
     final outputFile = File('$outputPath$path/${name.snakeCase}/${name.snakeCase}.dart');

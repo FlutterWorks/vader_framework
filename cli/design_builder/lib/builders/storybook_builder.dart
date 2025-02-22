@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dart_style/dart_style.dart';
+import 'package:design_builder/utils.dart';
 import 'package:recase/recase.dart';
 
 class StorybookBuilder {
@@ -12,9 +13,6 @@ class StorybookBuilder {
   String get outputStoriesPath => '$storybookPath/design/';
 
   final Map<String, String> _stories = {};
-
-  String removeSrcExportsFromString(String text) =>
-      text.split('\n').where((e) => !e.contains("/${packageName}_exports.dart';")).join('\n');
 
   void buildAllStoriesList() {
     StringBuffer sb = StringBuffer();
@@ -41,7 +39,7 @@ class StorybookBuilder {
 
     // Load story from source
     final file = File('$sourcePath/${name.snakeCase}.story.dart');
-    String code = removeSrcExportsFromString(file.readAsStringSync());
+    String code = Utils.removeSrcExportsFromString(file.readAsStringSync(), packageName: packageName);
 
     final functions =
         code.split('\n').where((e) => e.contains(function)).map(_extractFunctionName).toList()..remove('');

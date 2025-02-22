@@ -5,6 +5,7 @@ import 'package:design_builder/builders/export_builder.dart';
 import 'package:design_builder/builders/storybook_builder.dart';
 import 'package:design_builder/builders/style_builder.dart';
 import 'package:design_builder/builders/theme_builder.dart';
+import 'package:design_builder/utils.dart';
 import 'package:recase/recase.dart';
 
 class DesignBuilder {
@@ -47,9 +48,6 @@ class DesignBuilder {
     _exportBuilder.build(targetPoint);
   }
 
-  String removeSrcExportsFromString(String text) =>
-      text.split('\n').where((e) => !e.contains("/${packageName}_exports.dart';")).join('\n');
-
   void _copyConstantsDirectory(Directory source, Directory target) {
     source.listSync().forEach((element) {
       if (element is File) {
@@ -59,7 +57,9 @@ class DesignBuilder {
         String content = file.readAsStringSync();
 
         if (content.contains("/${packageName}_exports.dart';")) {
-          content = "import 'package:$packageName/$packageName.dart';\n${removeSrcExportsFromString(content)}";
+          content =
+              "import 'package:$packageName/$packageName.dart';\n"
+              "${Utils.removeSrcExportsFromString(content, packageName: packageName)}";
         }
 
         targetFile.writeAsStringSync(content);
@@ -77,7 +77,11 @@ class DesignBuilder {
 
     final storybookBuilder = StorybookBuilder(packageName, storybookPoint);
     final themeBuilder = ThemeBuilder(packageName, themes);
-    final componentBuilder = ComponentBuilder(inputPath: inputDesignPath, outputPath: outputDesignPath);
+    final componentBuilder = ComponentBuilder(
+      packageName: packageName,
+      inputPath: inputDesignPath,
+      outputPath: outputDesignPath,
+    );
 
     for (String filePath in filePaths) {
       final pathList = filePath.split('/');
