@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:example_design/example_design.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
+import '../../../../example_design_exports.dart';
 
 
 //region Knobs

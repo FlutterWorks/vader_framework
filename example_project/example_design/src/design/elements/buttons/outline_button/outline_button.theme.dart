@@ -1,5 +1,4 @@
-import 'package:example_design/example_design.dart';
-import 'package:flutter/material.dart';
+import '../../../../example_design_exports.dart';
 
 
 class OutlineButtonTheme {
