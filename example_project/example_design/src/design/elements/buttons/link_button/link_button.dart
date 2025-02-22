@@ -1,5 +1,6 @@
-import 'package:example_design/example_design.dart';
+import 'package:example_design/design/elements/buttons/link_button/link_button.style.dart' show LinkButtonStyle;
 import 'package:flutter/material.dart';
+
 
 class LinkButton extends StatelessWidget {
   const LinkButton({

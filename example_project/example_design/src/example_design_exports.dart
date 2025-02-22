@@ -17,4 +17,9 @@ export 'constants/utils.dart';
 export 'constants/text_styles.dart';
 export 'constants/vader_app.dart';
 
+export 'package:example_design/design/design.theme.dart';
+export 'package:example_design/design/components/components.style.dart';
+export 'package:example_design/design/elements/elements.style.dart';
+export 'package:example_design/design/elements/buttons/buttons.style.dart';
+export 'package:example_design/design/layouts/layouts.style.dart';
 
