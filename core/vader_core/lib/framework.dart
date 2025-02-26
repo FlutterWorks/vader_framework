@@ -1,4 +1,4 @@
-export 'foundation/base_entity.dart';
+export 'foundation/vader_entity.dart';
 export 'foundation/exceptions.dart';
 export 'foundation/global.dart';
 export 'foundation/repository.dart';

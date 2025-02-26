@@ -33,11 +33,9 @@ class ExportBuilder {
     }
     sb.writeln();
     sb.write("""
-import 'package:$packageName/design/design.theme.dart';
 import 'package:$packageName/theme/dark_theme.dart';
-import 'package:$packageName/theme/dark_theme_extension.dart';
 import 'package:$packageName/theme/light_theme.dart';
-import 'package:$packageName/theme/light_theme_extension.dart';
+import 'package:vader_design/vader_design.dart';
 import 'package:flutter/material.dart';
 
 """);

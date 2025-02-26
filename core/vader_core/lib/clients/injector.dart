@@ -4,14 +4,12 @@ import 'package:mocktail/mocktail.dart';
 class MockInjector extends Mock implements Injector {}
 
 class Injector {
+  Injector();
 
-  static Injector get get => Injector._internal();
+  final AutoInjector _injector = AutoInjector();
 
-  AutoInjector _injector = AutoInjector();
+  void addInjector(Injector injector) => _injector.addInjector(injector._injector);
 
-  Injector._internal() {
-    _injector = AutoInjector();
-  }
 
   T use<T>({String? key}) {
     return _injector.get<T>(key: key);
@@ -30,12 +28,11 @@ class Injector {
   }
 
   reset() {
-    _injector = AutoInjector();
+    _injector.disposeRecursive();
+    //_injector = AutoInjector();
   }
 
   commit() {
     _injector.commit();
   }
 }
-
-final Injector injector = Injector.get;

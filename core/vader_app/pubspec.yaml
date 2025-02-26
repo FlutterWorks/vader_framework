@@ -11,8 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
 
-  vader_core: ^0.3.0
-  vader_design: ^0.1.0
+  #vader_core: ^0.3.0
+  #vader_design: ^0.1.0
+  vader_core:
+    path: ../vader_core
+  vader_design:
+    path: ../vader_design
+  go_router: ^14.8.0
 
   # State Manager:
   bloc: ^9.0.0

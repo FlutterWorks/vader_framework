@@ -3,10 +3,10 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:vader_core/clients/cache_client.dart';
-import 'package:vader_core/clients/injector.dart';
 import 'package:vader_core/framework.dart';
 
 void main() {
+  final injector = Injector();
   injector.addInstance(HttpClient(apiUrl: "https://dummyjson.com", enableLogs: true, preventLargeResponses: false));
   injector.addInstance(StorageClient(path: Directory.systemTemp.path));
   injector.commit();

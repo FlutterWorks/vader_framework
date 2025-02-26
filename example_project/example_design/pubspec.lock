@@ -877,10 +877,9 @@ packages:
   vader_design:
     dependency: "direct main"
     description:
-      name: vader_design
-      sha256: "0f92de9d6278e2ec387bfb1d0eb115e70bc1f512bdbb0d192cf11a04880186e3"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../core/vader_design"
+      relative: true
+    source: path
     version: "0.1.0"
   vader_popup:
     dependency: transitive
