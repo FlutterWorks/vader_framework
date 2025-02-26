@@ -1,6 +1,6 @@
 import 'package:example_design/example_design.dart';
-import 'package:example_app/features/events/event_list_cubit.dart';
-import 'package:example_app/features/events/event_list_state.dart';
+import 'package:example_app/features/events/logic/event_list_cubit.dart';
+import 'package:example_app/features/events/logic/event_list_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 

@@ -1,3 +1,4 @@
+import 'package:example_app/features/events/event_repository.dart';
 import 'package:example_app/features/events/pages/event_detail_page.dart';
 import 'package:example_app/features/events/pages/event_list_page.dart';
 import 'package:vader_app/vader_app.dart';
@@ -16,8 +17,6 @@ class EventModule extends VaderModule {
 
   @override
   Injector? get services {
-    return Injector()
-      ..addInstance(HttpClientMock())
-      ..addInstance(StorageClientMock());
+    return Injector()..addInstance(EventRepository.new);
   }
 }

@@ -3,7 +3,7 @@ import 'package:example_app/features/app/pages/second_page.dart';
 import 'package:example_app/features/auth/auth_repository.dart';
 import 'package:vader_app/vader_app.dart';
 
-import 'auth_bloc.dart';
+import 'logic/auth_bloc.dart';
 
 class AuthModule extends VaderModule {
   AuthModule();

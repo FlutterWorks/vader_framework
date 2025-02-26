@@ -1,5 +1,4 @@
-import 'package:example_app/entities/event.dart';
-import 'package:example_app/features/events/event_list_state.dart';
+import 'package:example_app/features/events/logic/event_list_state.dart';
 import 'package:example_app/features/events/event_repository.dart';
 import 'package:vader_app/vader_app.dart';
 

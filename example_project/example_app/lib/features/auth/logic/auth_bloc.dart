@@ -1,7 +1,7 @@
 import 'package:example_app/entities/user.dart';
 import 'package:vader_app/vader_app.dart';
-import 'package:example_app/features/auth/auth_events.dart';
-import 'package:example_app/features/auth/auth_state.dart';
+import 'package:example_app/features/auth/logic/auth_events.dart';
+import 'package:example_app/features/auth/logic/auth_state.dart';
 import 'package:example_app/features/auth/auth_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, UserState> {
