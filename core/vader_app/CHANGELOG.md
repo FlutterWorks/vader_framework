@@ -1,3 +1,9 @@
+## 0.3.0
+
+- Add VaderApp
+- Add VaderModule
+- Add go_router
+  
 ## 0.2.1
 
 - Rename repositoryInjector to injector.
