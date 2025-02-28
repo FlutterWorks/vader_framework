@@ -14,7 +14,7 @@ class FirstPage extends StatelessWidget {
           text: "Go to next page",
           size: ButtonSize.medium,
           onTap: () {
-            context.push('/second');
+            context.push('/Second');
           },
         ),
       ),
