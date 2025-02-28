@@ -802,21 +802,21 @@ packages:
       path: "../../core/vader_app"
       relative: true
     source: path
-    version: "0.2.1"
+    version: "0.3.0"
   vader_core:
     dependency: transitive
     description:
       path: "../../core/vader_core"
       relative: true
     source: path
-    version: "0.3.0"
+    version: "0.4.0"
   vader_design:
     dependency: transitive
     description:
       path: "../../core/vader_design"
       relative: true
     source: path
-    version: "0.1.0"
+    version: "0.2.0"
   vector_math:
     dependency: transitive
     description:
