@@ -38,7 +38,6 @@
 
 # Generated files
 **/*.g.dart
-**/*.gr.dart
 **/*.freezed.dart
 
 settings.dart

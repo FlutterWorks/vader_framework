@@ -1,9 +1,8 @@
 import 'package:vader_app/vader_app.dart';
 
-abstract class VaderModule extends RootStackRouter {
+abstract class VaderModule {
   abstract final String name;
-  @override
-  abstract final List<AutoRoute> routes;
+  abstract final List<GoRoute> routes;
   abstract final Injector? services;
 
   get injector {

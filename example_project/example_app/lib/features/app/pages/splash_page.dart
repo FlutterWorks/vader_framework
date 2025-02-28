@@ -1,8 +1,6 @@
-import 'package:example_app/features/app/app_module.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:vader_app/vader_app.dart';
 
-@RoutePage()
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
@@ -16,7 +14,7 @@ class SplashPage extends StatelessWidget {
         padding: EdgeInsets.all(32),
         child: CircularProgressIndicator(strokeWidth: 2.0),
       ),
-      onFinish: () => context.router.replace(FirstRoute()),//context.go('/first'),
+      onFinish: () => context.go('/first'),
     );
   }
 }

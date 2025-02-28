@@ -18,7 +18,7 @@ dependencies:
   vader_design:
     path: ../vader_design
 
-  auto_route: ^10.0.0
+  go_router: ^14.8.0
 
   # State Manager:
   bloc: ^9.0.0
