@@ -17,6 +17,7 @@ dependencies:
     path: ../vader_core
   vader_design:
     path: ../vader_design
+
   go_router: ^14.8.0
 
   # State Manager:

@@ -6,6 +6,7 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:bloc/bloc.dart';
 
 export 'vader_module.dart';
+export 'splash_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -39,7 +40,7 @@ class VaderApp extends StatelessWidget {
       debugShowCheckedModeBanner: isDebug,
       theme: theme.light,
       darkTheme: theme.dark,
-      routerConfig: GoRouter(routes: [for (var module in modules) ...module.routes]),
+      routerConfig: GoRouter(initialLocation: entrypoint, routes: [for (var module in modules) ...module.routes]),
     );
   }
 }
