@@ -13,6 +13,8 @@ All notable changes to this project will be documented in this file.
   
 ### Added
 - Add go_router
+- Add SplashView
+- Add Route helper 
   
 
 ## [0.2.0]
