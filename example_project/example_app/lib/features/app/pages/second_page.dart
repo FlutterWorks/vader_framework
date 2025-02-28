@@ -2,6 +2,7 @@ import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
 import 'package:vader_app/vader_app.dart';
 
+@RoutePage()
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
 

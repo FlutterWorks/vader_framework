@@ -5,7 +5,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 
 void main() {
-  final app = VaderApp(modules: [AppModule(), EventModule()], theme: ExampleTheme(), isDebug: true);
+  final app = VaderApp(
+    modules: [AppModule(), EventModule()],
+    theme: ExampleTheme(),
+    isDebug: true,
+    router: AppModule(),
+  );
   app.setup();
 
   runApp(app);

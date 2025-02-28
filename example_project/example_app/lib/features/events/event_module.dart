@@ -11,8 +11,8 @@ class EventModule extends VaderModule {
 
   @override
   final routes = [
-    GoRoute(path: '/list', builder: (context, state) => const EventListPage()),
-    GoRoute(path: '/detail', builder: (context, state) => const EventDetailPage()),
+    //GoRoute(path: '/list', builder: (context, state) => const EventListPage()),
+    //GoRoute(path: '/detail', builder: (context, state) => const EventDetailPage()),
   ];
 
   @override
