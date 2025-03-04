@@ -3,6 +3,7 @@ import 'package:example_app/features/events/logic/event_list_cubit.dart';
 import 'package:example_app/features/events/logic/event_list_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
+import 'package:example_app/i18n/translations.g.dart';
 
 import '../components/button_section.dart';
 
@@ -12,7 +13,7 @@ class EventListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageLayout(
-      title: "Seznam událostí",
+      title: i18n.events.title,
       child: Column(
         children: [
           ButtonSection(),

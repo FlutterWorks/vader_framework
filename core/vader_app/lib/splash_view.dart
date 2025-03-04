@@ -56,13 +56,13 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
+    super.initState();
     SystemChrome.setEnabledSystemUIMode(
       SystemUiMode.manual,
       overlays: widget.showStatusBar ? [SystemUiOverlay.bottom, SystemUiOverlay.top] : [],
     );
 
     Future.delayed(widget.duration!, () => widget.onFinish());
-    super.initState();
   }
 
   @override

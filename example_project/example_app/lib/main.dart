@@ -1,12 +1,32 @@
 import 'package:example_app/features/app/app_module.dart';
 import 'package:example_app/features/events/event_module.dart';
+import 'package:example_app/i18n/translations.g.dart';
 import 'package:example_design/example_design.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vader_app/vader_app.dart';
 
 void main() {
-  final app = VaderApp(modules: [AppModule(), EventModule()], theme: ExampleTheme(), isDebug: true);
-  app.setup();
+  WidgetsFlutterBinding.ensureInitialized();
+  //LocaleSettings.setLocale(AppLocale.cs);
 
-  runApp(app);
+  runApp(TranslationProvider(child: MyApp()));
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return VaderApp(
+      modules: [AppModule(), EventModule()],
+      theme: ExampleTheme(),
+      isDebug: true,
+      localization: Localization(
+        locale: TranslationProvider.of(context).flutterLocale,
+        supportedLocales: AppLocaleUtils.supportedLocales,
+        delegates: GlobalMaterialLocalizations.delegates,
+      ),
+    );
+  }
 }

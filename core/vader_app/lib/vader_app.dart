@@ -16,8 +16,15 @@ import 'package:vader_core/clients/injector.dart';
 
 final Injector injector = Injector();
 
-class VaderApp extends StatelessWidget {
-  const VaderApp({super.key, required this.modules, required this.theme, this.isDebug = false, this.entrypoint});
+class VaderApp extends StatefulWidget {
+  const VaderApp({
+    super.key,
+    required this.modules,
+    required this.theme,
+    this.localization,
+    this.isDebug = false,
+    this.entrypoint,
+  });
 
   final List<VaderModule> modules;
 
@@ -27,8 +34,21 @@ class VaderApp extends StatelessWidget {
 
   final String? entrypoint;
 
-  void setup() {
-    for (var module in modules) {
+  final Localization? localization;
+
+  @override
+  State<VaderApp> createState() => _VaderAppState();
+}
+
+class _VaderAppState extends State<VaderApp> {
+  @override
+  void initState() {
+    super.initState();
+    setupModules();
+  }
+
+  void setupModules() {
+    for (var module in widget.modules) {
       if (module.services != null) {
         injector.addInjector(module.services!);
       }
@@ -39,10 +59,16 @@ class VaderApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      debugShowCheckedModeBanner: isDebug,
-      theme: theme.light,
-      darkTheme: theme.dark,
-      routerConfig: GoRouter(initialLocation: entrypoint, routes: [for (var module in modules) ...module.routes]),
+      debugShowCheckedModeBanner: widget.isDebug,
+      theme: widget.theme.light,
+      darkTheme: widget.theme.dark,
+      locale: widget.localization?.locale,
+      supportedLocales: widget.localization?.supportedLocales ?? const <Locale>[Locale('en', 'US')],
+      localizationsDelegates: widget.localization?.delegates,
+      routerConfig: GoRouter(
+        initialLocation: widget.entrypoint,
+        routes: [for (var module in widget.modules) ...module.routes],
+      ),
     );
   }
 }
@@ -57,4 +83,12 @@ class Route {
       return GoRoute(path: path, pageBuilder: (context, state) => NoTransitionPage(child: page));
     }
   }
+}
+
+class Localization {
+  Localization({required this.locale, required this.supportedLocales, required this.delegates});
+
+  final Locale locale;
+  final Iterable<Locale> supportedLocales;
+  final Iterable<LocalizationsDelegate<dynamic>> delegates;
 }
