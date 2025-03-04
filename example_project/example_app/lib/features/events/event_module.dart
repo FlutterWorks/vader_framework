@@ -1,22 +1,24 @@
+import 'package:example_app/features/app/app_module.dart';
 import 'package:example_app/features/events/event_repository.dart';
+import 'package:example_app/features/events/logic/event_list_cubit.dart';
 import 'package:example_app/features/events/pages/event_detail_page.dart';
 import 'package:example_app/features/events/pages/event_list_page.dart';
 import 'package:vader_app/vader_app.dart';
 
-class EventModule extends VaderModule {
+class EventModule extends AppModule {
   EventModule();
 
   @override
-  final String name = 'event';
+  String get name => 'event';
 
   @override
-  final routes = [
-    GoRoute(path: '/list', builder: (context, state) => const EventListPage()),
-    GoRoute(path: '/detail', builder: (context, state) => const EventDetailPage()),
-  ];
+  get routes => [Route.page(const EventListPage()), Route.page(const EventDetailPage())];
 
   @override
   Injector? get services {
-    return Injector()..addInstance(EventRepository.new);
+    return super.services!
+      ..add(EventRepository.new)
+      ..add(EventListCubit.new)
+      ..commit();
   }
 }

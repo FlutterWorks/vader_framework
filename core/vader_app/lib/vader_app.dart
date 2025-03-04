@@ -29,7 +29,9 @@ class VaderApp extends StatelessWidget {
 
   void setup() {
     for (var module in modules) {
-      injector.addInjector(module.injector);
+      if (module.services != null) {
+        injector.addInjector(module.services!);
+      }
     }
     injector.commit();
   }
@@ -44,7 +46,6 @@ class VaderApp extends StatelessWidget {
     );
   }
 }
-
 
 class Route {
   static GoRoute page(Widget page, {bool initial = false, bool enableTransition = false, String? path}) {

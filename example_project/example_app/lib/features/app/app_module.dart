@@ -19,7 +19,7 @@ class AppModule extends VaderModule {
   @override
   Injector? get services {
     return Injector()
-      ..addInstance(HttpClientMock())
-      ..addInstance(StorageClientMock());
+      ..addInstance(HttpClient(apiUrl: 'https://www.example.com/api/', enableLogs: true, preventLargeResponses: true))
+      ..addInstance(StorageClient());
   }
 }

@@ -1,7 +1,7 @@
 # Example vader application
 
 ## Develop and test with Flutter version
-3.27.1
+3.29.0
 
 ## Setup FVM, Task and Flutter
   ```

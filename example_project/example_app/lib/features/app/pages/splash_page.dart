@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
         padding: EdgeInsets.all(32),
         child: CircularProgressIndicator(strokeWidth: 2.0),
       ),
-      onFinish: () => context.go('/first'),
+      onFinish: () => context.go('/EventList'),
     );
   }
 }

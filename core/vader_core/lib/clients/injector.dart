@@ -15,6 +15,10 @@ class Injector {
     return _injector.get<T>(key: key);
   }
 
+  T? tryUse<T>({String? key}) {
+    return _injector.tryGet<T>(key: key);
+  }
+
   addInstance<T>(T instance, {String? key}) {
     _injector.addInstance(instance, key: key);
   }
