@@ -5,7 +5,6 @@ environment:
 workspace:
   - cli/code_builder
   - cli/design_builder
-  - cli/vader_manager
   - core/vader_app
   #- core/vader_app_info
   - core/vader_console
