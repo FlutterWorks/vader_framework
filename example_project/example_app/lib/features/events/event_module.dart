@@ -9,10 +9,10 @@ class EventModule extends AppModule {
   EventModule();
 
   @override
-  String get name => 'event';
+  String get path => '/event';
 
   @override
-  get routes => [Route.page(const EventListPage()), Route.page(const EventDetailPage())];
+  List<GoRoute> get routes => [route(const EventListPage()), route(const EventDetailPage())];
 
   @override
   Injector? get services {
@@ -21,4 +21,13 @@ class EventModule extends AppModule {
       ..add(EventListCubit.new)
       ..commit();
   }
+}
+
+enum EventRoutes {
+  eventList,
+  eventDetail;
+
+  final modulePath = '/event';
+
+  get path => '$modulePath/$name';
 }

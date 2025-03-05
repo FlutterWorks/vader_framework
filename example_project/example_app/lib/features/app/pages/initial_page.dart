@@ -1,9 +1,11 @@
+import 'package:example_app/features/app/app_module.dart';
+import 'package:example_app/features/events/event_module.dart';
 import 'package:example_app/i18n/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:vader_app/vader_app.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+class InitialPage extends StatelessWidget {
+  const InitialPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class SplashPage extends StatelessWidget {
       ),
       onFinish: () {
         LocaleSettings.setLocale(AppLocale.cs);
-        context.go('/EventList');
+        context.go(AppRoutes.first.path);
       },
     );
   }

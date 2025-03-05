@@ -73,18 +73,6 @@ class _VaderAppState extends State<VaderApp> {
   }
 }
 
-class Route {
-  static GoRoute page(Widget page, {bool initial = false, bool enableTransition = false, String? path}) {
-    path = initial ? '/' : path ?? '/${page.runtimeType.toString().replaceFirst('Page', '')}';
-
-    if (enableTransition) {
-      return GoRoute(path: path, builder: (context, state) => page);
-    } else {
-      return GoRoute(path: path, pageBuilder: (context, state) => NoTransitionPage(child: page));
-    }
-  }
-}
-
 class Localization {
   Localization({required this.locale, required this.supportedLocales, required this.delegates});
 

@@ -1,3 +1,4 @@
+import 'package:example_app/features/app/app_module.dart';
 import 'package:example_design/example_design.dart';
 import 'package:flutter/material.dart';
 import 'package:vader_app/vader_app.dart';
@@ -14,7 +15,7 @@ class FirstPage extends StatelessWidget {
           text: "Go to next page",
           size: ButtonSize.medium,
           onTap: () {
-            context.push('/Second');
+            context.push(AppRoutes.second.path);
           },
         ),
       ),

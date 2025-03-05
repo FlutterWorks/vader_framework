@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       modules: [AppModule(), EventModule()],
       theme: ExampleTheme(),
       isDebug: false,
-      entrypoint: '/',
+      entrypoint: AppRoutes.initial.path,
       localization: Localization(
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
