@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:hive_ce/hive.dart';
 import 'package:mocktail/mocktail.dart';
@@ -9,7 +10,7 @@ class StorageClient {
   late final Box _storage;
 
   StorageClient({String name = 'defaultBox', String? path}) {
-    Hive.openBox(name, path: path).then((box) => _storage = box);
+    Hive.openBox(name, path: path ?? Directory.systemTemp.path).then((box) => _storage = box);
   }
 
   Future<int> removeAll() async {
