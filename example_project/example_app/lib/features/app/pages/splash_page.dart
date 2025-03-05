@@ -1,3 +1,4 @@
+import 'package:example_app/i18n/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:vader_app/vader_app.dart';
 
@@ -14,7 +15,10 @@ class SplashPage extends StatelessWidget {
         padding: EdgeInsets.all(32),
         child: CircularProgressIndicator(strokeWidth: 2.0),
       ),
-      onFinish: () => context.go('/EventList'),
+      onFinish: () {
+        LocaleSettings.setLocale(AppLocale.cs);
+        context.go('/EventList');
+      },
     );
   }
 }

@@ -8,7 +8,6 @@ import 'package:vader_app/vader_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  //LocaleSettings.setLocale(AppLocale.cs);
 
   runApp(TranslationProvider(child: MyApp()));
 }
@@ -21,7 +20,8 @@ class MyApp extends StatelessWidget {
     return VaderApp(
       modules: [AppModule(), EventModule()],
       theme: ExampleTheme(),
-      isDebug: true,
+      isDebug: false,
+      entrypoint: '/',
       localization: Localization(
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
