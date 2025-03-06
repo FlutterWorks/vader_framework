@@ -1,10 +1,9 @@
 import 'package:example_app/entities/user.dart';
-import 'package:example_app/global.dart';
 import 'package:example_app/features/auth/auth_repository.dart';
 import 'package:vader_app/vader_app.dart';
 import 'package:test/test.dart';
 
-import '../../setup.dart';
+import '../setup.dart';
 import 'mock_response_data.dart';
 
 fakeData() {
