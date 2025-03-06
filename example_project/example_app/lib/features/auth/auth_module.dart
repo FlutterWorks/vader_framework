@@ -5,11 +5,6 @@ import 'package:vader_app/vader_app.dart';
 import 'logic/auth_bloc.dart';
 
 class AuthModule extends AppModule {
-  AuthModule();
-
-  @override
-  String get name => 'auth';
-
   @override
   get routes => [];
 

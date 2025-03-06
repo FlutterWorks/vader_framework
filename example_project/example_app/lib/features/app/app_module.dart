@@ -1,20 +1,12 @@
 import 'package:example_app/features/app/pages/first_page.dart';
 import 'package:example_app/features/app/pages/second_page.dart';
 import 'package:example_app/features/app/pages/initial_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 
 class AppModule extends VaderModule {
-  AppModule();
-
   @override
-  final String path = '/app';
-
-  @override
-  List<GoRoute> get routes => [
-    route(const InitialPage(), initial: true),
-    route(const FirstPage()),
-    route(const SecondPage()),
-  ];
+  List<GoRoute> get routes => AppRoutes.routes;
 
   @override
   Injector? get services {
@@ -25,11 +17,21 @@ class AppModule extends VaderModule {
 }
 
 enum AppRoutes {
-  initial,
-  first,
-  second;
+  initial(InitialPage()),
+  first(FirstPage()),
+  second(SecondPage());
 
-  final modulePath = '/app';
+  const AppRoutes(Widget page) : _page = page;
 
-  get path => '$modulePath/${name == 'initial' ? '' : name}';
+  final Widget _page;
+
+  static final routePath = '/app';
+
+  get path => '$routePath/$name';
+
+  static List<GoRoute> get routes => [
+    Routes.route(routePath, AppRoutes.initial._page),
+    Routes.route(routePath, AppRoutes.first._page),
+    Routes.route(routePath, AppRoutes.second._page),
+  ];
 }

@@ -3,16 +3,12 @@ import 'package:example_app/features/events/event_repository.dart';
 import 'package:example_app/features/events/logic/event_list_cubit.dart';
 import 'package:example_app/features/events/pages/event_detail_page.dart';
 import 'package:example_app/features/events/pages/event_list_page.dart';
+import 'package:flutter/widgets.dart';
 import 'package:vader_app/vader_app.dart';
 
 class EventModule extends AppModule {
-  EventModule();
-
   @override
-  String get path => '/event';
-
-  @override
-  List<GoRoute> get routes => [route(const EventListPage()), route(const EventDetailPage())];
+  List<GoRoute> get routes => EventRoutes.routes;
 
   @override
   Injector? get services {
@@ -24,10 +20,19 @@ class EventModule extends AppModule {
 }
 
 enum EventRoutes {
-  eventList,
-  eventDetail;
+  eventList(EventListPage()),
+  eventDetail(EventDetailPage());
 
-  final modulePath = '/event';
+  const EventRoutes(Widget page) : _page = page;
 
-  get path => '$modulePath/$name';
+  final Widget _page;
+
+  static final routePath = '/event';
+
+  get path => '$routePath/$name';
+
+  static List<GoRoute> get routes => [
+    Routes.route(routePath, EventRoutes.eventList._page),
+    Routes.route(routePath, EventRoutes.eventDetail._page),
+  ];
 }
