@@ -13,8 +13,10 @@ All notable changes to this project will be documented in this file.
   
 ### Added
 - Add go_router
+- Add VaderRoutes
 - Add SplashView
 - Add Route helper 
+- Add logger observers for bloc and go_route
   
 
 ## [0.2.0]

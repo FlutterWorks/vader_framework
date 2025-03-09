@@ -10,6 +10,12 @@ All notable changes to this project will be documented in this file.
 ### Breaking Changes
 - Renamed `BaseEntity` to `VaderEntity`.
 - Removed `Injector` as a global singleton.
+  
+### Fixed
+- Fixed opening Hive box.
+  
+### Added
+- Added logger observer.
 
 
 ## [0.3.0]
