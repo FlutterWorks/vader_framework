@@ -3,13 +3,17 @@ export 'package:vader_design/vader_design.dart';
 
 export 'package:go_router/go_router.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 export 'package:bloc/bloc.dart';
+import 'package:bloc/bloc.dart';
 
 export 'vader_module.dart';
 export 'splash_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:talker_flutter/talker_flutter.dart';
+import 'package:vader_core/clients/logger.dart';
 import 'package:vader_design/design/themes.dart';
 import 'package:vader_app/vader_module.dart';
 import 'package:vader_core/clients/injector.dart';
@@ -44,6 +48,7 @@ class _VaderAppState extends State<VaderApp> {
   @override
   void initState() {
     super.initState();
+    Bloc.observer = TalkerBlocObserver(talker: logger.getTalker());
     setupModules();
   }
 
@@ -66,6 +71,7 @@ class _VaderAppState extends State<VaderApp> {
       supportedLocales: widget.localization?.supportedLocales ?? const <Locale>[Locale('en', 'US')],
       localizationsDelegates: widget.localization?.delegates,
       routerConfig: GoRouter(
+        observers: [TalkerRouteObserver(logger.getTalker())],
         initialLocation: widget.entrypoint,
         routes: [for (var module in widget.modules) ...module.routes],
       ),
@@ -74,7 +80,7 @@ class _VaderAppState extends State<VaderApp> {
 }
 
 class Localization {
-  Localization({required this.locale, required this.supportedLocales, required this.delegates});
+  const Localization({required this.locale, required this.supportedLocales, required this.delegates});
 
   final Locale locale;
   final Iterable<Locale> supportedLocales;

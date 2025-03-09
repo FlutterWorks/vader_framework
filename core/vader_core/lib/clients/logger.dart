@@ -5,29 +5,26 @@ export 'package:talker/talker.dart' show LogLevel;
 final logger = Logger.get;
 
 class Logger {
-  late final Talker _talker;
+  late Talker _talker;
 
   static Logger get get => Logger._internal();
 
-  final TalkerLogger _talkerLogger = TalkerLogger(
-    filter: LogLevelFilter(LogLevel.verbose),
-  );
+  final TalkerLogger _talkerLogger = TalkerLogger(filter: LogLevelFilter(LogLevel.verbose));
+
+  final TalkerSettings _talkerSettings = TalkerSettings(useHistory: false, useConsoleLogs: true, enabled: true);
 
   Logger._internal() {
-    _talker = Talker(
-      settings: TalkerSettings(
-        useHistory: false,
-        useConsoleLogs: true,
-        enabled: true,
-      ),
-      logger: _talkerLogger,
-    );
+    _talker = Talker(settings: _talkerSettings, logger: _talkerLogger);
   }
 
+  setObserver(observer) {
+    _talker = Talker(observer: observer, settings: _talkerSettings, logger: _talkerLogger);
+  }
+
+  Talker getTalker() => _talker;
+
   setLogLevel(LogLevel level) {
-    _talker.configure(
-      logger: _talkerLogger.copyWith(filter: LogLevelFilter(level)),
-    );
+    _talker.configure(logger: _talkerLogger.copyWith(filter: LogLevelFilter(level)));
   }
 
   void debug(String msg, {Object? exception, StackTrace? stackTrace}) {
@@ -72,4 +69,14 @@ class Logger {
       ),
     );
   }
+}
+
+class LoggerObserver extends TalkerObserver {
+  const LoggerObserver();
+
+  @override
+  void onError(err);
+
+  @override
+  void onException(err);
 }

@@ -8,6 +8,7 @@ import 'package:vader_app/vader_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  logger.setObserver(CrashlyticsLoggerObserver());
 
   runApp(TranslationProvider(child: MyApp()));
 }
@@ -28,5 +29,19 @@ class MyApp extends StatelessWidget {
         delegates: GlobalMaterialLocalizations.delegates,
       ),
     );
+  }
+}
+
+class CrashlyticsLoggerObserver extends LoggerObserver {
+  const CrashlyticsLoggerObserver();
+
+  @override
+  void onError(err) {
+    //FirebaseCrashlytics.instance.recordError(err.error, err.stackTrace, reason: err.message);
+  }
+
+  @override
+  void onException(err) {
+    //FirebaseCrashlytics.instance.recordError(err.exception, err.stackTrace, reason: err.message);
   }
 }

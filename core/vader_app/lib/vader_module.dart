@@ -16,12 +16,11 @@ class Routes {
   }) {
     pagePath = pagePath ?? page.runtimeType.toString().replaceFirst('Page', '');
     final fullPath = initial ? path : '$path/$pagePath'.replaceFirst('//', '/');
-    print(fullPath);
 
     if (enableTransition) {
       return GoRoute(path: fullPath, builder: (context, state) => page);
     } else {
-      return GoRoute(path: fullPath, pageBuilder: (context, state) => NoTransitionPage(child: page));
+      return GoRoute(path: fullPath, pageBuilder: (context, state) => NoTransitionPage(child: page, name: fullPath));
     }
   }
 }
