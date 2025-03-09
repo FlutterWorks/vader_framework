@@ -2,6 +2,10 @@ name: vader_framework
 publish_to: none
 environment:
   sdk: ^3.7.0
+
+dev_dependencies:
+  melos: ^7.0.0-dev.7
+
 workspace:
   - cli/code_builder
   - cli/design_builder

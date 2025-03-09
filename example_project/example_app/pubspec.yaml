@@ -15,6 +15,8 @@ dependencies:
 
   example_design:
     path: ../example_design
+
+  #vader_app: ^0.3.0
   vader_app:
     path: ../../core/vader_app
 

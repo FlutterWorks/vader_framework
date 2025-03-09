@@ -8,7 +8,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vader: ^0.3.0
+  vader: ^0.4.0
 ```
 
 Then run:
