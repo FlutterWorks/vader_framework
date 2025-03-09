@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 <!-- ## [Unreleased] - 2025-02-26 -->
 
 
-## [Unreleased] - 2025-02-26
+## [0.3.0] - 2025-03-09
 ### Breaking Change
 - Add VaderApp
 - Add VaderModule
