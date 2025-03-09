@@ -31,15 +31,6 @@ class StyleBuilder {
     sb.writeln("part '$fileName.${getType(fileName)}.tailor.dart';");
     sb.writeln("");
     return sb;
-    /*
-    export 'buttons/buttons.dart';
-
-    import 'package:example_design/design/buttons/buttons.dart';
-    import 'package:flutter/material.dart';
-    import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
-
-    part 'design.tailor.dart';
-     */
   }
 
   StringBuffer _writeClassConstructor(StringBuffer sb) {
@@ -49,11 +40,6 @@ class StyleBuilder {
     }
     sb.writeln("  });");
     return sb;
-    /*
-    const DesignTheme({
-      required this.buttonsStyle,
-    });
-    */
   }
 
   StringBuffer _writeFields(StringBuffer sb) {

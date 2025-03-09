@@ -28,7 +28,7 @@ class ComponentBuilder {
         .readAsStringSync()
         .replaceAll("style!", "(style ?? context.designTheme.$designPathStyle${name.camelCase}Style)");
 
-    code = "import 'package:example_design/design/design.theme.dart';\n"
+    code = "import 'package:$packageName/design/design.theme.dart';\n"
         "import 'package:$packageName/$packageName.dart';\n"
         "${Utils.removeSrcExportsFromString(code, packageName: packageName)}";
 
