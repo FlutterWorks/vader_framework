@@ -17,7 +17,6 @@ tasks:
     desc: "Runs code generation with watch (build_runner)"
 
   build-design:
-    watch: true
     cmd: "./bin/design_builder -s src -o lib -p example_design"
     desc: "Generate Dart design files in lib folder"
 

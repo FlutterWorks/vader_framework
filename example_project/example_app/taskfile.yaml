@@ -18,6 +18,10 @@ tasks:
     cmd: "fvm dart run build_runner build --delete-conflicting-outputs"
     desc: "Runs code generation (build_runner)"
 
+  build-translations:
+    cmd: "fvm dart run slang"
+    desc: "Update translations"
+
   update-goldens:
     cmd: "fvm flutter test --update-goldens"
     desc: "Update Golden tests"
