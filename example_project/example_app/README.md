@@ -3,19 +3,20 @@
 ## Develop and test with Flutter version
 3.29.0
 
-## Setup FVM, Task and Flutter
+## Setup FVM, Task, Mason and Flutter
   ```
   1) Run: dart pub global activate fvm
   2) Run: fvm install <flutter version>
   3) Run: fvm use <flutter version>
-  4) Install Task Manager by this manual: https://taskfile.dev/installation/
+  4) Run: dart pub global activate mason_cli
+  5) Install Task Manager by this manual: https://taskfile.dev/installation/
   ```
 
 ## Installation
 
   ```
   1) Clone this repository
-  2) Setup FVM, Task and Flutter
+  2) Setup FVM, Task, Mason and Flutter
   3) Run: fvm flutter pub get
   4) Run: fvm dart run build_runner build --delete-conflicting-outputs
   5) Run: fvm flutter pub run slang 

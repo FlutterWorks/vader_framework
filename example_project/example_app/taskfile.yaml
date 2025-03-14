@@ -1,4 +1,5 @@
 version: '3'
+# Manual is here: https://taskfile.dev/usage/
 
 tasks:
   help:
@@ -33,3 +34,8 @@ tasks:
   run-test:
     cmd: "fvm flutter test"
     desc: "Run tests"
+
+  create-feature:
+    cmd: "mason make vader_feature"
+    desc: "Create feature code in features folder"
+    dir: "lib/features"
