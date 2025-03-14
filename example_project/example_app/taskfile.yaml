@@ -39,3 +39,8 @@ tasks:
     cmd: "mason make vader_feature"
     desc: "Create feature code in features folder"
     dir: "lib/features"
+
+  create-entity:
+    cmd: "mason make vader_entity"
+    desc: "Create entity code in entities folder"
+    dir: "lib/entities"
