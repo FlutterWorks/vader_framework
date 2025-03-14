@@ -29,7 +29,7 @@ enum EventRoutes {
 
   static final routePath = '/event';
 
-  get path => '$routePath/$name';
+  get path => Routes.path(routePath, name);
 
   static List<GoRoute> get routes => [
     Routes.route(routePath, EventRoutes.eventList._page),

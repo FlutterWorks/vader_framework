@@ -27,7 +27,7 @@ enum AppRoutes {
 
   static final routePath = '/app';
 
-  get path => '$routePath/$name';
+  get path => Routes.path(routePath, name);
 
   static List<GoRoute> get routes => [
     Routes.route(routePath, AppRoutes.initial._page),

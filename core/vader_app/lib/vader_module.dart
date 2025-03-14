@@ -7,15 +7,12 @@ abstract class VaderModule {
 }
 
 class Routes {
-  static GoRoute route(
-    String path,
-    Widget page, {
-    bool initial = false,
-    bool enableTransition = false,
-    String? pagePath,
-  }) {
+  static String path(String routePath, String name) => routePath == '/$name' ? routePath : '$routePath/$name';
+
+  static GoRoute route(String path, Widget page, {bool enableTransition = false, String? pagePath}) {
     pagePath = pagePath ?? page.runtimeType.toString().replaceFirst('Page', '');
-    final fullPath = initial ? path : '$path/$pagePath'.replaceFirst('//', '/');
+
+    final fullPath = Routes.path(path, pagePath.toLowerCase());
 
     if (enableTransition) {
       return GoRoute(path: fullPath, builder: (context, state) => page);
