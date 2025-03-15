@@ -23,9 +23,6 @@ dependencies:
   slang: ^4.5.0
   slang_flutter: ^4.5.0
 
-  mek_stripe_terminal: ^4.0.3
-  permission_handler: ^11.4.0
-
   cupertino_icons: ^1.0.8
 
 dev_dependencies:

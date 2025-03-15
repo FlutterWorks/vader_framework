@@ -6,8 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vader_app/vader_app.dart';
 
-import 'features/payment/payment_module.dart';
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   logger.setObserver(CrashlyticsLoggerObserver());
@@ -21,10 +19,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VaderApp(
-      modules: [AppModule(), EventModule(), PaymentModule()],
+      modules: [AppModule(), EventModule()],
       theme: ExampleTheme(),
       isDebug: false,
-      entrypoint: PaymentRoutes.payment.path,
+      entrypoint: AppRoutes.initial.path,
       localization: Localization(
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
