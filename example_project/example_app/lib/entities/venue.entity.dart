@@ -1,14 +1,14 @@
 import 'package:vader_app/vader_app.dart';
 
-part 'address.entity.freezed.dart';
+part 'venue.entity.freezed.dart';
 
-part 'address.entity.g.dart';
+part 'venue.entity.g.dart';
 
 @freezed
-class Address with _$Address {
-  const Address._();
+class Venue with _$Address {
+  const Venue._();
 
-  const factory Address({
+  const factory Venue({
     @Default("") String name,
     @Default("") String country,
     @Default("") String number,
@@ -19,5 +19,5 @@ class Address with _$Address {
 
   String format() => "$street\u00A0$number, $postalCode\u00A0$town";
 
-  factory Address.fromJson(Map<String, Object?> json) => _$AddressFromJson(json);
+  factory Venue.fromJson(Map<String, Object?> json) => _$AddressFromJson(json);
 }
