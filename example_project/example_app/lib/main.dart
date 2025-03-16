@@ -1,5 +1,5 @@
-import 'package:example_app/features/app/app_module.dart';
-import 'package:example_app/features/events/event_module.dart';
+import 'package:example_app/features/app/app.module.dart';
+import 'package:example_app/features/events/event.module.dart';
 import 'package:example_app/i18n/translations.g.dart';
 import 'package:example_design/example_design.dart';
 import 'package:flutter/cupertino.dart';

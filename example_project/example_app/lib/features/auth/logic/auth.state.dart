@@ -1,7 +1,7 @@
 import 'package:vader_app/vader_app.dart';
 import 'package:example_app/entities/user.dart';
 
-part 'auth_state.freezed.dart';
+part 'auth.state.freezed.dart';
 
 @freezed
 sealed class UserState with _$UserState {

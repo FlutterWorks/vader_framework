@@ -1,8 +1,8 @@
 import 'package:example_app/entities/user.dart';
-import 'package:example_app/features/auth/logic/auth_bloc.dart';
-import 'package:example_app/features/auth/logic/auth_events.dart';
-import 'package:example_app/features/auth/logic/auth_state.dart';
-import 'package:example_app/features/auth/auth_repository.dart';
+import 'package:example_app/features/auth/logic/auth.bloc.dart';
+import 'package:example_app/features/auth/logic/auth.event.dart';
+import 'package:example_app/features/auth/logic/auth.state.dart';
+import 'package:example_app/features/auth/auth.repository.dart';
 import 'package:vader_app/vader_app.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:test/test.dart';

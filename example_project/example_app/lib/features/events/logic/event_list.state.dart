@@ -1,7 +1,7 @@
 import 'package:example_app/entities/event.dart';
 import 'package:vader_app/vader_app.dart';
 
-part 'event_list_state.freezed.dart';
+part 'event_list.state.freezed.dart';
 
 @freezed
 sealed class EventListState with _$EventListState {

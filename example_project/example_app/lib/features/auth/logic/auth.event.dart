@@ -1,5 +1,5 @@
 
-import 'package:example_app/features/auth/auth_repository.dart';
+import 'package:example_app/features/auth/auth.repository.dart';
 
 sealed class AuthEvent {
   const AuthEvent();

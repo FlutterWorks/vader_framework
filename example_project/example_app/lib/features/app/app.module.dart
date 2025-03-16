@@ -1,6 +1,6 @@
-import 'package:example_app/features/app/pages/first_page.dart';
-import 'package:example_app/features/app/pages/second_page.dart';
-import 'package:example_app/features/app/pages/initial_page.dart';
+import 'package:example_app/features/app/pages/first.page.dart';
+import 'package:example_app/features/app/pages/second.page.dart';
+import 'package:example_app/features/app/pages/initial.page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 

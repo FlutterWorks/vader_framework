@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:vader_app/vader_app.dart' hide setupInjector;
-import 'package:example_app/features/auth/auth_repository.dart';
-import 'package:example_app/features/app/user_repository.dart';
+import 'package:example_app/features/auth/auth.repository.dart';
+import 'package:example_app/features/app/user.repository.dart';
 import 'package:vader_app/vader_app.dart';
 
 setupData(Function() setupFakeData, {required bool useFakeData}) {

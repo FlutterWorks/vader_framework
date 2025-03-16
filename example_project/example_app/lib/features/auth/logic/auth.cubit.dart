@@ -1,6 +1,6 @@
 import 'package:example_app/entities/user.dart';
 import 'package:vader_app/vader_app.dart';
-import 'package:example_app/features/auth/auth_repository.dart';
+import 'package:example_app/features/auth/auth.repository.dart';
 
 class AuthCubit extends Cubit<User?> {
   AuthCubit({required AuthRepository authRepository})

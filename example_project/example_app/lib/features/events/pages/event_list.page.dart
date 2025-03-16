@@ -1,11 +1,11 @@
 import 'package:example_design/example_design.dart';
-import 'package:example_app/features/events/logic/event_list_cubit.dart';
-import 'package:example_app/features/events/logic/event_list_state.dart';
+import 'package:example_app/features/events/logic/event_list.cubit.dart';
+import 'package:example_app/features/events/logic/event_list.state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 import 'package:example_app/i18n/translations.g.dart';
 
-import '../components/button_section.dart';
+import '../sections/action.section.dart';
 
 class EventListPage extends StatelessWidget {
   const EventListPage({super.key});
@@ -16,7 +16,7 @@ class EventListPage extends StatelessWidget {
       title: i18n.events.title,
       child: Column(
         children: [
-          ButtonSection(),
+          ActionSection(),
           BlocBuilder<EventListCubit, EventListState>(
             bloc: injector.use<EventListCubit>(),
             builder: (context, state) {
