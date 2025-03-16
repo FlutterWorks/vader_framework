@@ -1,4 +1,4 @@
-import 'package:vader_app/vader_app.dart';
+import 'package:vader_core/vader_core.dart';
 
 part 'venue.freezed.dart';
 
