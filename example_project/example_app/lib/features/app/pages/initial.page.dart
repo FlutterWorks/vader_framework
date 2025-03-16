@@ -1,4 +1,5 @@
 import 'package:example_app/features/app/app.module.dart';
+import 'package:example_app/features/events/event.module.dart';
 import 'package:example_app/i18n/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:vader_app/vader_app.dart';
@@ -18,7 +19,7 @@ class InitialPage extends StatelessWidget {
       ),
       onFinish: () {
         LocaleSettings.setLocale(AppLocale.cs);
-        context.go(AppRoutes.first.path);
+        context.go(EventRoutes.eventList.path);
       },
     );
   }

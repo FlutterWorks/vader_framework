@@ -1,6 +1,5 @@
-import 'package:example_app/features/app/pages/first.page.dart';
-import 'package:example_app/features/app/pages/second.page.dart';
 import 'package:example_app/features/app/pages/initial.page.dart';
+import 'package:example_app/features/app/pages/error.page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 
@@ -18,8 +17,7 @@ class AppModule extends VaderModule {
 
 enum AppRoutes {
   initial(InitialPage()),
-  first(FirstPage()),
-  second(SecondPage());
+  error(ErrorPage());
 
   const AppRoutes(Widget page) : _page = page;
 
@@ -31,7 +29,6 @@ enum AppRoutes {
 
   static List<GoRoute> get routes => [
     Routes.route(routePath, AppRoutes.initial._page),
-    Routes.route(routePath, AppRoutes.first._page),
-    Routes.route(routePath, AppRoutes.second._page),
+    Routes.route(routePath, AppRoutes.error._page),
   ];
 }
