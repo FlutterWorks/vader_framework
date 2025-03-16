@@ -1,4 +1,4 @@
-import 'package:example_app/entities/user.entity.dart';
+import 'package:example_app/entities/user.dart';
 
 final expectedLoginUser = User(
   userName: 'emilys',

@@ -1,8 +1,8 @@
 import 'package:vader_app/vader_app.dart';
 
-part 'user.entity.freezed.dart';
+part 'user.freezed.dart';
 
-part 'user.entity.g.dart';
+part 'user.g.dart';
 
 @freezed
 class User extends VaderEntity with _$User {

@@ -1,5 +1,5 @@
-import 'package:example_app/features/app/app.module.dart';
-import 'package:example_app/features/events/event.module.dart';
+import 'package:example_app/features/app/app_module.dart';
+import 'package:example_app/features/events/event_module.dart';
 import 'package:example_app/i18n/translations.g.dart';
 import 'package:flutter/material.dart';
 import 'package:vader_app/vader_app.dart';

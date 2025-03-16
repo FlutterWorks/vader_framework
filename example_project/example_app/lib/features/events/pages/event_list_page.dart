@@ -1,11 +1,11 @@
 import 'package:example_design/example_design.dart';
-import 'package:example_app/features/events/logic/event_list.cubit.dart';
-import 'package:example_app/features/events/logic/event_list.state.dart';
+import 'package:example_app/features/events/logic/event_list_cubit.dart';
+import 'package:example_app/features/events/logic/event_list_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 import 'package:example_app/i18n/translations.g.dart';
 
-import '../sections/action.section.dart';
+import '../sections/action_section.dart';
 
 class EventListPage extends StatelessWidget {
   const EventListPage({super.key});

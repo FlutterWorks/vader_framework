@@ -1,8 +1,8 @@
 import 'package:vader_app/vader_app.dart';
 
-part 'venue.entity.freezed.dart';
+part 'venue.freezed.dart';
 
-part 'venue.entity.g.dart';
+part 'venue.g.dart';
 
 @freezed
 class Venue with _$Address {

@@ -1,9 +1,9 @@
-import 'package:example_app/entities/venue.entity.dart';
+import 'package:example_app/entities/venue.dart';
 import 'package:vader_app/vader_app.dart';
 
-part 'event.entity.freezed.dart';
+part 'event.freezed.dart';
 
-part 'event.entity.g.dart';
+part 'event.g.dart';
 
 @freezed
 class Event extends VaderEntity with _$Event {

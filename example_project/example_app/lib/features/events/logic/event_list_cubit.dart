@@ -1,5 +1,5 @@
-import 'package:example_app/features/events/logic/event_list.state.dart';
-import 'package:example_app/features/events/event.repository.dart';
+import 'package:example_app/features/events/logic/event_list_state.dart';
+import 'package:example_app/features/events/event_repository.dart';
 import 'package:vader_app/vader_app.dart';
 
 class EventListCubit extends Cubit<EventListState> {
