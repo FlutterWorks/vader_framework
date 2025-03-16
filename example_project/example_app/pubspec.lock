@@ -1007,7 +1007,7 @@ packages:
       path: "../../core/vader_app"
       relative: true
     source: path
-    version: "0.3.0"
+    version: "0.3.1"
   vader_core:
     dependency: transitive
     description:

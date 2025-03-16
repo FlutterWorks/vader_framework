@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:example_app/entities/user.dart';
+import 'package:example_app/entities/user.entity.dart';
 import 'package:example_app/features/app/user.repository.dart';
 import 'package:vader_app/vader_app.dart';
 

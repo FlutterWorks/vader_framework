@@ -1,4 +1,4 @@
-import 'package:example_app/entities/user.dart';
+import 'package:example_app/entities/user.entity.dart';
 import 'package:example_app/features/auth/logic/auth.bloc.dart';
 import 'package:example_app/features/auth/logic/auth.event.dart';
 import 'package:example_app/features/auth/logic/auth.state.dart';

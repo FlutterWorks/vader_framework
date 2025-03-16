@@ -1,8 +1,8 @@
 import 'package:vader_app/vader_app.dart';
 
-part 'address.freezed.dart';
+part 'address.entity.freezed.dart';
 
-part 'address.g.dart';
+part 'address.entity.g.dart';
 
 @freezed
 class Address with _$Address {

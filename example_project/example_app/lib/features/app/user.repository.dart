@@ -1,5 +1,5 @@
 import 'package:vader_app/vader_app.dart';
-import 'package:example_app/entities/user.dart';
+import 'package:example_app/entities/user.entity.dart';
 
 class UserRepository extends Repository {
   UserRepository({

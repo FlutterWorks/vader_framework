@@ -1,4 +1,4 @@
-import 'package:example_app/entities/event.dart';
+import 'package:example_app/entities/event.entity.dart';
 import 'package:vader_app/vader_app.dart';
 
 part 'event_list.state.freezed.dart';
