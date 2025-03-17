@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 <!-- ## [Unreleased] - 2025-02-26 -->
 
+## [0.4.1] - 2025-03-17
+### Fixed
+- Add lazy instance into injector
+
 
 ## [0.4.0] - 2025-03-09
 ### Breaking Changes

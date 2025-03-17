@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 <!-- ## [Unreleased] - 2025-02-26 -->
 
+## [0.3.2] - 2025-03-17
+### Added
+- Add VaderAppTester
+  
 
 ## [0.3.1] - 2025-03-15
 ### Added

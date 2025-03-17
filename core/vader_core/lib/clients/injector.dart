@@ -23,6 +23,14 @@ class Injector {
     _injector.addInstance(instance, key: key);
   }
 
+  addLazyInstance<T>(Future<T> instance, {String? key}) {
+    instance.then((e) {
+      _injector.uncommit();
+      _injector.addInstance(e, key: key);
+      _injector.commit();
+    });
+  }
+
   addSingleton<T>(Function constructor, {String? key}) {
     _injector.addSingleton(constructor, key: key);
   }
@@ -33,10 +41,13 @@ class Injector {
 
   reset() {
     _injector.disposeRecursive();
-    //_injector = AutoInjector();
   }
 
   commit() {
     _injector.commit();
+  }
+
+  uncommit() {
+    _injector.uncommit();
   }
 }
