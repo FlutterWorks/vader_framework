@@ -1,3 +1,4 @@
+import 'package:example_app/config.dart';
 import 'package:example_app/features/app/pages/initial_page.dart';
 import 'package:example_app/features/app/pages/error_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,8 +10,10 @@ class AppModule extends VaderModule {
 
   @override
   Injector? get services {
+    final appConfig = AppConfig();
     return Injector()
-      ..addInstance(HttpClient(apiUrl: 'https://www.example.com/api/', enableLogs: true, preventLargeResponses: true))
+      ..addInstance(appConfig)
+      ..addInstance(HttpClient(apiUrl: appConfig.apiUrl, enableLogs: true, preventLargeResponses: true))
       ..addInstance(StorageClient());
   }
 }
