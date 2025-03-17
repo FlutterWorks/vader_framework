@@ -29,7 +29,7 @@ All notable changes to this project will be documented in this file.
 - Add logger observers for bloc and go_route
   
 
-## [0.2.0]
+## [0.2.1]
 ### Breaking Change
 - Rename repositoryInjector to injector.
   
