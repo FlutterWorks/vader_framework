@@ -4,11 +4,7 @@ import 'package:design_builder/utils.dart';
 import 'package:recase/recase.dart';
 
 class ComponentBuilder {
-  const ComponentBuilder({
-    required this.packageName,
-    required this.inputPath,
-    required this.outputPath,
-  });
+  const ComponentBuilder({required this.packageName, required this.inputPath, required this.outputPath});
 
   final String packageName;
   final String inputPath;
@@ -26,9 +22,17 @@ class ComponentBuilder {
     final file = File('$path/${name.snakeCase}.dart');
     String code = file
         .readAsStringSync()
-        .replaceAll("style!", "(style ?? context.designTheme.$designPathStyle${name.camelCase}Style)");
+        .replaceAll(
+          " = style!",
+          " = (style ?? context.designTheme.$designPathStyle${name.camelCase}Style)",
+        )
+        .replaceAll(
+          " = widget.style!",
+          " = (widget.style ?? context.designTheme.$designPathStyle${name.camelCase}Style)",
+        );
 
-    code = "import 'package:$packageName/design/design.theme.dart';\n"
+    code =
+        "import 'package:$packageName/design/design.theme.dart';\n"
         "import 'package:$packageName/$packageName.dart';\n"
         "${Utils.removeSrcExportsFromString(code, packageName: packageName)}";
 
@@ -41,12 +45,15 @@ class ComponentBuilder {
     ReCase name = ReCase(fileName);
     final file = File('$path/${name.snakeCase}.style.dart');
 
-    var code = file
-        .readAsStringSync()
-        .replaceAll("@tailorMixinComponent", "\npart '${name.snakeCase}.style.tailor.dart';\n\n@tailorMixinComponent");
+    var code = file.readAsStringSync().replaceAll(
+      "@tailorMixinComponent",
+      "\npart '${name.snakeCase}.style.tailor.dart';\n\n@tailorMixinComponent",
+    );
     final classLine = code.split('\n').where((element) => element.contains("class")).first;
     final replaceClassLine = classLine.replaceAll(
-        ' {', ' extends ThemeExtension<${name.pascalCase}Style> with _\$${name.pascalCase}StyleTailorMixin {');
+      ' {',
+      ' extends ThemeExtension<${name.pascalCase}Style> with _\$${name.pascalCase}StyleTailorMixin {',
+    );
     code = code.replaceAll(classLine, replaceClassLine);
 
     path = Directory(path.replaceFirst(inputPath, '')).parent.path;

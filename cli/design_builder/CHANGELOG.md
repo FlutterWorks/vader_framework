@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 <!-- ## [Unreleased] - 2025-02-26 -->
 
 
+## [1.0.0-dev.3] - 2025-03-21
+### Fixed
+- Fix generating stateful widget
+  
+
 ## [1.0.0-dev.2] - 2025-02-22
 ### Fixed
 - Fix GoTo definition 
