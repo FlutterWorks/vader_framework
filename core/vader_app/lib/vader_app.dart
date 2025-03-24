@@ -16,7 +16,6 @@ import 'package:go_router/go_router.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:vader_core/clients/logger.dart';
 import 'package:vader_design/design/themes.dart';
-import 'package:vader_app/vader_module.dart';
 import 'package:vader_core/clients/injector.dart';
 
 final Injector injector = Injector();
@@ -86,4 +85,9 @@ class Localization {
   final Locale locale;
   final Iterable<Locale> supportedLocales;
   final Iterable<LocalizationsDelegate<dynamic>> delegates;
+}
+
+abstract class VaderModule {
+  abstract final List<RouteBase> routes;
+  abstract final Injector? services;
 }

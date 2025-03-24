@@ -16,23 +16,3 @@ class AppModule extends VaderModule {
       ..addInstance(StorageClient());
   }
 }
-
-/*
-enum AppRoutes {
-  initial(InitialPage()),
-  error(ErrorPage());
-
-  const AppRoutes(Widget page) : _page = page;
-
-  final Widget _page;
-
-  static final routePath = '/app';
-
-  get path => Routes.path(routePath, name);
-
-  static List<GoRoute> get routes => [
-    Routes.route(routePath, AppRoutes.initial._page),
-    Routes.route(routePath, AppRoutes.error._page),
-  ];
-}
- */

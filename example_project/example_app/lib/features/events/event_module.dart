@@ -17,23 +17,3 @@ class EventModule extends AppModule {
       ..commit();
   }
 }
-
-/*
-enum EventRoutes {
-  eventList(EventListPage()),
-  eventDetail(EventDetailPage());
-
-  const EventRoutes(Widget page) : _page = page;
-
-  final Widget _page;
-
-  static final routePath = '/event';
-
-  get path => Routes.path(routePath, name);
-
-  static List<GoRoute> get routes => [
-    Routes.route(routePath, EventRoutes.eventList._page),
-    Routes.route(routePath, EventRoutes.eventDetail._page),
-  ];
-}
- */
