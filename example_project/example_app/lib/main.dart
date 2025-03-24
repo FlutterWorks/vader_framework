@@ -1,4 +1,5 @@
 import 'package:example_app/features/app/app_module.dart';
+import 'package:example_app/features/app/pages/initial_page.dart';
 import 'package:example_app/features/events/event_module.dart';
 import 'package:example_app/i18n/translations.g.dart';
 import 'package:example_design/example_design.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       modules: [AppModule(), EventModule()],
       theme: ExampleTheme(),
       isDebug: false,
-      entrypoint: AppRoutes.initial.path,
+      entrypoint: InitialRoute().location,
       localization: Localization(
         locale: TranslationProvider.of(context).flutterLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,

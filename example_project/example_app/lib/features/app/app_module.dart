@@ -1,12 +1,11 @@
 import 'package:example_app/config.dart';
 import 'package:example_app/features/app/pages/initial_page.dart';
 import 'package:example_app/features/app/pages/error_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:vader_app/vader_app.dart';
 
 class AppModule extends VaderModule {
   @override
-  List<GoRoute> get routes => AppRoutes.routes;
+  List<RouteBase> get routes => [$initialRoute, $errorRoute];
 
   @override
   Injector? get services {
@@ -18,6 +17,7 @@ class AppModule extends VaderModule {
   }
 }
 
+/*
 enum AppRoutes {
   initial(InitialPage()),
   error(ErrorPage());
@@ -35,3 +35,4 @@ enum AppRoutes {
     Routes.route(routePath, AppRoutes.error._page),
   ];
 }
+ */

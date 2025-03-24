@@ -3,12 +3,11 @@ import 'package:example_app/features/events/event_repository.dart';
 import 'package:example_app/features/events/logic/event_list_cubit.dart';
 import 'package:example_app/features/events/pages/event_detail_page.dart';
 import 'package:example_app/features/events/pages/event_list_page.dart';
-import 'package:flutter/widgets.dart';
 import 'package:vader_app/vader_app.dart';
 
 class EventModule extends AppModule {
   @override
-  List<GoRoute> get routes => EventRoutes.routes;
+  List<RouteBase> get routes => [$eventListRoute, $eventDetailRoute];
 
   @override
   Injector? get services {
@@ -19,6 +18,7 @@ class EventModule extends AppModule {
   }
 }
 
+/*
 enum EventRoutes {
   eventList(EventListPage()),
   eventDetail(EventDetailPage());
@@ -36,3 +36,4 @@ enum EventRoutes {
     Routes.route(routePath, EventRoutes.eventDetail._page),
   ];
 }
+ */

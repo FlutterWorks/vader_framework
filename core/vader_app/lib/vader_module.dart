@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:vader_app/vader_app.dart';
 
 abstract class VaderModule {
-  abstract final List<GoRoute> routes;
+  abstract final List<RouteBase> routes;
   abstract final Injector? services;
 }
 

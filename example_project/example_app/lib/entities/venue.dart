@@ -5,7 +5,7 @@ part 'venue.freezed.dart';
 part 'venue.g.dart';
 
 @freezed
-class Venue with _$Address {
+class Venue with _$Venue {
   const Venue._();
 
   const factory Venue({
@@ -15,9 +15,9 @@ class Venue with _$Address {
     @Default("") @JsonKey(name: 'postal_code') String postalCode,
     @Default("") String street,
     @Default("") String town,
-  }) = _Address;
+  }) = _Venue;
 
   String format() => "$street\u00A0$number, $postalCode\u00A0$town";
 
-  factory Venue.fromJson(Map<String, Object?> json) => _$AddressFromJson(json);
+  factory Venue.fromJson(Map<String, Object?> json) => _$VenueFromJson(json);
 }
