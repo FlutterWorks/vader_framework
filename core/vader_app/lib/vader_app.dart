@@ -8,7 +8,6 @@ export 'package:bloc/bloc.dart';
 import 'package:bloc/bloc.dart';
 
 export 'vader_app_tester.dart';
-export 'vader_module.dart';
 export 'splash_view.dart';
 
 import 'package:flutter/material.dart';
