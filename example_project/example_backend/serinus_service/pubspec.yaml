@@ -1,0 +1,14 @@
+name: serinus_service
+description: "A new Serinus application"
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  serinus: ^1.0.3
+  
+
+dev_dependencies:
+  hotreloader: ^4.1.0
