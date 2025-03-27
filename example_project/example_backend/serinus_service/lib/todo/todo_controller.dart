@@ -9,8 +9,7 @@ class TodoController extends Controller {
   }
 
   Future<String> _sayHello(RequestContext context) async {
-    print(context.params);
-    final name = context.params["name"] ?? "World";
+    final name = context.query["name"] ?? "World";
     return "Hello $name!";
   }
 
