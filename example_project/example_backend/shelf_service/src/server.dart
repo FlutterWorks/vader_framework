@@ -8,6 +8,8 @@ Handler init() {
 
   app.get('/', () => 'Hello World!\n');
 
+  app.get('/hello', (Request req) => 'Hello ${req.url.queryParameters['name'] ?? 'World'}!!\n');
+
   app.post('/json', (Request req) async {
     var body = await req.body.asJson;
 
