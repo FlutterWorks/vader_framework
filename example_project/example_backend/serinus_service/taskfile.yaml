@@ -36,3 +36,7 @@ tasks:
     cmd: "mason make serinus_model"
     desc: "Create model object"
     dir: "lib/models"
+
+  generate-models:
+    cmd: "serinus generate models"
+    desc: "Generate serinus ModelProvider"
