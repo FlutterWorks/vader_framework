@@ -1,7 +1,7 @@
 import 'package:serinus/serinus.dart';
 import 'package:hotreloader/hotreloader.dart';
 
-import 'app_module.dart';
+import 'app.dart';
 
 Future<void> main(List<String> arguments) async {
   await HotReloader.create(debounceInterval: Duration(milliseconds: 300));

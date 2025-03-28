@@ -2,8 +2,8 @@ import 'package:serinus/serinus.dart';
 import 'package:serinus_service/todo/todo_controller.dart';
 import 'package:serinus_service/todo/todo_service.dart';
 
-class AppModule extends Module {
-  AppModule() : super(
+class TodoModule extends Module {
+  TodoModule() : super(
     imports: [],
     controllers: [
       TodoController()
