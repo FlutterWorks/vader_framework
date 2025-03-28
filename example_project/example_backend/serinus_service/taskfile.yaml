@@ -20,7 +20,7 @@ tasks:
     desc: "Runs code generation (build_runner)"
 
   run:
-    cmd: "dart lib/main.dart"
+    cmd: "dart lib/main.dart -D FLAVOR=prod"
     desc: "Run application"
 
   run-dev:
