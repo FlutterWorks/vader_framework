@@ -5,17 +5,11 @@ import 'todo_service.dart';
 
 class TodoController extends Controller {
   TodoController({super.path = '/'}) {
-    on(Route.get('/hello'), _sayHello);
     on(Route.get('/'), _getAllTodos);
     on(Route.get('/<index>'), _getTodo);
     on(Route.post('/'), _createTodo);
     on(Route.put('/<index>'), _toggleTodo);
     on(Route.delete('/<index>'), _removeTodo);
-  }
-
-  Future<String> _sayHello(RequestContext context) async {
-    final name = context.query["name"] ?? "World";
-    return "Hello $name!!";
   }
 
   Future<List<Todo>> _getAllTodos(RequestContext context) async {
