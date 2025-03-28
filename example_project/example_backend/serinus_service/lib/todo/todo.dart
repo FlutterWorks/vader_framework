@@ -1,19 +1,17 @@
-import 'package:serinus/serinus.dart';
+import 'package:vader_core/vader_core.dart';
 
-class Todo with JsonObject {
-  final String title;
-  bool isDone;
+part 'todo.freezed.dart';
 
-  Todo({
-    required this.title,
-    this.isDone = false,
-  });
+part 'todo.g.dart';
 
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'title': title,
-      'isDone': isDone,
-    };
-  }
+@freezed
+class Todo extends VaderEntity with _$Todo {
+  const Todo._();
+
+  const factory Todo({
+    @JsonKey(name: "title") required String title,
+    @JsonKey(name: "is_done") @Default(false) bool isDone,
+  }) = _Todo;
+
+  factory Todo.fromJson(Map<String, Object?> json) => _$TodoFromJson(json);
 }

@@ -14,7 +14,7 @@ class TodoService extends Provider {
   }
 
   void toggleTodoStatus(int index) {
-    todos[index].isDone = !todos[index].isDone;
+    todos[index] = todos[index].copyWith(isDone: !todos[index].isDone);
   }
 
   void removeTodoAt(int index) {
