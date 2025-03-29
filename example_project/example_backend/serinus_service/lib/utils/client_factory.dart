@@ -2,27 +2,27 @@ import 'package:dio/dio.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
-class HttpClient {
-  final dio = Dio();
-
-  HttpClient({
+class ClientFactory {
+  static Dio createHttpClient({
     String? baseUrl,
     String? apiKey,
     String? apiSecret,
     String contentType = "application/json",
-    ResponseType responseType = ResponseType.json,
+    String responseType = "json",
   }) {
+    final dio = Dio();
     if (apiKey != null || apiSecret != null) {
       final token = _generateJwt(apiKey!, apiSecret!);
       dio.options.headers["Authorization"] = "Bearer $token";
     }
 
     dio.options.headers["Content-Type"] = "application/json";
-    dio.options.responseType = ResponseType.plain;
+    dio.options.responseType = ResponseType.values.byName(responseType);
     if (baseUrl != null) dio.options.baseUrl = baseUrl;
+    return dio;
   }
 
-  String _generateJwt(String apiKey, String apiSecret) {
+  static String _generateJwt(String apiKey, String apiSecret) {
     String base64UrlEncode(List<int> data) {
       return base64Url.encode(data).replaceAll('=', '');
     }
