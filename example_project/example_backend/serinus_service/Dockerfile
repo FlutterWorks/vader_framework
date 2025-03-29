@@ -4,16 +4,17 @@ WORKDIR /app
 COPY pubspec.* ./
 RUN dart pub get
 COPY . .
+RUN dart run build_runner build --delete-conflicting-outputs
 
 RUN dart compile exe lib/main.dart -o server -D FLAVOR=prod
 
 #####
 
-FROM debian:bullseye-slim
+FROM debian:stable-slim
 WORKDIR /app
 
 COPY --from=build /app/server /app/server
 
 EXPOSE 3000
 
-CMD ["/app/server"]
+CMD ["./server"]
