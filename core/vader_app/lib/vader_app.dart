@@ -19,6 +19,8 @@ import 'package:vader_core/clients/injector.dart';
 
 final Injector injector = Injector();
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class VaderApp extends StatefulWidget {
   const VaderApp({
     super.key,
@@ -44,11 +46,19 @@ class VaderApp extends StatefulWidget {
 }
 
 class _VaderAppState extends State<VaderApp> {
+  late final GoRouter router;
+
   @override
   void initState() {
     super.initState();
     Bloc.observer = TalkerBlocObserver(talker: logger.getTalker());
     setupModules();
+    router = GoRouter(
+      observers: [TalkerRouteObserver(logger.getTalker())],
+      initialLocation: widget.entrypoint,
+      navigatorKey: navigatorKey,
+      routes: [for (var module in widget.modules) ...module.routes],
+    );
   }
 
   void setupModules() {
@@ -69,11 +79,9 @@ class _VaderAppState extends State<VaderApp> {
       locale: widget.localization?.locale,
       supportedLocales: widget.localization?.supportedLocales ?? const <Locale>[Locale('en', 'US')],
       localizationsDelegates: widget.localization?.delegates,
-      routerConfig: GoRouter(
-        observers: [TalkerRouteObserver(logger.getTalker())],
-        initialLocation: widget.entrypoint,
-        routes: [for (var module in widget.modules) ...module.routes],
-      ),
+      routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
+      routerDelegate: router.routerDelegate,
     );
   }
 }
