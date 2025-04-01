@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 <!-- ## [Unreleased] - 2025-02-26 -->
 
+## [Unreleased] - 2025-04-02
+### Breaking Change
+- Remove custom routes
+
+### Fixed
+- Fix navigator resetting after hot-reload
+  
+
 ## [0.3.2] - 2025-03-17
 ### Added
 - Add VaderAppTester
