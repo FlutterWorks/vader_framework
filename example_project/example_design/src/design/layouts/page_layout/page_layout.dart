@@ -30,20 +30,22 @@ class PageLayout extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        elevation: 0,
+        elevation: 1,
+        shadowColor: DesignColors.grey500,
         toolbarHeight: currentStyle.toolbarHeight,
+        backgroundColor: currentStyle.headerColor,
         leading: backButton(context),
         title: Text(
           title,
           style: TextStyle(
             color: Colors.black,
-            fontFamily: TextFonts.inter,
+            fontFamily: FontFamily.inter,
             fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
         ),
       ),
-      body: child,
+      body: Container(color: currentStyle.backgroundColor, child: child),
     );
   }
 }
