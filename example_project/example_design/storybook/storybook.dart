@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 
 import 'all_stories.dart';
+import 'assets/icons.dart';
 
 Storybook storybook([List<Story>? stories]) {
   return Storybook(
@@ -30,7 +31,7 @@ Storybook storybook([List<Story>? stories]) {
       ),
     ),
     initialStory: stories?.first.name,
-    stories: stories ?? allStories,
+    stories: [...assetIcons, ...stories ?? allStories],
   );
 }
 

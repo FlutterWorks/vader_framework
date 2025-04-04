@@ -13,6 +13,7 @@ dependencies:
 
   theme_tailor_annotation: ^3.0.1
   #vader_design: ^0.2.0
+  flutter_svg: ^2.0.17
   vader_design:
     path: ../../core/vader_design
 
@@ -31,3 +32,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
