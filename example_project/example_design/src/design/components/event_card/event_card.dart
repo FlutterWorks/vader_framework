@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import '../../../constants/assets.dart';
 import '../../../example_design_exports.dart';
 
 class EventCard extends StatelessWidget {
@@ -46,7 +47,7 @@ class EventCard extends StatelessWidget {
             Text(
               '${since.day}. ${since.month}.',
               style: TextStyle(
-                fontFamily: FontFamily.inter,
+                fontFamily: AppFonts.inter,
                 fontWeight: FontWeight.w700,
                 fontSize: 19,
                 wordSpacing: -2,
@@ -55,7 +56,7 @@ class EventCard extends StatelessWidget {
             Text(
               since.year.toString(),
               style: TextStyle(
-                fontFamily: FontFamily.inter,
+                fontFamily: AppFonts.inter,
                 fontWeight: FontWeight.w700,
                 fontSize: 15,
               ),
@@ -64,7 +65,7 @@ class EventCard extends StatelessWidget {
             Text(
               'Od: ${since.hour}:${since.minute < 10 ? '00' : since.minute}',
               style: TextStyle(
-                fontFamily: FontFamily.inter,
+                fontFamily: AppFonts.inter,
                 fontWeight: FontWeight.w400,
                 color: AppColors.grey400,
                 fontSize: 11,
@@ -73,7 +74,7 @@ class EventCard extends StatelessWidget {
             Text(
               'Do: ${since.hour}:${since.minute < 10 ? '00' : since.minute}',
               style: TextStyle(
-                fontFamily: FontFamily.inter,
+                fontFamily: AppFonts.inter,
                 fontWeight: FontWeight.w400,
                 color: AppColors.grey400,
                 fontSize: 11,
@@ -96,7 +97,7 @@ class EventCard extends StatelessWidget {
           Text(
             place,
             style: TextStyle(
-              fontFamily: FontFamily.inter,
+              fontFamily: AppFonts.inter,
               fontWeight: FontWeight.w400,
               color: AppColors.grey400,
               fontSize: 12,
@@ -108,7 +109,7 @@ class EventCard extends StatelessWidget {
           Text(
             Utils.truncateWithEllipsis(title, 44),
             style: TextStyle(
-              fontFamily: FontFamily.inter,
+              fontFamily: AppFonts.inter,
               fontWeight: FontWeight.w600,
               fontSize: 16,
               letterSpacing: -0.1,
