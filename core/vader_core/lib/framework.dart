@@ -1,6 +1,7 @@
 export 'foundation/vader_entity.dart';
 export 'foundation/exceptions.dart';
 export 'foundation/global.dart';
+export 'foundation/sandbox.dart';
 export 'foundation/repository.dart';
 
 export 'clients/logger.dart';
