@@ -155,12 +155,10 @@ class EventCard extends StatelessWidget {
             padding: EdgeInsets.only(right: 12),
             onTap: () {},
             leadingIcon: false,
-            icon: CupertinoIcons.right_chevron,
-            style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(
-              iconSize: 19,
-              textSize: 13,
-              iconColor: AppColors.grey400.withAlpha(200),
-              textColor: AppColors.grey400,
+            icon: Icon(CupertinoIcons.right_chevron, size: 19, color: AppColors.grey400.withAlpha(200)),
+            textStyle: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.textStyle.copyWith(
+              fontSize: 13,
+              color: AppColors.grey400,
               fontWeight: FontWeight.w400,
             ),
           ),
