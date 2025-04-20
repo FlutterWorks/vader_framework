@@ -10,6 +10,8 @@ export 'design/elements/buttons/primary_button/primary_button.dart';
 export 'design/elements/buttons/primary_button/primary_button.style.dart';
 export 'design/elements/chip/chip.style.dart';
 export 'design/elements/chip/chip.dart';
+export 'design/elements/label/label.dart';
+export 'design/elements/label/label.style.dart';
 export 'design/layouts/page_layout/page_layout.style.dart';
 export 'design/layouts/page_layout/page_layout.dart';
 export 'constants/assets.dart';
