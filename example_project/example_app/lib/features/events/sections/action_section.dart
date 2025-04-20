@@ -1,3 +1,4 @@
+import 'package:example_app/i18n/translations.g.dart';
 import 'package:example_design/example_design.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Icons;
@@ -15,15 +16,14 @@ class ActionSection extends StatelessWidget {
       child: Row(
         children: [
           LinkButton(
-            text: "Filtrovat",
-            icon: CupertinoIcons.slider_horizontal_3,
-            style: context.designTheme.elementsStyle.buttonsStyle.linkButtonStyle.copyWith(iconSize: 14),
+            text: i18n.events.list.actions.filter,
+            icon: Icon(CupertinoIcons.slider_horizontal_3, size: 14, color: AppColors.blue900),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           ),
           Spacer(),
           LinkButton(
-            text: "Přidat událost",
-            icon: Icons.add,
+            text: i18n.events.list.actions.add,
+            icon: Icon(Icons.add, color: AppColors.blue900, size: 20),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           ),
         ],

@@ -24,7 +24,7 @@ class EventListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageLayout(
-      title: i18n.events.title,
+      title: i18n.events.list.title,
       child: Column(
         children: [
           ActionSection(),
