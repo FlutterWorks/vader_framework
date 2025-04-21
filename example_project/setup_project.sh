@@ -16,12 +16,14 @@ fi
 ./rename_project.sh $old_name $new_name
 
 cd ${new_name}_design
+rm -rf pubspec_overrides.yaml
 task update-dependencies
-task build-design 
+task build-design
 task run-build-runner
 cd ..
 
 cd ${new_name}_app
+rm -rf pubspec_overrides.yaml
 task update-dependencies
 task build-translations
 task run-build-runner

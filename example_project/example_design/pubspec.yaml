@@ -12,10 +12,8 @@ dependencies:
     sdk: flutter
 
   theme_tailor_annotation: ^3.0.1
-  #vader_design: ^0.2.0
+  vader_design: ^0.2.0
   flutter_svg: ^2.0.17
-  vader_design:
-    path: ../../core/vader_design
 
   cupertino_icons: ^1.0.8
 

@@ -1,4 +1,3 @@
-
 import 'package:vader_core/vader_core.dart';
 
 Future<void> main(List<String> arguments) async {
