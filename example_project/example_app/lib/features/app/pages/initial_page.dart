@@ -1,5 +1,3 @@
-import 'package:example_app/features/app/app_module.dart';
-import 'package:example_app/features/events/event_module.dart';
 import 'package:example_app/features/events/pages/event_list_page.dart';
 import 'package:example_app/i18n/translations.g.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +20,7 @@ class InitialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SplashView(
       logo: FlutterLogo(size: 80),
+      duration: Duration(seconds: 3),
       loadingIndicator: Container(
         width: 84,
         height: 84,

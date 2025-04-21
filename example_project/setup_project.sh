@@ -37,4 +37,13 @@ task build-translations
 task run-build-runner
 cd ..
 
+cd ${new_name}_backend/serinus_service
+rm -rf pubspec_overrides.yaml
+task update-dependencies
+task run-build-runner
+cd ../..
 
+cd ${new_name}_backend/shelf_service
+rm -rf pubspec_overrides.yaml
+task update-dependencies
+cd ../..
