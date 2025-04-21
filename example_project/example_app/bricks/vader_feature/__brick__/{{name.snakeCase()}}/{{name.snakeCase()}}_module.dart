@@ -11,7 +11,7 @@ class {{name.pascalCase()}}Module extends AppModule {
   @override
   Injector? get services {
     return super.services!
-      ..add({{name.pascalCase()}}Repository.new)
+      ..addSingleton({{name.pascalCase()}}Repository.new)
       ..commit();
   }
 }

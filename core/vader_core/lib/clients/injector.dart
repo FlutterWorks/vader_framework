@@ -36,7 +36,7 @@ class Injector {
   }
 
   add<T>(Function constructor, {String? key}) {
-    _injector.add(constructor, key: key);
+    _injector.addSingleton(constructor, key: key);
   }
 
   reset() {
