@@ -20,6 +20,14 @@ rm -rf pubspec_overrides.yaml
 task update-dependencies
 task build-design
 task run-build-runner
+
+cat <<EOF > config.dart
+class AppConfig {
+  final String apiUrl = 'https://example.com/api';
+  final String apiKey = 'test-key';
+}
+EOF
+
 cd ..
 
 cd ${new_name}_app
@@ -28,3 +36,5 @@ task update-dependencies
 task build-translations
 task run-build-runner
 cd ..
+
+
