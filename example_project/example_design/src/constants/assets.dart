@@ -11,6 +11,7 @@ enum AppIcons {
   point('assets/icons/point.svg');
 
   final String path;
+
   const AppIcons(this.path);
 
   String get pathWithPrefix => _assetPrefix + path;
@@ -18,6 +19,11 @@ enum AppIcons {
   static set pathPrefix(String prefix) => _assetPrefix = prefix;
 
   SvgPicture get svg => SvgPicture.asset(pathWithPrefix);
+
+  static setup() {
+    _assetPrefix = 'packages/example_design/';
+    //_assetPrefix = '../example_design/';
+  }
 }
 
 class AppFonts {
