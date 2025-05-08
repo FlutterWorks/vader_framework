@@ -30,6 +30,7 @@ class AppConfig {
 }
 EOF
 
+mason add vader_component --path bricks/vader_component
 cd ..
 
 cd ${new_name}_app
