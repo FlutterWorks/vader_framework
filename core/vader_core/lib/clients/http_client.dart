@@ -27,15 +27,17 @@ class HttpClient {
   final bool enableLogs;
   final bool preventLargeResponses;
   final int maxAttempts;
+  final bool kIsWeb;
 
   HttpClient({
     required this.apiUrl,
     required this.enableLogs,
     required this.preventLargeResponses,
     this.maxAttempts = 3,
+    this.kIsWeb = false,
   }) {
     //logger.log('DeviceId: ${cached.deviceId}');
-    _cacheDb = StorageClient(name: 'httpCache', path: Directory.systemTemp.path);
+    _cacheDb = StorageClient(name: 'httpCache', path: kIsWeb ? null : Directory.systemTemp.path);
     _dio = Dio(
       BaseOptions(
         baseUrl: apiUrl,
