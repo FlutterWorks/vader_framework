@@ -6,12 +6,12 @@ import 'package:vader_app/vader_app.dart';
 
 class {{name.pascalCase()}}Module extends AppModule {
   @override
-  List<RouteBase> get routes => [${{name.pascalCase()}}Route];
+  List<RouteBase> get routes => [${{name.camelCase()}}Route];
 
   @override
   Injector? get services {
     return super.services!
-      ..addSingleton({{name.pascalCase()}}Repository.new)
-      ..commit();
+      ..addSingleton({{name.pascalCase()}}Repository.new);
+      //..commit();
   }
 }
