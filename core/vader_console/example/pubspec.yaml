@@ -1,5 +1,6 @@
 name: vader_console_example
 description: Example of vader_console.
+publish_to: none
 version: 1.0.0
 
 environment:
